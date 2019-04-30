@@ -36,3 +36,18 @@ CREATE TABLE `piscine_test`.`item` (
 	`item_sport_categorie` VARCHAR(255) NULL ,
 	PRIMARY KEY (`item_id`)
 ) ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `panier`;
+CREATE TABLE `piscine_test`.`panier` ( 
+	`panier_id` INT NOT NULL AUTO_INCREMENT, 
+	`item_id` INT NOT NULL , 
+	`utilisateur_id` INT NOT NULL,
+	PRIMARY KEY (`panier_id`),
+	CONSTRAINT `fk_item_id`
+		FOREIGN KEY (`item_id`)
+		REFERENCES `item`(`item_id`),
+	CONSTRAINT `fk_utilisateur_id`
+		FOREIGN KEY (`utilisateur_id`)
+		REFERENCES `utilisateur`(`utilisateur_id`)
+) ENGINE = InnoDB;
+
