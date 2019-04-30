@@ -9,6 +9,19 @@
 <body><script>
 		jQuery(document).ready(function()
 		{
+				var type;
+				if("input[type=checkbox][name=livre".checked){
+					type="livre";
+				}
+				else if("input[type=checkbox][name=vetement".checked){
+					type="vetement";
+				}
+				if("input[type=checkbox][name=musique".checked){
+					type="musique";
+				}
+				if("input[type=checkbox][name=sport".checked){
+					type="sport";
+				}
 		   // On cache la zone de texte
 		  	jQuery('#toggle').hide();
 		  	jQuery('#toggle2').hide();
@@ -62,7 +75,7 @@
 		});
 	</script>
 	<h2>Article à vendre</h2>
-	<form action="inscription.php" method="post">
+	<form >
 		<table>
 			<tr>
 				<div>
@@ -82,42 +95,42 @@
 		</table>
 	</form>
 			  <div id="toggle">
-			  <form>
+			  <form action="mise_en_vente.php" method="post">
 			  	<table>
 					<tr>
 						<td>Intitulé de l'article: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="nom"></td>
 					</tr>
 					<tr>
 						<td>Photo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="photo"></td>
 					</tr>
 					<tr>
 						<td>Description: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="description"></td>
 					</tr>
 					<tr>
 						<td>Prix: </td>
-						<td><input type="Number"></td>
+						<td><input type="Number" name="prix" ></td>
 					</tr>
 					<tr>
 						<td>Vidéo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="video"></td>
 					</tr>
 					  <tr>
 				<td>
-						<label for="select">Sexe</label>
-					<td><select id="select">
+						<label for="sexe">Sexe</label>
+					<td><select id="sexe">
 					<option value="">Sélectionner un sexe</option>
-					<option value="homme"> Homme</option>
-					<option value="femme"> Femme</option>
+					<option value="h"> Homme</option>
+					<option value="f"> Femme</option>
 				</select></td>
 				</td>
 			</tr>
 				  <tr>
 				<td>
-						<label for="select">Taille</label>
-					<td><select id="select">
+						<label for="taille">Taille</label>
+					<td><select id="taille">
 					<option value="">Sélectionner une taille</option>
 					<option value="XS"> XS</option>
 					<option value="S"> S</option>
@@ -129,8 +142,8 @@
 			</tr>
 			  <tr>
 				<td>
-						<label for="select">couleur</label>
-					<td><select id="select">
+						<label for="couleur">couleur</label>
+					<td><select id="couleur">
 					<option value="">Sélectionner une couleur</option>
 					<option value="rouge"> rouge</option>
 					<option value="bleu"> bleu</option>
@@ -142,49 +155,50 @@
 				</td>
 			</tr>
 			<tr>
-				<td>
-				<input type="submit" value="Valider" name="boutton1">
-				<td colspan="2" align="center"></td>
-			</td>
+						<td>Quantité: </td>
+						<td><input type="Number" name="quantite"></td>
+					</tr>
+			<tr>
+				<td colspan="2" align="center">	<input type="submit" value="Valider" name="bouttonv"></td>
 			</tr>
 		</table>
 	</form>
 			  </div>
 	<div id="toggle2">
-			  <form>
+			  <form action="mise_en_vente.php" method="post">
 			  	<table>
 					<tr>
 						<td>Intitulé de l'article: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="nom"></td>
 					</tr>
 					<tr>
 						<td>Photo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="photo"></td>
 					</tr>
 					<tr>
 						<td>Description: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="description"></td>
 					</tr>
 					<tr>
 						<td>Prix: </td>
-						<td><input type="Number"></td>
+						<td><input type="Number" name="prix"></td>
 					</tr>
 					<tr>
 						<td>Vidéo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="video"></td>
 					</tr>
 					<tr>
 						<td>Auteur: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="auteur"></td>
 					</tr>
 					<tr>
 						<td>Date de parution: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="dateparution"></td>
 					</tr>
 				  <tr>
 				<td>
-					<label for="select">nature: </label>
-					<td><select id="select">
+					<label for="nature">nature: </label>
+					<td><select id="nature">
 					<option value="">Sélectionner une nature </option>
 					<option value="roman"> roman</option>
 					<option value="bd"> bd</option>
@@ -196,7 +210,7 @@
 			</tr>
 			<tr>
 				<td>
-				<input type="submit" value="Valider" name="boutton1">
+				<input type="submit" value="Valider" name="bouttonv">
 				<td colspan="2" align="center"></td>
 			</td>
 			</tr>
@@ -204,40 +218,40 @@
 	</form>
 			  </div>
 	<div id="toggle3">
-			  <form>
+			  <form action="mise_en_vente.php" method="post">
 			  	<table>
 					<tr>
 						<td>Intitulé de l'article: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="nom"></td>
 					</tr>
 					<tr>
 						<td>Photo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="photo"></td>
 					</tr>
 					<tr>
 						<td>Description: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="description"></td>
 					</tr>
 					<tr>
 						<td>Prix: </td>
-						<td><input type="Number"></td>
+						<td><input type="Number" name="prix"></td>
 					</tr>
 					<tr>
 						<td>Vidéo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="video"></td>
 					</tr>
 					<tr>
-						<td>Auteur: </td>
-						<td><input type="Text"></td>
+						<td>Artiste: </td>
+						<td><input type="Text" name="artiste"></td>
 					</tr>
 					<tr>
 						<td>Date de sortie: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="datesortie"></td>
 					</tr>
 				  <tr>
 				<td>
-					<label for="select">style: </label>
-					<td><select id="select">
+					<label for="style">style: </label>
+					<td><select id="style">
 					<option value="">Sélectionner un style </option>
 					<option value="hip hop"> hip hop</option>
 					<option value="classique"> classique</option>
@@ -249,7 +263,7 @@
 			</tr>
 			<tr>
 				<td>
-				<input type="submit" value="Valider" name="boutton1">
+				<input type="submit" value="Valider" name="bouttonv">
 				<td colspan="2" align="center"></td>
 			</td>
 			</tr>
@@ -257,40 +271,32 @@
 	</form>
 			  </div>
 	<div id="toggle4">
-			  <form>
+			  <form action="mise_en_vente.php" method="post">
 			  	<table>
 					<tr>
 						<td>Intitulé de l'article: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="nom"></td>
 					</tr>
 					<tr>
 						<td>Photo: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="photo"></td>
 					</tr>
 					<tr>
 						<td>Description: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="description"></td>
 					</tr>
 					<tr>
 						<td>Prix: </td>
-						<td><input type="Number"></td>
+						<td><input type="Number" name="prix"></td>
 					</tr>
 					<tr>
 						<td>Vidéo: </td>
-						<td><input type="Text"></td>
-					</tr>
-					<tr>
-						<td>Auteur: </td>
-						<td><input type="Text"></td>
-					</tr>
-					<tr>
-						<td>Date de sortie: </td>
-						<td><input type="Text"></td>
+						<td><input type="Text" name="video"></td>
 					</tr>
 				  <tr>
 				<td>
-					<label for="select">catégorie: </label>
-					<td><select id="select">
+					<label for="categorie">catégorie: </label>
+					<td><select id="categorie">
 					<option value="">Sélectionner une catégorie</option>
 					<option value="randonnee"> randonnée</option>
 					<option value="natation"> natation</option>
@@ -302,7 +308,7 @@
 			</tr>
 			<tr>
 				<td>
-				<input type="submit" value="Valider" name="boutton1">
+				<input type="submit" value="Valider" name="bouttonv">
 				<td colspan="2" align="center"></td>
 			</td>
 			</tr>
