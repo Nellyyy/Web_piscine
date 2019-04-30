@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vente</title>
+	<meta charset="utf-8">
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+	
+</head>
+<body><script>
+		jQuery(document).ready(function()
+		{
+		   // On cache la zone de texte
+		  	jQuery('#toggle').hide();
+		  	jQuery('#toggle2').hide();
+		  	jQuery('#toggle3').hide();
+		  	jQuery('#toggle4').hide();
+		   // toggle() lorsque le lien avec l'ID #toggler est cliqué
+		 
+		$("input[type=checkbox][name=vetement").change(function() {
+  if(this.checked) {
+    // Si la case est cochée, on affiche en fonction
+      jQuery('#toggle').toggle(400);
+      return false;
+  } 
+  else{
+  	jQuery('#toggle').hide();
+  }
+}); 
+		 
+		$("input[type=checkbox][name=livre").change(function() {
+  if(this.checked) {
+    // Si la case est cochée, on affiche en fonction
+      jQuery('#toggle2').toggle(400);
+      return false;
+  } 
+  else{
+  	jQuery('#toggle2').hide();
+  }
+}); 
+
+			$("input[type=checkbox][name=musique").change(function() {
+  if(this.checked) {
+    // Si la case est cochée, on affiche en fonction
+      jQuery('#toggle3').toggle(400);
+      return false;
+  } 
+  else{
+  	jQuery('#toggle3').hide();
+  }
+}); 
+
+		$("input[type=checkbox][name=sport").change(function() {
+  if(this.checked) {
+    // Si la case est cochée, on affiche en fonction
+      jQuery('#toggle4').toggle(400);
+      return false;
+  } 
+  else{
+  	jQuery('#toggle4').hide();
+  }
+}); 
+		});
+	</script>
+	<h2>Article à vendre</h2>
+	<form action="inscription.php" method="post">
+		<table>
+			<tr>
+				<div>
+					<p>Quel type d'article souhaitez-vous vendre?</p>
+			    <input type="checkbox" id="livre" name="livre" value="livre">
+			    <label for="livre">Livre</label>
+			    <input type="checkbox" id="musique" name="musique" value="musique">
+			    <label for="musique">Musique</label>
+			     <input type="checkbox" id="vetement" name="vetement" value="vetement">
+			    <label for="vetement">Vêtement</label>
+			     <input type="checkbox" id="sport" name="sport" value="sport">
+			    <label for="sport">Sport & Loisir</label>
+			  </div>
+
+			  </tr>
+			
+		</table>
+	</form>
+			  <div id="toggle">
+			  <form>
+			  	<table>
+					<tr>
+						<td>Intitulé de l'article: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Photo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Description: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Prix: </td>
+						<td><input type="Number"></td>
+					</tr>
+					<tr>
+						<td>Vidéo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					  <tr>
+				<td>
+						<label for="select">Sexe</label>
+					<td><select id="select">
+					<option value="">Sélectionner un sexe</option>
+					<option value="homme"> Homme</option>
+					<option value="femme"> Femme</option>
+				</select></td>
+				</td>
+			</tr>
+				  <tr>
+				<td>
+						<label for="select">Taille</label>
+					<td><select id="select">
+					<option value="">Sélectionner une taille</option>
+					<option value="XS"> XS</option>
+					<option value="S"> S</option>
+					<option value="M"> M</option>
+					<option value="L"> L</option>
+					<option value="XL"> XL</option>
+				</select></td>
+				</td>
+			</tr>
+			  <tr>
+				<td>
+						<label for="select">couleur</label>
+					<td><select id="select">
+					<option value="">Sélectionner une couleur</option>
+					<option value="rouge"> rouge</option>
+					<option value="bleu"> bleu</option>
+					<option value="vert"> vert</option>
+					<option value="jaune"> jaune</option>
+					<option value="blanc"> blanc</option>
+					<option value="noir"> noir</option>
+				</select></td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Valider" name="boutton1">
+				<td colspan="2" align="center"></td>
+			</td>
+			</tr>
+		</table>
+	</form>
+			  </div>
+	<div id="toggle2">
+			  <form>
+			  	<table>
+					<tr>
+						<td>Intitulé de l'article: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Photo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Description: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Prix: </td>
+						<td><input type="Number"></td>
+					</tr>
+					<tr>
+						<td>Vidéo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Auteur: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Date de parution: </td>
+						<td><input type="Text"></td>
+					</tr>
+				  <tr>
+				<td>
+					<label for="select">nature: </label>
+					<td><select id="select">
+					<option value="">Sélectionner une nature </option>
+					<option value="roman"> roman</option>
+					<option value="bd"> bd</option>
+					<option value="magazine"> magazine</option>
+					<option value="manga"> manga</option>
+					<option value="nouvelle"> nouvelle</option>
+				</select></td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Valider" name="boutton1">
+				<td colspan="2" align="center"></td>
+			</td>
+			</tr>
+		</table>
+	</form>
+			  </div>
+	<div id="toggle3">
+			  <form>
+			  	<table>
+					<tr>
+						<td>Intitulé de l'article: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Photo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Description: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Prix: </td>
+						<td><input type="Number"></td>
+					</tr>
+					<tr>
+						<td>Vidéo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Auteur: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Date de sortie: </td>
+						<td><input type="Text"></td>
+					</tr>
+				  <tr>
+				<td>
+					<label for="select">style: </label>
+					<td><select id="select">
+					<option value="">Sélectionner un style </option>
+					<option value="hip hop"> hip hop</option>
+					<option value="classique"> classique</option>
+					<option value="elecctro"> electro</option>
+					<option value="jazz"> jazz</option>
+					<option value="rap"> rap</option>
+				</select></td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Valider" name="boutton1">
+				<td colspan="2" align="center"></td>
+			</td>
+			</tr>
+		</table>
+	</form>
+			  </div>
+	<div id="toggle4">
+			  <form>
+			  	<table>
+					<tr>
+						<td>Intitulé de l'article: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Photo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Description: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Prix: </td>
+						<td><input type="Number"></td>
+					</tr>
+					<tr>
+						<td>Vidéo: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Auteur: </td>
+						<td><input type="Text"></td>
+					</tr>
+					<tr>
+						<td>Date de sortie: </td>
+						<td><input type="Text"></td>
+					</tr>
+				  <tr>
+				<td>
+					<label for="select">catégorie: </label>
+					<td><select id="select">
+					<option value="">Sélectionner une catégorie</option>
+					<option value="randonnee"> randonnée</option>
+					<option value="natation"> natation</option>
+					<option value="equitation"> équitation</option>
+					<option value="tennis"> tennis</option>
+					<option value="football"> football</option>
+				</select></td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<input type="submit" value="Valider" name="boutton1">
+				<td colspan="2" align="center"></td>
+			</td>
+			</tr>
+		</table>
+	</form>
+			  </div>
+			
+</body>
+</html>
