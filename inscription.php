@@ -19,21 +19,13 @@
 
 	if ($_POST["bouttoni"]) {
 		if ($db_found) {
-			$sql = "SELECT * FROM utilisateur";
-			if ($email != "") {
-				//on cherche l'utilisateur' avec les paramètres email et pseudo 
-				$sql .= " WHERE email LIKE '%$email%'";
-				if ($pseudo != "") {
-					$sql .= " OR pseudo LIKE '%$pseudo%'";
-				}
-			}
+			$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
 			$result = mysqli_query($db_handle, $sql);
 	//regarder s'il y a des résultats
 			if(mysqli_num_rows($result) == 0) {
 		//si le pseudo et l'email n'ont pas encore été utilisés
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$sql="INSERT INTO utilisateur VALUES('BRUNO','charlene','charlene.bruno','cha','kingking','c.jpg', 'vendeur', '180 rue Jean Monnet','128763')";
-				$result = mysqli_query($db_handle, $sql);
+				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb')";
 				echo "votre compte a bien été crée";
 			} else {
 			///si ils sont déja utilisés
