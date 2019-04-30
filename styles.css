@@ -1,0 +1,83 @@
+/*body css*/
+body{
+	font-family: 'BioRhyme Expanded', serif;
+}
+
+body a:hover {
+	text-decoration: none;
+}
+
+/*page d'accueil*/
+
+
+.acc_texte{
+	background-color: #FFE6E3;
+	width: 250px;
+	height: 200px;
+	/*margin-left: 100px;*/
+	margin-top: 80px;
+
+}
+.acc_texte p {
+	text-align: justify;
+}
+.acc_img{
+	
+	margin-top:  25px;
+	
+}
+
+
+
+
+/*footer*/
+
+.footer{
+	margin: 0px 0px;
+	background-color: #2E2E2E;
+	color:  #A9A9A9;
+}
+
+.footer footer_container{
+	width: 100%;
+}
+
+/*lien vers les catégories*/
+#footer_links{
+	padding: 25px 0;
+}
+
+.footer a {
+	color: #EFEFEF	;
+	font-style: bold;
+}
+.footer a:hover {
+	color: white;
+}
+/*copyright footer*/
+#footer_copy{
+	background-color:#212121;
+	padding: 20px 15px;
+}
+
+/* trai de séparation*/
+.separateur_footer{
+	background-color: :  #798081;
+	height: 1px;
+
+}
+/*texte footer*/
+#footer_text{
+	padding:45px 0;
+}
+
+/*icones footer*/
+
+#icones_footer{
+	margin-bottom: 40px;
+
+}
+#icones_footer a {
+	padding : 0 11px;
+
+}
