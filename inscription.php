@@ -10,6 +10,7 @@
 	$type = isset($_POST["type"])? $_POST["type"] : "";
 	$adresse = isset($_POST["adresse"])? $_POST["adresse"] : "";
 	$cb = isset($_POST["cb"])? $_POST["cb"] : "";
+
 	//identifier votre BDD
 	$database = "piscine_test";
 	//connectez-vous dans votre BDD
@@ -25,7 +26,8 @@
 			if(mysqli_num_rows($result) == 0) {
 		//si le pseudo et l'email n'ont pas encore été utilisés
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb')";
+				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '', '$adresse', '$cb')";
+				$result2 = mysqli_query($db_handle, $addsql);
 				echo "votre compte a bien été crée";
 			} else {
 			///si ils sont déja utilisés
