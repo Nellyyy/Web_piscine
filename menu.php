@@ -16,7 +16,7 @@
 	          <li><a href="sports.html">Sport et Loisir</a></li>
 	        </ul>
 	      </li>
-	      <li><a href="flash.html">Vente flash</a></li>
+	      <li><a href="ventes_flash.php">Vente flash</a></li>
 	      <li><a href="vendre.html">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
