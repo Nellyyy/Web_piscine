@@ -11,9 +11,9 @@ $taille= isset($_POST["taille"])? $_POST["taille"] : "";
 $couleur = isset($_POST["couleur"])? $_POST["couleur"] : "";
 $quantite = isset($_POST["quantite"])? $_POST["quantite"] : "";
 $auteur = isset($_POST["auteur"])? $_POST["auteur"] : "";
-$dateparution = isset($_POST["dateparution"])? $_POST["dateparution"] : "";
+$dateparution = isset($_POST["dateparution"])? $_POST["dateparution"] : 1900;
 $nature = isset($_POST["nature"])? $_POST["nature"] : "";
-$datesortie = isset($_POST["datesortie"])? $_POST["datesortie"] : "";
+$datesortie = isset($_POST["datesortie"])? $_POST["datesortie"] : 1900;
 $artiste = isset($_POST["artiste"])? $_POST["artiste"] : "";
 $style = isset($_POST["style"])? $_POST["style"] : "";
 $categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
@@ -28,11 +28,11 @@ $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
 if ($_POST["bouttonv"]) {
-	echo"dedans";
 	if ($db_found) {
-		$sql = "INSERT INTO item(item_id,	item_titre,	item_prix,	item_description,	item_photo,	item_video,	item_qte_stock,	item_qte_vendue,	item_type,	item_livre_auteur,	item_livre_date_publication,	item_musique_artiste,	item_musique_style,	item_date_sortie,	item_vetement_sexe,	item_vetement_couleur,	item_vetement_taille,	item_sport_categorie)
-		VALUES ('', '$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie')";
+		//1,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
+		//'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie'
+		$sql = "INSERT INTO item 
+		VALUES (3,'cha',14, 'ffff','rr','ff',15, 12, 'rr', 'ee',12, 'ee', 'ee',11, 'e','rrr','w','rr')";
 		$result = mysqli_query($db_handle, $sql);
 		echo "Add successful." . "<br>";
 	} else {

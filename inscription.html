@@ -10,15 +10,46 @@
 		<form action="inscription.php" method="post">
 			<table>
 				<tr>
+					<td>Prénom:</td>
+					<td><input type="text" name="prenom"></td>
+				</tr>
+				<tr>
+					<td>nom:</td>
+					<td><input type="text" name="nom"></td>
+				</tr>
+				<tr>
 					<td>email:</td>
-					<td><input type="text" id="email"></td>
+					<td><input type="text" name="email"></td>
 				</tr>
 				<tr>
 					<td>pseudo:</td>
-					<td><input type="text" id="pseudo"></td>
+					<td><input type="text" name="pseudo"></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit" value="S'inscrire" name="boutton1"></td>
+					<td>mot de passe:</td>
+					<td><input type="password" name="mdp"></td>
+				</tr>
+				<tr>
+					<td>photo:</td>
+					<td><input type="text" name="photo"></td>
+				</tr>
+					<tr>
+				<td><label>type: </label></td>
+					<td><select name="type">
+						<option value="">Sélectionner un type</option>
+						<option value="vendeur"> Vendeur</option>
+						<option value="acheteur"> Acheteur</option>
+					</select></td>	
+			</tr>
+					<td>adresse:</td>
+					<td><input type="text" name="adresse"></td>
+				</tr>
+				<tr>
+					<td>code cb:</td>
+					<td><input type="number" name="cb"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="S'inscrire" name="bouttoni"></td>
 				</tr>
 			</table>
 		</form>
