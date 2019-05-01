@@ -43,6 +43,8 @@
 					{
 						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
+						//afficher l'image
+						//echo "<img src=\"img/" . 
 					}
 				}
 				else
@@ -58,7 +60,12 @@
 		?>
 		<br/>
 	</div>
-	<h2>voulez vous changer votre fond d'écran ?</h2>
+	<h2>Changer votre fond d'écran ?</h2>
+	<form action="upload_background_pic.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="monfichier"/>
+		<input type="submit" value="Envoyer"/>
+	</form>
+
 	<p>Voici votre fond d'écran</p>
 	<!--ici on va chercher le nom de la photo dans la base de donnée et on affiche la photo stockée sur le serveur-->
 	<?php 
