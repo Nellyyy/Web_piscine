@@ -56,13 +56,15 @@
 			{
 				echo "Database not found <br/>";
 			}
-			//affiche le nom et le prenom du vendeur
+			//deconnexion de la base de donnée
+			mysqli_close($db_handle);
 		?>
 		<br/>
 	</div>
 	<h2>Changer votre fond d'écran ?</h2>
 	<form action="upload_background_pic.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="monfichier"/>
+		<input type="text" name="bendo" value="yoy"/>
 		<input type="submit" value="Envoyer"/>
 	</form>
 
