@@ -41,7 +41,7 @@
   <?php
     
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
-    $sql = 'SELECT * FROM item';
+    $sql = 'SELECT * FROM item' WHERE 'item_type' LIKE 'vetement';
     $result = mysqli_query($db_handle, $sql);
   ?>
 
@@ -64,7 +64,11 @@
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
           <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
-          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
+          <form action="recup_id.php" method="post">
+            <input type="button" value="Voir +" name="voir_plus">
+          </form>
+         
         </div> 
       </div>
     </div>
