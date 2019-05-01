@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `piscine_test`.`utilisateur` (
-	`utilisateur_id` INT NOT NULL AUTO_INCREMENT,
 	`utilisateur_nom` VARCHAR(255) NOT NULL ,
 	`utilisateur_prenom` VARCHAR(255) NOT NULL ,
 	`utilisateur_email` VARCHAR(255) NOT NULL ,
@@ -8,10 +7,10 @@ CREATE TABLE `piscine_test`.`utilisateur` (
 	`utilisateur_mdp` VARCHAR(255) NOT NULL ,
 	`utilisateur_photo` VARCHAR(255) NULL ,
 	`utilisateur_type` VARCHAR(8) NOT NULL ,
-	`utilisateur_vendeur_photo` VARCHAR(255) NULL ,
+	`utilisateur_vendeur_photofond` VARCHAR(255) NULL ,
 	`utilisateur_acheteur_adresse` VARCHAR(255) NULL ,
 	`utilisateur_acheteur_cb` INT NULL ,
-	PRIMARY KEY (`utilisateur_id`)
+	PRIMARY KEY (`utilisateur_email`)
 ) ENGINE = INNODB;
 
 DROP TABLE IF EXISTS `item`;
