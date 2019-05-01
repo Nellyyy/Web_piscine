@@ -40,13 +40,29 @@
   <!--recherche dans bdd: on selectionne tous les vetements-->
   <?php
     
-    //lancement de la requête 
-    $sql = 'SELECT * FROM item';
+    //lancement de la requête vetements
+   $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%vetement%' ORDER BY  `item_qte_vendue` DESC";
     $result = mysqli_query($db_handle, $sql);
+
+    //lancement de la requête livres
+   $sql2 = "SELECT * FROM `item` WHERE `item_type` LIKE '%livre%' ORDER BY  `item_qte_vendue` DESC";
+    $result2 = mysqli_query($db_handle, $sql2);
+
+     //lancement de la requête musiques
+   $sql3 = "SELECT * FROM `item` WHERE `item_type` LIKE '%musique%' ORDER BY  `item_qte_vendue` DESC";
+    $result3 = mysqli_query($db_handle, $sql3);
+
+   //lancement de la requête sport
+   $sql4 = "SELECT * FROM `item` WHERE `item_type` LIKE '%sport%' ORDER BY  `item_qte_vendue` DESC";
+    $result4 = mysqli_query($db_handle, $sql4);
+
+
+
   ?>
 
 <div class="container-fluid">
   <div class="row">
+    <h2>Top vente Vêtements: </h2>
 
     <?php
       //on va scanner tous les tuples un par un-->
@@ -62,7 +78,7 @@
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-          <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+          <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
           <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
         </div> 
@@ -72,7 +88,87 @@
     <?php
       }
       //fermer la base
-      mysqli_close($db_handle);
+      //mysqli_close($db_handle);
+    ?>
+ </div>
+ <div class="row">
+    <h2>Top vente Livres: </h2>
+
+    <?php
+      //on va scanner tous les tuples un par un-->
+      while ($data = mysqli_fetch_array($result2)) 
+      {
+    ?>
+
+    <!--on affiche les résultats-->
+    <div class="col-lg-4" >
+      <div class="item">
+        <div class="item_image">
+          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+        </div>
+        <div class="item_text">
+          <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+          <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
+          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+        </div> 
+      </div>
+    </div> 
+    <?php
+      }
+      //fermer la base
+      //mysqli_close($db_handle);
+    ?>
+ </div>
+  <div class="row">
+    <h2>Top vente Musiques: </h2>
+    <?php
+      //on va scanner tous les tuples un par un-->
+      while ($data = mysqli_fetch_array($result3)) 
+      {
+    ?>
+    <!--on affiche les résultats-->
+    <div class="col-lg-4" >
+      <div class="item">
+        <div class="item_image">
+          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+        </div>
+        <div class="item_text">
+          <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+          <p  style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
+          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+        </div> 
+      </div>
+    </div>
+    <?php
+      }
+      //fermer la base
+      //mysqli_close($db_handle);
+    ?>
+ </div>
+  <div class="row">
+    <h2>Top vente Sport: </h2>
+    <?php
+      //on va scanner tous les tuples un par un-->
+      while ($data = mysqli_fetch_array($result4)) 
+      {
+    ?>
+    <!--on affiche les résultats-->
+    <div class="col-lg-4" >
+      <div class="item">
+        <div class="item_image">
+          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+        </div>
+        <div class="item_text">
+          <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+          <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
+          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+        </div> 
+      </div>
+    </div> 
+    <?php
+      }
+      //fermer la base
+      //mysqli_close($db_handle);
     ?>
  </div>
 </div>
