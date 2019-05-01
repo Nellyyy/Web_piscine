@@ -41,8 +41,11 @@
   <?php
     
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
-    $sql = 'SELECT * FROM item' WHERE 'item_type' LIKE 'vetement';
+    $vet="vetement";
+    if($db_found){
+    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%'"; 
     $result = mysqli_query($db_handle, $sql);
+
   ?>
 
 <div class="container-fluid">
@@ -50,7 +53,7 @@
 
     <?php
       //on va scanner tous les tuples un par un-->
-      while ($data = mysqli_fetch_array($result)) 
+      while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
       {
     ?>
 
@@ -76,7 +79,9 @@
     <?php
       }
       //fermer la base
+    }else {echo "db pas trouve";}
       mysqli_close($db_handle);
+    
     ?>
  </div>
 </div>
