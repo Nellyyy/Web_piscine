@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ece Amazon</title>
+
+  <!--font style-->
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
+
+  <!--lien fichier css-->
+	<link rel="stylesheet" media="screen" type="text/css" href="styles.css" />
+  
+	<meta charset="utf-8">
+	<!--adapt sur ordi ou tel ou tablette-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<!--menu-->
+	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
+	<?php include("menu.php"); ?>
+	<!--menu-->
+
+  <!--lien avec fichier php qui ajoute au panier-->
+  <form action="ajouter_panier.php" method="post">
+    <!--bouton ajouter au panier-->
+    <input type="submit" value="ajouteraupanier" name="ajouter_panier">
+  </form>
+
+	
+  <!--footer-->
+	<?php include("footer.php"); ?>
+	<!--footer-->
+</body>
+</html>

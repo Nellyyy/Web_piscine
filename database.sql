@@ -38,11 +38,10 @@ CREATE TABLE `piscine_test`.`item` (
 ) ENGINE = INNODB;
 
 DROP TABLE IF EXISTS `panier`;
-CREATE TABLE `piscine_test`.`panier` ( 
-	`panier_id` INT NOT NULL AUTO_INCREMENT, 
+CREATE TABLE `piscine_test`.`panier` (  
 	`item_id` INT NOT NULL , 
 	`utilisateur_id` INT NOT NULL,
-	PRIMARY KEY (`panier_id`),
+	PRIMARY KEY (`item_id`,`utilisateur_id`),
 	CONSTRAINT `fk_item_id`
 		FOREIGN KEY (`item_id`)
 		REFERENCES `item`(`item_id`),
