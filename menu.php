@@ -11,7 +11,7 @@
 	        <span class="caret"></span></a>
 	        <ul class="dropdown-menu">
 	          <li><a href="livres.html">Livres</a></li>
-	          <li><a href="vetements.html">Vêtements</a></li>
+	          <li><a href="vetements.php">Vêtements</a></li>
 	          <li><a href="musiques.html">Musique</a></li>
 	          <li><a href="sports.html">Sport et Loisir</a></li>
 	        </ul>
