@@ -25,12 +25,13 @@
 			//regarder s'il y a des résultats
 			echo "****".gettype($result1);
 			echo $result1;
-			if(mysqli_num_rows($result1) == 0) 
+
+			if(!$result1) 
 			{
 				//si le pseudo et l'email n'ont pas encore été utilisés
 				//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
 				$addsql="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$email', '$pseudo', '$mdp', '$photo', '$type', NULL, '$adresse', '$cb')";
-				$result2 = mysqli_query($db_handle, $addsql);
+				/*$result2 = mysqli_query($db_handle, $addsql);
 				echo "****".gettype($result2);
 				if($result2==False)
 				{
@@ -40,7 +41,7 @@
 				{
 					echo "True";
 				}
-				echo "'".$result2."'";
+				echo "'".$result2."'";*/
 				echo "votre compte a bien été crée";
 			} else {
 			///si ils sont déja utilisés
