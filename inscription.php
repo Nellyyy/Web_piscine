@@ -26,7 +26,7 @@
 			if(mysqli_num_rows($result) == 0) {
 		//si le pseudo et l'email n'ont pas encore été utilisés
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb')";
+				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '', '$adresse', '$cb')";
 				$result2 = mysqli_query($db_handle, $addsql);
 				echo "votre compte a bien été crée";
 			} else {
