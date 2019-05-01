@@ -9,17 +9,17 @@
 <body><script>
 jQuery(document).ready(function()
 	{
-		var type;
+		var type ="";
 		if("input[type=checkbox][name=livre".checked){
 			type="livre";
 		}
 		else if("input[type=checkbox][name=vetement".checked){
 			type="vetement";
 		}
-		if("input[type=checkbox][name=musique".checked){
+		else if("input[type=checkbox][name=musique".checked){
 			type="musique";
 		}
-		if("input[type=checkbox][name=sport".checked){
+		else if("input[type=checkbox][name=sport".checked){
 			type="sport";
 		}
 		   // On cache la zone de texte
@@ -89,9 +89,7 @@ jQuery(document).ready(function()
 				<input type="checkbox" id="sport" name="sport" value="sport">
 				<label for="sport">Sport & Loisir</label>
 			</div>
-
 		</tr>
-		
 	</table>
 </form>
 <div id="toggle">
@@ -99,23 +97,23 @@ jQuery(document).ready(function()
 		<table>
 			<tr>
 				<td>Intitulé de l'article: </td>
-				<td><input type="Text" name="nom"></td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr>
 				<td>Photo: </td>
-				<td><input type="Text" name="photo"></td>
+				<td><input type="text" name="photo"></td>
 			</tr>
 			<tr>
 				<td>Description: </td>
-				<td><input type="Text" name="description"></td>
+				<td><input type="text" name="description"></td>
 			</tr>
 			<tr>
 				<td>Prix: </td>
-				<td><input type="Number" name="prix" ></td>
+				<td><input type="number" name="prix" ></td>
 			</tr>
 			<tr>
 				<td>Vidéo: </td>
-				<td><input type="Text" name="video"></td>
+				<td><input type="text" name="video"></td>
 			</tr>
 			<tr>
 				<td><label>Sexe</label></td>
@@ -152,7 +150,7 @@ jQuery(document).ready(function()
 			</tr>
 			<tr>
 				<td>Quantité: </td>
-				<td><input type="Number" name="quantite"></td>
+				<td><input type="number" name="quantite"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">	<input type="submit" value="Valider" name="bouttonv"></td>
@@ -165,27 +163,27 @@ jQuery(document).ready(function()
 		<table>
 			<tr>
 				<td>Intitulé de l'article: </td>
-				<td><input type="Text" name="nom"></td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr>
 				<td>Photo: </td>
-				<td><input type="Text" name="photo"></td>
+				<td><input type="text" name="photo"></td>
 			</tr>
 			<tr>
 				<td>Description: </td>
-				<td><input type="Text" name="description"></td>
+				<td><input type="text" name="description"></td>
 			</tr>
 			<tr>
 				<td>Prix: </td>
-				<td><input type="Number" name="prix"></td>
+				<td><input type="number" name="prix"></td>
 			</tr>
 			<tr>
 				<td>Vidéo: </td>
-				<td><input type="Text" name="video"></td>
+				<td><input type="text" name="video"></td>
 			</tr>
 			<tr>
 				<td>Auteur: </td>
-				<td><input type="Text" name="auteur"></td>
+				<td><input type="text" name="auteur"></td>
 			</tr>
 			<tr>
 				<td>Date de parution: </td>
@@ -200,8 +198,7 @@ jQuery(document).ready(function()
 						<option value="magazine"> magazine</option>
 						<option value="manga"> manga</option>
 						<option value="nouvelle"> nouvelle</option>
-					</select></td>
-				
+					</select></td>	
 			</tr>
 			<tr>
 				<td>
@@ -217,31 +214,31 @@ jQuery(document).ready(function()
 		<table>
 			<tr>
 				<td>Intitulé de l'article: </td>
-				<td><input type="Text" name="nom"></td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr>
 				<td>Photo: </td>
-				<td><input type="Text" name="photo"></td>
+				<td><input type="text" name="photo"></td>
 			</tr>
 			<tr>
 				<td>Description: </td>
-				<td><input type="Text" name="description"></td>
+				<td><input type="text" name="description"></td>
 			</tr>
 			<tr>
 				<td>Prix: </td>
-				<td><input type="Number" name="prix"></td>
+				<td><input type="number" name="prix"></td>
 			</tr>
 			<tr>
 				<td>Vidéo: </td>
-				<td><input type="Text" name="video"></td>
+				<td><input type="text" name="video"></td>
 			</tr>
 			<tr>
 				<td>Artiste: </td>
-				<td><input type="Text" name="artiste"></td>
+				<td><input type="text" name="artiste"></td>
 			</tr>
 			<tr>
 				<td>Date de sortie: </td>
-				<td><input type="Text" name="datesortie"></td>
+				<td><input type="text" name="datesortie"></td>
 			</tr>
 			<tr>
 				<td><label>style: </label></td>
@@ -268,19 +265,19 @@ jQuery(document).ready(function()
 		<table>
 			<tr>
 				<td>Intitulé de l'article: </td>
-				<td><input type="Text" name="nom"></td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr>
 				<td>Photo: </td>
-				<td><input type="Text" name="photo"></td>
+				<td><input type="text" name="photo"></td>
 			</tr>
 			<tr>
 				<td>Description: </td>
-				<td><input type="Text" name="description"></td>
+				<td><input type="text" name="description"></td>
 			</tr>
 			<tr>
 				<td>Prix: </td>
-				<td><input type="Number" name="prix"></td>
+				<td><input type="number" name="prix"></td>
 			</tr>
 			<tr>
 				<td>Vidéo: </td>
@@ -295,8 +292,7 @@ jQuery(document).ready(function()
 						<option value="equitation"> équitation</option>
 						<option value="tennis"> tennis</option>
 						<option value="football"> football</option>
-					</select></td>
-				
+					</select></td>	
 			</tr>
 			<tr>
 				<td>
@@ -306,7 +302,6 @@ jQuery(document).ready(function()
 			</tr>
 		</table>
 	</form>
-</div>
-
+	</div>
 </body>
 </html>
