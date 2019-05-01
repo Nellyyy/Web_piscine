@@ -20,7 +20,7 @@
 
 	if ($_POST["bouttoni"]) {
 		if ($db_found) {
-			$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
+			$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '%$email%'";
 			$result = mysqli_query($db_handle, $sql);
 	//regarder s'il y a des résultats
 			if(mysqli_num_rows($result) == 0) {
