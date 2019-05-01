@@ -17,7 +17,7 @@ $datesortie = isset($_POST["datesortie"])? $_POST["datesortie"] : 2000;
 $artiste = isset($_POST["artiste"])? $_POST["artiste"] : "";
 $style = isset($_POST["style"])? $_POST["style"] : "";
 $categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
-$type= isset($_POST["type"])? $_POST["type"] : "";
+$type= isset($_POST["type"])? $_POST["type"] : "lol";
 $vente= 0;
 
 //identifier votre BDD

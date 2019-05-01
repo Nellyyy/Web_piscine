@@ -9,19 +9,6 @@
 	<body><script>
 	jQuery(document).ready(function()
 		{
-			var type =" ";
-			if("input[type=checkbox][name=livre".checked){
-				type="livre";
-			}
-			else if("input[type=checkbox][name=vetement".checked){
-				type="vetement";
-			}
-			else if("input[type=checkbox][name=musique".checked){
-				type="musique";
-			}
-			else if("input[type=checkbox][name=sport".checked){
-				type="sport";
-			}
 			   // On cache la zone de texte
 			jQuery('#toggle').hide();
 			jQuery('#toggle2').hide();
@@ -96,6 +83,10 @@
 		<form action="mise_en_vente.php" method="post">
 			<table>
 				<tr>
+					<td>Vous vender un </td>
+					<td><input type="text" name="type" value="vetement"></td>
+				</tr>
+				<tr>
 					<td>Intitulé de l'article: </td>
 					<td><input type="text" name="nom"></td>
 				</tr>
@@ -160,6 +151,10 @@
 		<form action="mise_en_vente.php" method="post">
 			<table>
 				<tr>
+					<td>Vous vender un </td>
+					<td><input type="text" name="type" value="livre"></td>
+				</tr>
+				<tr>
 					<td>Intitulé de l'article: </td>
 					<td><input type="text" name="nom"></td>
 				</tr>
@@ -215,6 +210,10 @@
 		<form action="mise_en_vente.php" method="post">
 			<table>
 				<tr>
+					<td>Vous vender une </td>
+					<td><input type="text" name="type" value="musique"></td>
+				</tr>
+				<tr>
 					<td>Intitulé de l'article: </td>
 					<td><input type="text" name="nom"></td>
 				</tr>
@@ -269,6 +268,10 @@
 	<div id="toggle4">
 		<form action="mise_en_vente.php" method="post">
 			<table>
+				<tr>
+					<td>Vous vender un article de </td>
+					<td><input type="text" name="type" value="sport"></td>
+				</tr>
 				<tr>
 					<td>Intitulé de l'article: </td>
 					<td><input type="text" name="nom"></td>
