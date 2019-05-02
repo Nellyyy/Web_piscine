@@ -26,7 +26,7 @@
 
 		if(isset($_SESSION["email"]))
 		{
-			include("menu_vendeur.php");
+			header("Location: menu_vendeur.php");
 		}
 		else
 		{

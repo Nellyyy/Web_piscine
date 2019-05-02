@@ -21,6 +21,8 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<?php include("menu.php"); ?>
+
 	<h1>Menu vendeur</h1>
 	<h2>Vos informations</h2>
 	<div>
@@ -33,13 +35,11 @@
 			//identifier votre BDD
 			$database = "piscine_test";
 			//connectez-vous dans votre BDD
-			//Rappel: votre serveur = localhost et votre login = root et votre password = <rien>
 			$db_handle = mysqli_connect('localhost', 'root', '');
 			$db_found = mysqli_select_db($db_handle, $database);
 
 			if ($db_found)
 			{
-				echo "Connecté à la base de donnée <br/>";
 				//$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
@@ -50,13 +50,8 @@
 						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 						//afficher l'image
-
 						echo "<img src=\"" . $data['utilisateur_vendeur_photofond'] . "\"/><br/>";
 					}
-				}
-				else
-				{
-					echo "result est null <br/>";
 				}
 			}
 			else
@@ -78,20 +73,12 @@
 		<input type="submit" value="Envoyer"/>
 	</form>
 
-	<p>Voici votre fond d'écran</p>
-	<!--ici on va chercher le nom de la photo dans la base de donnée et on affiche la photo stockée sur le serveur-->
-	<?php
-		//connexion BDD
-		$database = "piscine_test";
-		$db_handle = mysqli_connect('localhost', 'root', '');
-		$db_found = mysqli_select_db($db_handle, $database);
-	?>
-
 	<div>
-	<h2>Se deconnecter</h2>
+		<h2>Se deconnecter</h2>
 		<form action="deconnexion.php" method="post">
 			<input type="submit" value="Se deconnecter">
 		</form>
 	</div>
+	<?php include("footer.php"); ?>
 </body>
 </html>
