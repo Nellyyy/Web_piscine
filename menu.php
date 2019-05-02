@@ -10,18 +10,19 @@
 	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catégories
 	        <span class="caret"></span></a>
 	        <ul class="dropdown-menu">
-	          <li><a href="livres.html">Livres</a></li>
+	          <li><a href="livres.php">Livres</a></li>
 	          <li><a href="vetements.php">Vêtements</a></li>
-	          <li><a href="musiques.html">Musique</a></li>
-	          <li><a href="sports.html">Sport et Loisir</a></li>
+	          <li><a href="musiques.php">Musique</a></li>
+	          <li><a href="sports.php">Sport et Loisir</a></li>
 	        </ul>
 	      </li>
 	      <li><a href="ventes_flash.php">Vente flash</a></li>
-	      <li><a href="vendre.html">Vendre</a></li>
+	      <li><a href="vendre.php">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
-	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-	      <li><a href="vendre.html"><img src="img/panier.png" width="20px" height="20px"></li>
+	  	  <li><a href="menu_vendeur.php">Mon compte</a></li>
+	      <li><a href="connexionPage.php"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+	      <li><a href="panier.php"><img src="img/panier.png" width="20px" height="20px"></a></li>
 	    </ul>
 	  </div>
 	</nav>
