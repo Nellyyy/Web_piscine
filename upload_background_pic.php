@@ -11,7 +11,8 @@
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 
-	$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE"
+	//requête sql pour récupérer les infos du vendeur dont c'est le compte
+	//$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE"
 
 
 	//move the uploaded file from temporary directory to server directory
