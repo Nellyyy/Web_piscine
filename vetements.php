@@ -68,10 +68,10 @@
           <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
           <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
-          <form action="recup_id.php" method="post">
-            <input type="button" value="Voir +" name="voir_plus">
-          </form>
-         
+
+         <p>vari<?php echo $id=$data['item_id'];?></p> 
+          <p><?php echo "<a href=recupId.php?nom=". $id.">voir plus</a>"  ;?></p>
+
         </div> 
       </div>
     </div>
