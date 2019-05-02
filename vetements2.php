@@ -64,12 +64,14 @@
           <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
-          <p style="font-weight: bold;"><?php $item_id= $data['item_id']; echo $data['item_titre'];?></p>
+          <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
           <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
-          
-          <a href="recupId.php?nom=Dupont">voir plus</a>
+
+
+          <?php $item_id = $data['item_id'];?>
+          <a href="recupId.php?nom=<?php echo $_POST['item_id']?>">voir plus</a>
 
         </div> 
       </div>
