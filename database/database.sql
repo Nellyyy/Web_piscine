@@ -47,9 +47,25 @@ CREATE TABLE `piscine_test`.`panier` (
 	`item_id` INT NOT NULL,
 	`utilisateur_email` VARCHAR(255) NOT NULL,
 	PRIMARY KEY (`item_id`,`utilisateur_email`),
-		FOREIGN KEY (`item_id`)
-		REFERENCES `item`(`item_id`),
-		FOREIGN KEY (`utilisateur_email`)
-		REFERENCES `utilisateur`(`utilisateur_email`)
+	FOREIGN KEY (`item_id`)
+	REFERENCES `item`(`item_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
 ) ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `livraison`;
+CREATE TABLE `piscine_test`.`livraison` (
+	`livraison_id` INT NOT NULL AUTO_INCREMENT,
+	`livraison_a1` VARCHAR(255) NOT NULL,
+	`livraison_a2` VARCHAR(255) NOT NULL,
+	`livraison_ville` VARCHAR(255) NOT NULL,
+	`livraison_CP` INT NOT NULL,
+	`livraison_pays`VARCHAR(255) NOT NULL,
+	`livraison_tel` INT(10) NOT NULL,
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`livraison_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
+	
+) ENGINE = INNODB;
 
