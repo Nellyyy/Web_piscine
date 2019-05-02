@@ -26,8 +26,9 @@
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
+			if(isset($_SESSION["email"]))
+			{
 			$email = $_SESSION["email"];
-			
 
 			//identifier votre BDD
 			$database = "piscine_test";
@@ -64,6 +65,7 @@
 			}
 			//deconnexion de la base de donnée
 			mysqli_close($db_handle);
+			}
 		?>
 		<br/>
 	</div>
@@ -83,9 +85,13 @@
 		$database = "piscine_test";
 		$db_handle = mysqli_connect('localhost', 'root', '');
 		$db_found = mysqli_select_db($db_handle, $database);
-		
-
-
 	?>
+
+	<div>
+	<h2>Se deconnecter</h2>
+		<form action="deconnexion.php" method="post">
+			<input type="submit" value="Se deconnecter">
+		</form>
+	</div>
 </body>
 </html>
