@@ -10,8 +10,6 @@ CREATE TABLE `piscine_test`.`utilisateur` (
 	`utilisateur_photo` VARCHAR(255) NULL,
 	`utilisateur_type` VARCHAR(8) NOT NULL,
 	`utilisateur_vendeur_photofond` VARCHAR(255) NULL,
-	`utilisateur_acheteur_adresse` VARCHAR(255) NULL,
-	`utilisateur_acheteur_cb` INT NULL,
 	PRIMARY KEY (`utilisateur_email`)
 ) ENGINE = INNODB;
 
@@ -35,7 +33,11 @@ CREATE TABLE `piscine_test`.`item` (
 	`item_vetement_couleur` VARCHAR(10) NULL,
 	`item_vetement_taille` VARCHAR(3) NULL,
 	`item_sport_categorie` VARCHAR(255) NULL,
-	PRIMARY KEY (`item_id`)
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`item_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
+	
 ) ENGINE = INNODB;
 
 
@@ -43,11 +45,37 @@ CREATE TABLE `piscine_test`.`panier` (
 	`item_id` INT NOT NULL,
 	`utilisateur_email` VARCHAR(255) NOT NULL,
 	PRIMARY KEY (`item_id`,`utilisateur_email`),
-	CONSTRAINT `fk_item_id`
-		FOREIGN KEY (`item_id`)
-		REFERENCES `item`(`item_id`),
-	CONSTRAINT `fk_utilisateur_email`
-		FOREIGN KEY (`utilisateur_email`)
-		REFERENCES `utilisateur`(`utilisateur_email`)
+	FOREIGN KEY (`item_id`)
+	REFERENCES `item`(`item_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
 ) ENGINE = InnoDB;
+
+DROP TABLE IF EXISTS `livraison`;
+CREATE TABLE `piscine_test`.`livraison` (
+	`livraison_id` INT NOT NULL AUTO_INCREMENT,
+	`livraison_a1` VARCHAR(255) NOT NULL,
+	`livraison_a2` VARCHAR(255) NOT NULL,
+	`livraison_ville` VARCHAR(255) NOT NULL,
+	`livraison_CP` INT NOT NULL,
+	`livraison_pays`VARCHAR(255) NOT NULL,
+	`livraison_tel` INT(10) NOT NULL,
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`livraison_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
+) ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `paiement`;
+CREATE TABLE `piscine_test`.`paiement` (
+	`paiement_type` VARCHAR(255) NOT NULL,
+	`paiement_num` INT(16) NOT NULL,
+	`paiement_nom` VARCHAR(255) NOT NULL,
+	`paiement_date` INT(4) NOT NULL,
+	`paiement_secu` INT(3) NOT NULL,
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`paiement_num`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
+) ENGINE = INNODB;
 

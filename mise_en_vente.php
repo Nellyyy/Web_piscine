@@ -34,7 +34,7 @@ if ($_POST["bouttonv"]) {
 		//NULL,'$nom','$prix', 'ffff','rr','ff',15, 12, 'rr', 'ee',12, 'ee', 'ee','$datesortie', 'e','rrr','w','rr'
 		$sql = "INSERT INTO item 
 		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie')";
+		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','jjÃ§nnn')";
 		$result = mysqli_query($db_handle, $sql);
 		echo "nom:" . $nom . '<br>';
 		echo "Prix: " . $prix . '<br>';

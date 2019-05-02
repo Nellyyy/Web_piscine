@@ -8,8 +8,12 @@
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 	$photo = isset($_POST["photo"])? $_POST["photo"] : "";
 	$type = isset($_POST["type"])? $_POST["type"] : "";
-	$adresse = isset($_POST["adresse"])? $_POST["adresse"] : "";
-	$cb = isset($_POST["cb"])? $_POST["cb"] : "";
+	$adresse1 = isset($_POST["adresse1"])? $_POST["adresse1"] : "";
+	$adresse2 = isset($_POST["adresse2"])? $_POST["adresse2"] : "";
+	$ville = isset($_POST["ville"])? $_POST["ville"] : "";
+	$cp = isset($_POST["cp"])? $_POST["cp"] : "";
+	$pays = isset($_POST["pays"])? $_POST["pays"] : "";
+	$tel = isset($_POST["tel"])? $_POST["tel"] : "";
 
 	//identifier votre BDD
 	$database = "piscine_test";
@@ -20,14 +24,16 @@
 
 	if ($_POST["bouttoni"]) {
 		if ($db_found) {
-			$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '%$email%'";
+			$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '%$email%' OR `utilisateur_pseudo` LIKE '%$pseudo%' ";
 			$result = mysqli_query($db_handle, $sql);
 	//regarder s'il y a des résultats
 			if(mysqli_num_rows($result) == 0) {
 		//si le pseudo et l'email n'ont pas encore été utilisés
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '', '$adresse', '$cb')";
+				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '')";
 				$result2 = mysqli_query($db_handle, $addsql);
+				$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$$pays', '$tel', '$email')";
+				$resultbis = mysqli_query($db_handle, $addsqlbis);
 				echo "votre compte a bien été crée";
 			} else {
 			///si ils sont déja utilisés
