@@ -1,16 +1,6 @@
 	<?php
 	session_start();
 
-	
-	/*
-	if(isset($_SESSION["email"]))
-	{
-		echo "yeah";
-	}
-	else
-		echo "ok";
-*/
-
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$email= isset($_POST["email"])? $_POST["email"] : "";
 
@@ -25,20 +15,24 @@
 	{
 		$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 		$result = mysqli_query($db_handle, $sql);
+		//On referme la base de donnée
+		mysqli_close($db_handle);
 
 		if (mysqli_num_rows($result) == 0)
 		{
 			echo "Aucun compte associé à l'email rentré";
 			header('Location: connexionPage.php');
+			exit;
 		}
 		else
 		{
 			$data = mysqli_fetch_assoc($result);
-			//echo "Bonjour " . $data['utilisateur_pseudo'] . "!<br>";
+			
 			//On connecte l'utilisateur :
 			$_SESSION["email"] = $_POST["email"];
 			//on redirige vers la page menu vendeur
 			header('Location: menu_vendeur.php');//grave stylé !!!
+			exit;
 		}
 		
 	}
@@ -46,8 +40,5 @@
 	{
 		echo "impossible de se connecter à la base de donnée <br/>";
 	}
-	//echo $_SESSION["email"] . "<br/>";
-
-	mysqli_close($db_handle);
 
 	?>

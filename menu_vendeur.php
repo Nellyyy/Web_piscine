@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
-			$email = "covillebenoit@gmail.com";
+			$email = $_SESSION["email"];
 			
 
 			//identifier votre BDD
