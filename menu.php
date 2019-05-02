@@ -17,7 +17,7 @@
 	        </ul>
 	      </li>
 	      <li><a href="ventes_flash.php">Vente flash</a></li>
-	      <li><a href="vendre.html">Vendre</a></li>
+	      <li><a href="vendre.php">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
 	  	  <li><a href="menu_vendeur.php">Mon compte</a></li>
