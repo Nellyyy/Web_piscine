@@ -1,8 +1,19 @@
 	<?php
+	session_start();
+
+	
+	/*
+	if(isset($_SESSION["email"]))
+	{
+		echo "yeah";
+	}
+	else
+		echo "ok";
+*/
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$email= isset($_POST["email"])? $_POST["email"] : "";
-	
+
 	//identifier votre BDD
 	$database = "piscine_test";
 	//connectez-vous dans votre BDD
@@ -18,11 +29,16 @@
 		if (mysqli_num_rows($result) == 0)
 		{
 			echo "Aucun compte associé à l'email rentré";
+			header('Location: connexionPage.php');
 		}
 		else
 		{
 			$data = mysqli_fetch_assoc($result);
-			echo "Bonjour " . $data['utilisateur_pseudo'] . "!<br>";
+			//echo "Bonjour " . $data['utilisateur_pseudo'] . "!<br>";
+			//On connecte l'utilisateur :
+			$_SESSION["email"] = $_POST["email"];
+			//on redirige vers la page menu vendeur
+			header('Location: menu_vendeur.php');//grave stylé !!!
 		}
 		
 	}
@@ -30,6 +46,7 @@
 	{
 		echo "impossible de se connecter à la base de donnée <br/>";
 	}
+	//echo $_SESSION["email"] . "<br/>";
 
 	mysqli_close($db_handle);
 
