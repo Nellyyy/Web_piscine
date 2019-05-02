@@ -26,11 +26,11 @@
 			<table>
 				<tr>
 					<td>email:</td>
-					<td><input type="text" id="email"></td>
+					<td><input type="text" name="email"></td>
 				</tr>
 				<tr>
 					<td>pseudo:</td>
-					<td><input type="text" id="pseudo"></td>
+					<td><input type="text" name="pseudo"></td>
 				</tr>
 				<tr>
 						<td colspan="2" align="center"><input type="submit" value="Se connecter" name="boutton1"></td>
