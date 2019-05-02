@@ -22,12 +22,9 @@
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
-			//$email = "covillebenoit@gmail.com";
+			$email = "covillebenoit@gmail.com";
 			
-			$email = $_POST["email"];
-			echo $email;
 
-			/***********************
 			//identifier votre BDD
 			$database = "piscine_test";
 			//connectez-vous dans votre BDD
@@ -62,7 +59,6 @@
 			}
 			//deconnexion de la base de donnée
 			mysqli_close($db_handle);
-			******************/
 
 		?>
 		<br/>
@@ -70,15 +66,14 @@
 	<h2>Changer votre fond d'écran ?</h2>
 	<form action="upload_background_pic.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="monfichier"/>
-		<input type="text" name="bendo" value="yoy"/>
+		<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
+			note, plus tard il faudra récupérer l'email depuis cette fonction avec $_POST-->
+		<input type="hidden" name="email" value=<?php  echo "\"" . "covillebenoit@gmail.com" . "\""?>/>
 		<input type="submit" value="Envoyer"/>
 	</form>
 
 	<p>Voici votre fond d'écran</p>
 	<!--ici on va chercher le nom de la photo dans la base de donnée et on affiche la photo stockée sur le serveur-->
-	<?php
-		$email = $_POST["email"];
-		echo $email;
-	?>
+
 </body>
 </html>
