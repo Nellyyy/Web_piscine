@@ -46,6 +46,18 @@
 		}
 	?>
 	
+	</div>
+		<div>
+		<h2>Changer votre photo de profil ?</h2>
+		<form action="upload_profil_pic.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="monfichier"/>
+			<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
+				note, plus tard il faudra récupérer l'email depuis cette fonction avec $_POST-->
+			<input type="hidden" name="email" value=<?php  echo "\"" . "$email" . "\""?>/>
+			<input type="submit" value="Envoyer"/>
+		</form>
+	</div>
+
 	<div>
 		<h2>Se deconnecter</h2>
 		<form action="deconnexion.php" method="post">
