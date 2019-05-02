@@ -1,8 +1,9 @@
 	<?php
+	session_start();
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$email= isset($_POST["email"])? $_POST["email"] : "";
-	$pseudo = isset($_POST["email"])? $_POST["email"] : "";
+
 	//identifier votre BDD
 	$database = "piscine_test";
 	//connectez-vous dans votre BDD
@@ -10,32 +11,34 @@
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 
-	if ($_POST["boutton1"]) {
-		if ($db_found) {
-			$sql = "SELECT * FROM utilisateur";
-			if ($email != "") {
-	//on cherche l'utilisateur' avec les paramètres email et pseudo 
-				$sql .= " WHERE utilisateur_email LIKE '%$email%'";
-				if ($pseudo != "") {
-					$sql .= " AND utilisateur_pseudo LIKE '%$pseudo%'";
-				}
-			}
-			$result = mysqli_query($db_handle, $sql);
-	//regarder s'il y a de résultat
-			if (mysqli_num_rows($result) == 0) {
-				echo "aucun compte associe a ce pseudo et email";
-			} else {
-	//on trouve l'utilisateur recherché
-				if($data = mysqli_fetch_assoc($result)) {
-					echo "Bonjour " . $data['utilisateur_pseudo'] . "!<br>";
-					echo "<br>";
-	//ici coder la connexion
-				}
-			}
-		} else {
-			echo "Database not found";
+	if($db_found)
+	{
+		$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
+		$result = mysqli_query($db_handle, $sql);
+		//On referme la base de donnée
+		mysqli_close($db_handle);
+
+		if (mysqli_num_rows($result) == 0)
+		{
+			echo "Aucun compte associé à l'email rentré";
+			header('Location: connexionPage.php');
+			exit;
 		}
+		else
+		{
+			$data = mysqli_fetch_assoc($result);
+			
+			//On connecte l'utilisateur :
+			$_SESSION["email"] = $_POST["email"];
+			//on redirige vers la page menu vendeur
+			header('Location: menu_vendeur.php');//grave stylé !!!
+			exit;
+		}
+		
 	}
-	//fermer la connexion
-	mysqli_close($db_handle);
+	else
+	{
+		echo "impossible de se connecter à la base de donnée <br/>";
+	}
+
 	?>

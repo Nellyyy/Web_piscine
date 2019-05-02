@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
-			$email = "covillebenoit@gmail.com";
+			$email = $_SESSION["email"];
 			
 
 			//identifier votre BDD
@@ -36,7 +40,7 @@
 			{
 				echo "Connecté à la base de donnée <br/>";
 				//$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
-				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE 'covillebenoit@gmail.com'";
+				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
 				if($result != NULL)
 				{	
@@ -45,7 +49,8 @@
 						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 						//afficher l'image
-						//echo "<img src=\"img/" . 
+
+						echo "<img src=\"" . $data['utilisateur_vendeur_photofond'] . "\"/><br/>";
 					}
 				}
 				else
@@ -67,8 +72,8 @@
 		<input type="file" name="monfichier"/>
 		<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
 			note, plus tard il faudra récupérer l'email depuis cette fonction avec $_POST-->
-		<input type="hidden" name="email" value=<?php  echo "\"" . "covillebenoit@gmail.com" . "\""?>/>
-		<input type="submit" value=s"Envoyer"/>
+		<input type="hidden" name="email" value=<?php  echo "\"" . "$email" . "\""?>/>
+		<input type="submit" value="Envoyer"/>
 	</form>
 
 	<p>Voici votre fond d'écran</p>
