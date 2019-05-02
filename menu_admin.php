@@ -23,7 +23,7 @@
 <body>
 	<?php include("menu.php"); ?>
 
-	<h1>Menu vendeur</h1>
+	<h1>Menu Administrateur</h1>
 	<h2>Vos informations</h2>
 	<div>
 		<?php
