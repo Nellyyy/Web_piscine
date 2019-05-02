@@ -18,7 +18,7 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="livres.html">Livres</a>
+            <a href="livres.php">Livres</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -26,7 +26,7 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="vetements.html">Vêtements</a>
+            <a href="vetements.php">Vêtements</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -34,7 +34,7 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="musiques.html">Musique</a>
+            <a href="musiques.php">Musique</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -42,7 +42,7 @@
         <!-- Grid column -->
         <div class="col-md-2 mb-3">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="sports.html">Sport et Loisir</a>
+            <a href="sports.php">Sport et Loisir</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -121,7 +121,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3" id="footer_copy">© 2018 Copyright:
-      <a href="HomePage.html"> EceAmazon.fr</a>
+      <a href="HomePage.php"> EceAmazon.fr</a>
     </div>
     <!-- Copyright -->
 
