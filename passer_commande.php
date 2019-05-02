@@ -38,8 +38,12 @@
   <h2>Finalisation de la commande </h2>
   <?php 
 
-  ///je récoupère l'id du mec
-  $email $_GET['email'] ; 
+  ///je récupère l'id du mec
+  $email $_GET['email'] ;
+
+    ///je récupère le montant avant frais de port
+    ///faire une fonction calcul total prix en ajouter des frais de port selon un pourcentage 
+  $total $_GET['total'] ;  
   ?>
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
