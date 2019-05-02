@@ -10,8 +10,6 @@ CREATE TABLE `piscine_test`.`utilisateur` (
 	`utilisateur_photo` VARCHAR(255) NULL,
 	`utilisateur_type` VARCHAR(8) NOT NULL,
 	`utilisateur_vendeur_photofond` VARCHAR(255) NULL,
-	`utilisateur_acheteur_adresse` VARCHAR(255) NULL,
-	`utilisateur_acheteur_cb` INT NULL,
 	PRIMARY KEY (`utilisateur_email`)
 ) ENGINE = INNODB;
 
@@ -66,6 +64,18 @@ CREATE TABLE `piscine_test`.`livraison` (
 	PRIMARY KEY (`livraison_id`),
 	FOREIGN KEY (`utilisateur_email`)
 	REFERENCES `utilisateur`(`utilisateur_email`)
-	
+) ENGINE = INNODB;
+
+DROP TABLE IF EXISTS `paiement`;
+CREATE TABLE `piscine_test`.`paiement` (
+	`paiement_type` VARCHAR(255) NOT NULL,
+	`paiement_num` INT(16) NOT NULL,
+	`paiement_nom` VARCHAR(255) NOT NULL,
+	`paiement_date` INT(4) NOT NULL,
+	`paiement_secu` INT(3) NOT NULL,
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`paiement_num`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
 ) ENGINE = INNODB;
 
