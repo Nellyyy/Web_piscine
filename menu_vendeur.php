@@ -59,7 +59,6 @@
 			}
 			//deconnexion de la base de donnée
 			mysqli_close($db_handle);
-
 		?>
 		<br/>
 	</div>
@@ -69,11 +68,19 @@
 		<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
 			note, plus tard il faudra récupérer l'email depuis cette fonction avec $_POST-->
 		<input type="hidden" name="email" value=<?php  echo "\"" . "covillebenoit@gmail.com" . "\""?>/>
-		<input type="submit" value="Envoyer"/>
+		<input type="submit" value=s"Envoyer"/>
 	</form>
 
 	<p>Voici votre fond d'écran</p>
 	<!--ici on va chercher le nom de la photo dans la base de donnée et on affiche la photo stockée sur le serveur-->
+	<?php
+		//connexion BDD
+		$database = "piscine_test";
+		$db_handle = mysqli_connect('localhost', 'root', '');
+		$db_found = mysqli_select_db($db_handle, $database);
+		
 
+
+	?>
 </body>
 </html>
