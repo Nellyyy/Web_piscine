@@ -41,8 +41,8 @@
 				</tr>
 			</table>
 		</form>
-	 <div>
-	 	<a href="inscription.html"> pas encore de compte? **S'inscire ici**</a>
+	 <div id="bottom_body">
+	 	<a href="inscriptionPage.php"> pas encore de compte? **S'inscire ici**</a>
 	 </div>
 	</center>	
  <!--footer-->

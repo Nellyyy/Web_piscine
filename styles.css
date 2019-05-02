@@ -104,3 +104,12 @@ body a:hover {
 	padding : 0 11px;
 
 }
+#connexion_bloque
+{
+	visibility: hidden;
+	color: red;
+}
+#bottom_body
+{
+	margin-bottom: 40px;
+}

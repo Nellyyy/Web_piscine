@@ -13,28 +13,51 @@
 
 	if($db_found)
 	{
+		//sql query
 		$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 		$result = mysqli_query($db_handle, $sql);
+
 		//On referme la base de donnée
 		mysqli_close($db_handle);
-
+		
+		//si on ne trouve pas l'email rentré dans la base de donnée 
 		if (mysqli_num_rows($result) == 0)
 		{
 			echo "Aucun compte associé à l'email rentré";
+			//On redirige vers la page connexion
 			header('Location: connexionPage.php');
-			exit;
+			exit;//On n'execute pas le reste
 		}
-		else
+		else//On trouve cet utilisateur
 		{
-			$data = mysqli_fetch_assoc($result);
-			
 			//On connecte l'utilisateur :
 			$_SESSION["email"] = $_POST["email"];
-			//on redirige vers la page menu vendeur
-			header('Location: menu_vendeur.php');//grave stylé !!!
-			exit;
+
+			//On recupère le resultat de la recherche
+			$data = mysqli_fetch_assoc($result);
+			$type = $data["utilisateur_type"];
+
+			if($type == "acheteur")
+			{
+				//on redirige vers la page menu acheteur
+				header('Location: menu_acheteur.php');
+				exit;//on n'execute pas le reste de cette page
+			}
+			else if($type == "vendeur")
+			{
+				header('Location: menu_vendeur.php');
+				exit;
+			}
+			else if($type == "admin")
+			{
+				header('Location: menu_admin.php');
+				exit;
+			}
+			else
+			{
+				echo "problem formattage de type d'utilisateur <br/>";
+			}
 		}
-		
 	}
 	else
 	{
