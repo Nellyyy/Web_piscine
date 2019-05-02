@@ -70,7 +70,7 @@
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
 
          <p>vari<?php echo $id=$data['item_id'];?></p> 
-          <p><?php echo "<a href=recupId.php?nom=". $id.">voir plus</a>"  ;?></p>
+          <p><?php echo "<a href=recupId.php?id=". $id.">voir plus</a>"  ;?></p>
 
         </div> 
       </div>
