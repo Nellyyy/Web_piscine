@@ -1,14 +1,14 @@
-<?php 
-		echo $_GET['id_choisi'] ; 
-		$id = $_GET['id_choisi'] ; 
-
-?>
 
 <?php 
-		echo $_GET['id_choisi'] ; 
-		$id = $_GET['id_choisi'] ; 
+		echo "id item  = ".$_POST['id_choisi'] ;
+		echo "quantite = ".$_POST['quantite'];
+
+		
+		$id = $_POST['id_choisi']; 
+		$quantite= $_POST['quantite'];
 		$utilisateur_email="lyla1998@gmail.com";
-
+		
+		
 	    //identification de notre BDD
 	    $database = "piscine_test";
 
@@ -18,13 +18,15 @@
 
 	    //si la base existe
 	    //on selectionne l'item avec l'id envoyé
-	    if($db_found){
+	  
+		    if($db_found){
 
-	    $addsql="INSERT INTO panier VALUES('$id', '$utilisateur_email')";
-		$result = mysqli_query($db_handle, $addsql);
-		echo "add successfully to panier";
-		}else{
-			echo "pas ajouter dans panier";
-		}
+		    $addsql="INSERT INTO panier VALUES('$id', '$utilisateur_email','$quantite')";
+			$result = mysqli_query($db_handle, $addsql);
+			echo "add successfully to panier";
+			}else{
+				echo "pas ajouter dans panier";
+			}
+		
 		
  	?>
