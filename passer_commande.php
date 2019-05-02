@@ -44,6 +44,7 @@
     ///je récupère le montant avant frais de port
     ///faire une fonction calcul total prix en ajouter des frais de port selon un pourcentage 
   $total $_GET['total'] ;  
+
   ?>
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
@@ -62,7 +63,7 @@
 
     ///je veux afficher les articles du panier de mon utilsateur en question
     //ici on utilise une JOINTURE
-  $sql3 = "SELECT * FROM `panier`,`item` WHERE `utilisateur`.`item_id` = 'item'.`item_id`"; 
+  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email'"; 
   $result3 = mysqli_query($db_handle, $sql3);
 
   ?>
@@ -158,7 +159,7 @@
         <div class="col-lg-4" >
           <div class="paiement">
             <div class="paiement_text">
-              <form action="transaction.php" method="post">
+              <form action="bancaire.php" method="post">
                 <table>
                   <tr>
                     <td>type de carte: </td>
@@ -205,7 +206,7 @@
 <!--lien avec fichier php qui ajoute au panier-->
 <form action="transaction.php" method="post">
   <!--bouton ajouter au panier-->
-  <input type="submit" value="valider" name="transaction">
+  <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
 <!--footer-->
