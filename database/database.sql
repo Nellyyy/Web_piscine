@@ -44,6 +44,7 @@ CREATE TABLE `piscine_test`.`item` (
 CREATE TABLE `piscine_test`.`panier` (  
 	`item_id` INT NOT NULL,
 	`utilisateur_email` VARCHAR(255) NOT NULL,
+	`panier_qte` INT(16) NOT NULL,
 	PRIMARY KEY (`item_id`,`utilisateur_email`),
 	FOREIGN KEY (`item_id`)
 	REFERENCES `item`(`item_id`),
