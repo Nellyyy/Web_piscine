@@ -22,7 +22,7 @@
 	  	 <ul class="nav navbar-nav navbar-right">
 	  	  <li><a href="menu_vendeur.php">Mon compte</a></li>
 	      <li><a href="connexionPage.php"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
-	      <li><a href="panier.php"><img src="img/panier.png" width="20px" height="20px"></li>
+	      <li><a href="panier.php"><img src="img/panier.png" width="20px" height="20px"></a></li>
 	    </ul>
 	  </div>
 	</nav>
