@@ -35,7 +35,11 @@ CREATE TABLE `piscine_test`.`item` (
 	`item_vetement_couleur` VARCHAR(10) NULL,
 	`item_vetement_taille` VARCHAR(3) NULL,
 	`item_sport_categorie` VARCHAR(255) NULL,
-	PRIMARY KEY (`item_id`)
+	`utilisateur_email` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`item_id`),
+	FOREIGN KEY (`utilisateur_email`)
+	REFERENCES `utilisateur`(`utilisateur_email`)
+	
 ) ENGINE = INNODB;
 
 
@@ -43,10 +47,8 @@ CREATE TABLE `piscine_test`.`panier` (
 	`item_id` INT NOT NULL,
 	`utilisateur_email` VARCHAR(255) NOT NULL,
 	PRIMARY KEY (`item_id`,`utilisateur_email`),
-	CONSTRAINT `fk_item_id`
 		FOREIGN KEY (`item_id`)
 		REFERENCES `item`(`item_id`),
-	CONSTRAINT `fk_utilisateur_email`
 		FOREIGN KEY (`utilisateur_email`)
 		REFERENCES `utilisateur`(`utilisateur_email`)
 ) ENGINE = InnoDB;
