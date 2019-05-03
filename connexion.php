@@ -24,6 +24,7 @@
 		if (mysqli_num_rows($result) == 0)
 		{
 			echo "Aucun compte associé à l'email rentré";
+			$_SESSION["try_connect"] = True;
 			//On redirige vers la page connexion
 			header('Location: connexionPage.php');
 			exit;//On n'execute pas le reste

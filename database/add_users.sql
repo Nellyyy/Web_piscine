@@ -1,3 +1,3 @@
-INSERT INTO `utilisateur` (`utilisateur_nom`, `utilisateur_prenom`, `utilisateur_email`, `utilisateur_pseudo`, `utilisateur_mdp`, `utilisateur_photo`, `utilisateur_type`, `utilisateur_vendeur_photofond`, `utilisateur_acheteur_adresse`, `utilisateur_acheteur_cb`) VALUES
-('Coville', 'Benoit', 'covillebenoit@gmail.com', 'benco', 'topsecret', 'pic.jpg', 'acheteur', NULL, '1 rue de la paix', 1234),
-('Coville', 'jean', 'jeanbenoit@gmail.com', 'lol', 'azerty', 'pic.jpg', 'acheteur', '', '1 rue de la paix', 1234);
+INSERT INTO `utilisateur` (`utilisateur_nom`, `utilisateur_prenom`, `utilisateur_email`, `utilisateur_pseudo`, `utilisateur_mdp`, `utilisateur_photo`, `utilisateur_type`, `utilisateur_vendeur_photofond`) VALUES
+('Coville', 'Benoit', 'covillebenoit@gmail.com', 'benco', 'topsecret', 'pic.jpg', 'acheteur', NULL),
+('Coville', 'jean', 'jeanbenoit@gmail.com', 'lol', 'azerty', 'pic.jpg', 'vendeur', NULL);
