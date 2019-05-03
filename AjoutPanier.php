@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 
 <?php 
 		echo "id item  = ".$_POST['id_choisi'] ;
@@ -6,6 +9,7 @@
 		
 		$id = $_POST['id_choisi']; 
 		$quantite= $_POST['quantite'];
+		//$utilisateur_email=$_SESSION["email"];
 		$utilisateur_email="lyla1998@gmail.com";
 		
 		
@@ -20,13 +24,14 @@
 	    //on selectionne l'item avec l'id envoyé
 	  
 		    if($db_found){
-
-		    $addsql="INSERT INTO panier VALUES('$id', '$utilisateur_email','$quantite')";
-			$result = mysqli_query($db_handle, $addsql);
-			echo "add successfully to panier";
+		    	if(isset($_SESSION["email"])){
+		    		$addsql="INSERT INTO panier VALUES('$id', '$utilisateur_email','$quantite')";
+					$result = mysqli_query($db_handle, $addsql);
+					echo "add successfully to panier";
+		    	}
 			}else{
 				echo "pas ajouter dans panier";
 			}
-		
+		include("vetements.php");
 		
  	?>
