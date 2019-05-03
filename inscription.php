@@ -6,8 +6,8 @@
 	$email= isset($_POST["email"])? $_POST["email"] : "";
 	$pseudo = isset($_POST["pseudo"])? $_POST["pseudo"] : "";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
-	$photo = isset($_POST["photo"])? $_POST["photo"] : "";
-	$type = isset($_POST["type"])? $_POST["type"] : "";
+	$photo = "uploads/default_pp.png";
+	$type = "acheteur";
 	$adresse1 = isset($_POST["adresse1"])? $_POST["adresse1"] : "";
 	$adresse2 = isset($_POST["adresse2"])? $_POST["adresse2"] : "";
 	$ville = isset($_POST["ville"])? $_POST["ville"] : "";
@@ -32,9 +32,10 @@
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
 				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '')";
 				$result2 = mysqli_query($db_handle, $addsql);
-				$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$$pays', '$tel', '$email')";
+				$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$pays', '$tel', '$email')";
 				$resultbis = mysqli_query($db_handle, $addsqlbis);
 				echo "votre compte a bien été crée";
+				header("Location: mon_compte.php");
 			} else {
 			///si ils sont déja utilisés
 				echo "ce pseudi ou email est déja utilisés, veuillez en choisir un autre";

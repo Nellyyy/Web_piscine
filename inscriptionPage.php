@@ -21,7 +21,7 @@
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
   <?php include("menu.php"); ?>
   <!--menu-->
-  <center>
+  <center id="bottom_body">
   	<h3>Sign Up</h3>
   	<form action="inscription.php" method="post">
   		<table>
@@ -44,18 +44,6 @@
   			<tr>
   				<td>Mot de passe:</td>
   				<td><input type="password" name="mdp"></td>
-  			</tr>
-  			<tr>
-  				<td>Photo:</td>
-  				<td><input type="text" name="photo"></td>
-  			</tr>
-  			<tr>
-  				<td><label>Type: </label></td>
-  				<td><select name="type">
-  					<option value="">Sélectionner un type</option>
-  					<option value="vendeur"> Vendeur</option>
-  					<option value="acheteur"> Acheteur</option>
-  				</select></td>	
   			</tr>
   			<tr>
   				<td>Adresse 1 :</td>
