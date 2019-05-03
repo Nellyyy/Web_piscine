@@ -238,6 +238,16 @@
   <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
+  <?php
+      if(isset($_SESSION["try_paiement"]))
+      {
+    ?>
+        <div style="color: red;">
+        Aucune carte bancaire renseignée <br/>
+        </div> 
+    <?php
+      }
+    ?>
 <!--footer-->
 <?php include("footer.php"); ?>
 <!--footer-->
