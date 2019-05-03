@@ -25,8 +25,10 @@
 <body>
 	<!--menu-->
 	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-	<?php include("menu.php"); ?>
-	<!--menu-->
+	<?php 
+  //session_start();
+  include("menu.php"); ?>
+  <!--menu-->
 
   <!--connection bdd-->
   <?php
@@ -41,7 +43,7 @@
   <?php 
 
   ///je récupère l'id du mec
-  //$email $_GET['email'] ;
+  //$email= $_SESSION["email"];
 
   $email = 'charlene.bruno@edu.ece.fr';
 
@@ -61,7 +63,7 @@
 
   ///je veux afficher les articles du panier de mon utilsateur en question
   //ici on utilise une JOINTURE
-  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email'"; 
+  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email%'"; 
   $result3 = mysqli_query($db_handle, $sql3);
 
   ?>
@@ -130,7 +132,8 @@
 
       <?php
       //on va scanner tous les tuples un par un-->
-      if(mysqli_fetch_array($result,MYSQLI_ASSOC)!=0){
+      //if(mysqli_fetch_array($result2,MYSQLI_ASSOC)!=0){
+      $count = 0;
       while($data = mysqli_fetch_array($result2,MYSQLI_ASSOC)) 
       {
         ?>
@@ -143,84 +146,83 @@
                 <table>
                   <tr>
                     <td>type de carte: </td>
-                    <td><input type="text" name="type" value="$data['paiement_type']"></td>
+                    <td><input type="text" name="type" value=" <?php echo $data['paiement_type'];?>"></td>
                   </tr>
                   <tr>
                     <td>Numéro de carte: </td>
-                    <td><input type="number" name="numero" value="$data['paiement_num']"></td>
+                    <td><input type="number" name="numero" value="<?php echo $data['paiement_num'];?>"></td>
                   </tr>
                   <tr>
                     <td>titulaire: </td>
-                    <td><input type="text" name="nom" value="$data['paiement_nom']"></td>
+                    <td><input type="text" name="nom" value="<?php echo $data['paiement_nom'];?>"></td>
                   </tr>
                   <tr>
                     <td>date d'expiration: </td>
-                    <td><input type="number" nom="date" value="$data['paiement_date']"></td>
+                    <td><input type="number" nom="date" value="<?php echo $data['paiement_date'];?>"></td>
                   </tr>
                   <tr>
                     <td>code de sécurité: </td>
-                    <td><input type="number" nom="secu" value="$data['paiement_secu']" ></td>
+                    <td><input type="number" nom="secu" value="<?php echo $data['paiement_secu'];?>" ></td>
                   </tr>
                 </table>
               </form>
             </div> 
           </div>
         </div>
-
         <?php
-      }}
+        // }
+        $count = $count+1;
+      }
       //fermer la base
       //}else {echo "db pas trouve";}
       //mysqli_close($db_handle);
 
       ?>
     </div>
+    <div class="row">
+      <?php
+      //on va scanner tous les tuples un par un-->
+      if($count ==0){
+      ?>
 
-  <div class="row">
-
-    <?php
-    //on va scanner tous les tuples un par un-->
-    if(mysqli_fetch_array($result,MYSQLI_ASSOC)==0){
-    ?>
-
-    <!--on affiche les résultats-->
-    <div class="col-lg-4" >
-      <div class="paiement">
-        <div class="paiement_text">
-          <form action="bancaire.php" method="post">
-            <table>
-              <tr>
-                <td>type de carte: </td>
-                <td><input type="text" name="type"></td>
-              </tr>
-              <tr>
-                <td>Numéro de carte: </td>
-                <td><input type="number" name="numero"></td>
-              </tr>
-              <tr>
-                <td>titulaire: </td>
-                <td><input type="text" name="nom"></td>
-              </tr>
-              <tr>
-                <td>date d'expiration: </td>
-                <td><input type="number" name="date"></td>
-              </tr>
-              <tr>
-                <td>code de sécurité: </td>
-                <td><input type="number" name="secu" ></td>
-              </tr>
-              <tr>
-                <td colspan="2" align="center"> <input type="submit" value="Enregistrer" name="bouttone"></td>
-              </tr>
-            </table>
-          </form>
-        </div> 
+      <!--on affiche les résultats-->
+      <div class="col-lg-4" >
+        <div class="paiement">
+          <div class="paiement_text">
+            <form action="bancaire.php" method="post">
+              <table>
+                <tr>
+                  <td>type de carte: </td>
+                  <td><input type="text" name="type"></td>
+                </tr>
+                <tr>
+                  <td>Numéro de carte: </td>
+                  <td><input type="number" name="numero"></td>
+                </tr>
+                <tr>
+                  <td>titulaire: </td>
+                  <td><input type="text" name="nom"></td>
+                </tr>
+                <tr>
+                  <td>date d'expiration: </td>
+                  <td><input type="number" name="date"></td>
+                </tr>
+                <tr>
+                  <td>code de sécurité: </td>
+                  <td><input type="number" name="secu" ></td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center"> <input type="submit" value="Enregistrer" name="bouttone"></td>
+                </tr>
+              </table>
+            </form>
+          </div> 
+        </div>
       </div>
-    </div>
 
-    <?php
-  }
-  //fermer la base
+      <?php
+    }
+    //fermer la base
   }else {echo "db pas trouve";}
   //mysqli_close($db_handle);
   //echo '<script type="text/javascript">mafonctionjavascript($total);</script>';
