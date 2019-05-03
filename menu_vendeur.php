@@ -33,15 +33,13 @@
 			{
 			$email = $_SESSION["email"];
 
-			//identifier votre BDD
+			//connexion BDD
 			$database = "piscine_test";
-			//connectez-vous dans votre BDD
 			$db_handle = mysqli_connect('localhost', 'root', '');
 			$db_found = mysqli_select_db($db_handle, $database);
 
 			if ($db_found)
 			{
-				//$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
 				if($result != NULL)
@@ -90,12 +88,13 @@
 			<input type="hidden" name="email" value=<?php  echo "\"" . "$email" . "\""?>/>
 			<input type="submit" value="Envoyer"/>
 		</form>
+		<br/>
 	</div>
 	<?php
 		if($_SESSION["type"]=="admin")
 		{
 	?>
-			<a href="gestion_vendeur.php">Gérer les vendeurs</a>
+			<a href="gestion_vendeurs.php">Gérer les vendeurs</a>
 
 	<?php
 		}
