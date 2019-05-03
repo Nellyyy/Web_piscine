@@ -1,5 +1,8 @@
 <?php
-	session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +51,13 @@
 						//afficher l'image de fond d'écran
 						?>
 						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 150px">
-							<h1>Menu Vendeur</h1>
 						</div> 
 						<?php
 							//photo de profil
 							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-							echo "Nom: " . $data['utilisateur_nom'] . '<br>';
-							echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
+							echo "Nom: " . $data['utilisateur_nom'] . "<br>";
+							echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
+							echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
 					}
 				}
 			}
@@ -88,6 +91,15 @@
 			<input type="submit" value="Envoyer"/>
 		</form>
 	</div>
+	<?php
+		if($_SESSION["type"]=="admin")
+		{
+	?>
+			<a href="gestion_vendeur.php">Gérer les vendeurs</a>
+
+	<?php
+		}
+	?>
 	<div>
 		<h2>Se deconnecter</h2>
 		<form action="deconnexion.php" method="post">

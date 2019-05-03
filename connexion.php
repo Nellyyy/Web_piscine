@@ -45,16 +45,12 @@
 				header('Location: menu_acheteur.php');
 				exit;//on n'execute pas le reste de cette page
 			}
-			else if($type == "vendeur")
+			else if($type == "vendeur" || $type == "admin")
 			{
 				header('Location: menu_vendeur.php');
 				exit;
 			}
-			else if($type == "admin")
-			{
-				header('Location: menu_admin.php');
-				exit;
-			}
+
 			else
 			{
 				echo "problem formattage de type d'utilisateur <br/>";
