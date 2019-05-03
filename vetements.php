@@ -35,13 +35,12 @@
   ?>
 
   <!--menu catégories--> 
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin: 0px;">
     <div class="menu_categorie">
-      <p>Catégorie</p>
+      <p>Catégorie > Vêtements</p>
     </div>
   </div>
-  <!--accueil vetements-->
-  <h1>Venez choisir vos vêtements!</h1>
+
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
   <?php
@@ -57,6 +56,18 @@
 
 <div class="container-fluid">
   <div class="row">
+
+    <div class="col-lg-2" >
+      <div class="block">
+        <div class="case">
+          <p>Vetement</p>
+        </div>
+        <div class="case">
+          <p>livres</p>
+        </div>
+      </div>
+      
+    </div>
 
     <?php
       //on va scanner tous les tuples un par un-->
