@@ -23,8 +23,6 @@
 <body>
 	<?php include("menu.php"); ?>
 	<center id="bottom_body">
-	<h1>Menu vendeur</h1>
-	<h2>Vos informations</h2>
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
@@ -47,13 +45,16 @@
 				{	
 					while ($data = mysqli_fetch_assoc($result)) 
 					{
-						//photo de profil
-						echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-						
-						echo "Nom: " . $data['utilisateur_nom'] . '<br>';
-						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 						//afficher l'image de fond d'écran
-						echo "<img src=\"" . $data['utilisateur_vendeur_photofond'] . "\"/><br/>";
+						?>
+						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 150px">
+							<h1>Menu Vendeur</h1>
+						</div> 
+						<?php
+							//photo de profil
+							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
+							echo "Nom: " . $data['utilisateur_nom'] . '<br>';
+							echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 					}
 				}
 			}

@@ -24,7 +24,7 @@
 	<center id="bottom_body">
 		<h1>Menu acheteur</h1>
 		<h2>Vos informations</h2>
-		<?php 
+		<?php
 			$email = $_SESSION["email"];
 
 			//connexion BDD
