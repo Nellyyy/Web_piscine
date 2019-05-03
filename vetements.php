@@ -70,8 +70,22 @@
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
 
          <p>vari<?php echo $id=$data['item_id'];?></p> 
+           <!--si il reste des stocks-->
+        <?php
+          if($data['item_qte_stock']!=0)
+          {
+        ?>
           <p><?php echo "<a href=recupId.php?id=". $id.">voir plus</a>"  ;?></p>
 
+        <?php
+        }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
+        else{
+          ?>
+          <p style="color: red; font-style: italic;">Rupture de stock.</p>
+          <?php
+          }
+        ?>
+        
         </div> 
       </div>
     </div>
@@ -86,13 +100,7 @@
  </div>
 </div>
   
-
-  <!--lien avec fichier php qui ajoute au panier-->
-  <form action="ajouter_panier.php" method="post">
-    <!--bouton ajouter au panier-->
-    <input type="submit" value="ajouteraupanier" name="ajouter_panier">
-  </form>
-
+ 
   
   <!--footer-->
   <?php include("footer.php"); ?>
