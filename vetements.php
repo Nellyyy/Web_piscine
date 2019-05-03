@@ -93,6 +93,7 @@
         <?php
           if($data['item_qte_stock']!=0)
           {
+            $id=$data['item_id'];
         ?>
           <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
 
