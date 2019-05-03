@@ -43,8 +43,8 @@
   $email = 'charlene.bruno@edu.ece.fr';
 
   ///je récupère le montant avant frais de port
-  //$total = $_POST['total'];
-  $total = 400; 
+  $total = $_POST['total'];
+
 
   //lancement de la requête 
   if($db_found){
@@ -225,19 +225,27 @@
   }else {echo "db pas trouve";}
   //mysqli_close($db_handle);
   $total = $total +5;
-  echo "'total a payer:'.$total";
+  echo "'total a payer:' .$total";
   ?>
-
-  ///faire une fonction calcul total prix en ajouter des frais de port selon un pourcentage
-  <p> montant à payer: </p>
 </div>
 </div>
+ <?php
+      if(isset($_SESSION["try_paiement"]))
+      {
+    ?>
+        <div style="color: red;">
+        Aucune carte bancaire renseignée <br/>
+        </div> 
+    <?php
+      }
+    ?>
 <!--lien avec fichier php qui ajoute au panier-->
 <form action="transaction.php" method="post">
   <!--bouton ajouter au panier-->
   <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
+ 
 <!--footer-->
 <?php include("footer.php"); ?>
 <!--footer-->
