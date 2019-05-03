@@ -24,7 +24,7 @@
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
   <?php include("menu.php"); ?>
   <!--menu-->
-	<center>
+	<center id="bottom_body">
 		<h3>Sign In</h3>
 		<form action="connexion.php" method="post">
 			<table>
@@ -41,9 +41,20 @@
 				</tr>
 			</table>
 		</form>
-	 <div id="bottom_body">
-	 	<a href="inscriptionPage.php"> pas encore de compte? **S'inscire ici**</a>
-	 </div>
+	 	<div>
+	 		<a href="inscriptionPage.php"> pas encore de compte? **S'inscire ici**</a>
+	 	</div>
+
+	 	<?php
+	 		if(isset($_SESSION["try_connect"]))
+	 		{
+		?>
+				<div style="color: red;">
+				Erreur lors de la connexion<br/>
+				</div> 
+		<?php
+	 		}
+	 	?>
 	</center>	
  <!--footer-->
   <?php include("footer.php"); ?>

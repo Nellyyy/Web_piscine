@@ -22,7 +22,7 @@
 </head>
 <body>
 	<?php include("menu.php"); ?>
-
+	<center id="bottom_body">
 	<h1>Menu vendeur</h1>
 	<h2>Vos informations</h2>
 	<div>
@@ -48,9 +48,9 @@
 					while ($data = mysqli_fetch_assoc($result)) 
 					{
 						//photo de profil
-						echo "<img src=\"" . $data['utilisateur_photo'] . "\"/><br/>";
-
-						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
+						echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
+						
+						echo "Nom: " . $data['utilisateur_nom'] . '<br>';
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 						//afficher l'image de fond d'écran
 						echo "<img src=\"" . $data['utilisateur_vendeur_photofond'] . "\"/><br/>";
@@ -93,6 +93,7 @@
 			<input type="submit" value="Se deconnecter">
 		</form>
 	</div>
+	</center>s
 	<?php include("footer.php"); ?>
 </body>
 </html>
