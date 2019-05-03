@@ -61,7 +61,8 @@
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src=<?php echo $data["item_photo"]?> > 
+          <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
@@ -69,9 +70,23 @@
           <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
 
-         <p>vari<?php echo $id=$data['item_id'];?></p> 
-          <p><?php echo "<a href=recupId.php?id=". $id.">voir plus</a>"  ;?></p>
+         
+           <!--si il reste des stocks-->
+        <?php
+          if($data['item_qte_stock']!=0)
+          {
+        ?>
+          <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
 
+        <?php
+        }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
+        else{
+          ?>
+          <p style="color: red; font-style: italic; float: right;">Rupture de stock.</p>
+          <?php
+          }
+        ?>
+        
         </div> 
       </div>
     </div>
@@ -86,13 +101,7 @@
  </div>
 </div>
   
-
-  <!--lien avec fichier php qui ajoute au panier-->
-  <form action="ajouter_panier.php" method="post">
-    <!--bouton ajouter au panier-->
-    <input type="submit" value="ajouteraupanier" name="ajouter_panier">
-  </form>
-
+ 
   
   <!--footer-->
   <?php include("footer.php"); ?>
