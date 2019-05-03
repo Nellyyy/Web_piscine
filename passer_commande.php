@@ -21,7 +21,7 @@
 	<!--menu-->
 	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
 	<?php 
-  //session_start();
+  session_start();
   include("menu.php"); ?>
   <!--menu-->
 
@@ -38,9 +38,8 @@
   <?php 
 
   ///je récupère l'id du mec
-  //$email= $_SESSION["email"];
+  $email= $_SESSION["email"];
 
-  $email = 'charlene.bruno@edu.ece.fr';
 
   ///je récupère le montant avant frais de port
   $total = $_POST['total'];
