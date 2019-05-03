@@ -27,6 +27,17 @@ body a:hover {
 	
 }
 
+/*affichage items*/
+/*menu catégories*/
+.menu_categorie{
+	width: 100%;
+	height: 20px;
+	background-color: #EDEFF4;
+	color: black;
+	margin: 0;
+	
+}
+
 /*affichage item*/
 .item{
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0,.5);
