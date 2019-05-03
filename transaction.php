@@ -1,4 +1,3 @@
-///+1 _1 et envoie email
 
 	<?php
 
@@ -7,7 +6,6 @@
 	session_start();
 	 ///je récupère l'id du mec
   $email= $_SESSION["email"];
-  //$email = 'charlene.bruno@edu.ece.fr';
 
 	//identifier votre BDD
 	$database = "piscine_test";
@@ -33,6 +31,7 @@
 		echo "Database not found";
 	}
 }
+	include("vetements.php");
 	//fermer la connexion
 mysqli_close($db_handle);
 ?>
