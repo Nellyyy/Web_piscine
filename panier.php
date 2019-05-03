@@ -78,7 +78,10 @@
 	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
 	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
 	         	</br>
-	            
+	         	<?php
+	         	$id=$data['item_id'];
+	         	?>
+	          <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
 	  		</div>
 	  	</div>
   	</div>
