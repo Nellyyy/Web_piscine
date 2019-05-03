@@ -21,7 +21,20 @@
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
 	  	  <li><a href="mon_compte.php">Mon compte</a></li>
-	      <li><a href="connexionPage.php"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+	  	  <?php
+	  	  	if(!isset($_SESSION["email"]))//si personne n'est connecté on affiche sign in
+	  	  	{
+	  	  ?>
+	      		<li><a href="connexionPage.php"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+	      <?php
+	      	}
+	      	else//sinon on affiche le nom du mec
+	      	{
+	      		$nom = $_SESSION["nom"];
+	      		$prenom = $_SESSION["prenom"];
+	      		echo "<li><a>" . $prenom . " " . $nom ."</a></li>";
+	      	}
+	      ?>
 	      <li><a href="panier.php"><img src="img/panier.png" width="20px" height="20px"></a></li>
 	    </ul>
 	  </div>

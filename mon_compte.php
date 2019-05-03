@@ -24,8 +24,26 @@
 	<?php 
 		include("menu.php");
 
+		$type = $_SESSION["type"];
+
 		if(isset($_SESSION["email"]))
 		{
+			if($type == "acheteur")
+			{
+				//on redirige vers la page menu acheteur
+				header('Location: menu_acheteur.php');
+				exit;//on n'execute pas le reste de cette page
+			}
+			else if($type == "vendeur")
+			{
+				header('Location: menu_vendeur.php');
+				exit;
+			}
+			else if($type == "admin")
+			{
+				header('Location: menu_admin.php');
+				exit;
+			}
 			header("Location: menu_vendeur.php");
 		}
 		else
