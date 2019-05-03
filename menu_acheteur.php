@@ -40,6 +40,9 @@
 				{	
 					while ($data = mysqli_fetch_assoc($result)) 
 					{
+						//photo de profil
+						echo "<img src=\"" . $data['utilisateur_photo'] . "\"/><br/>";
+						//nom et prenom
 						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 					}
