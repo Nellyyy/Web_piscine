@@ -4,6 +4,10 @@
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	
+	//session_start();
+	 ///je récupère l'id du mec
+  //$email= $_SESSION["email"];
+  $email = 'charlene.bruno@edu.ece.fr';
 
 	//identifier votre BDD
 	$database = "piscine_test";
@@ -12,23 +16,17 @@
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 
-  ///je récupère l'id du mec
-  $email $_GET['email'] ;
-
-    ///je récupère le montant avant frais de port
-    ///faire une fonction calcul total prix en ajouter des frais de port selon un pourcentage 
-  $total $_GET['total'] ;  
-
   //lancement de la requête 
-  if($db_found){
 	if ($_POST["boutton_transaction"]) {
 		if ($db_found) {
 		
 		//on enleve de la reserve les produits achetés
-				$updatesql="UPDATE `item` SET `item_qte_stock` = `item_qte_stock`- `panier_qte`  WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email'";
+				 $updatesql = "UPDATE `item`,`panier` SET item.`item_qte_stock` = item.`item_qte_stock`- (SELECT `panier_qte` FROM `panier` WHERE 
+					`panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email') WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email'";
 				$result = mysqli_query($db_handle, $updatesql);
 	//on augmente  de ventes de la qte des produits achetés
-				$updatesql2="UPDATE `item` SET `item_qte_vendue` = `item_qte_vendue`+ `panier_qte`  WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email'";
+				$updatesql2="UPDATE `item`,`panier` SET item.`item_qte_vendue` = item.`item_qte_vendue`+ (SELECT `panier_qte` FROM `panier` WHERE 
+					`panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email') WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email'";
 				$result2 = mysqli_query($db_handle, $updatesql2);
 
 		} else {
