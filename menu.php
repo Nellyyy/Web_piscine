@@ -1,6 +1,6 @@
 <!--menu-->
 	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
 	  <div class="container-fluid menu">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">Ece Amazon</a>
