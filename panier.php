@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,7 @@
 	  		//identification de notre BDD
    			 $database = "piscine_test";
 
-		    //connectez-vous dans la BDD-->
+		    //connection dans la BDD-->
 		    $db_handle = mysqli_connect('localhost', 'root', '');
 		    $db_found = mysqli_select_db($db_handle, $database);
 
@@ -38,16 +42,23 @@
 
 		    if($db_found){
 		    	if(isset($email)){
-		    		$sql = "SELECT * FROM `panier` WHERE `utilisateur_email` LIKE '%$email%'"; 
-			    	$result = mysqli_query($db_handle, $sql);
-
-		
+		    	
+		    	//compteur
+		    		$count=0;
+		    		$total=0;
+			    	//on recherche dans items les items du mec
+			    	///je veux afficher les articles du panier de mon utilsateur en question
+				  //ici on utilise une JOINTURE
+				  $sql = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email`LIKE '%$email%' ";
+				  $result = mysqli_query($db_handle, $sql);
+						
 				      //on va scanner tous les tuples un par un-->
 				      while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
 				      {
+				      	$sous_total=0;
 				    ?>
 
-				    <div class="container-fluid">
+ <div class="container-fluid">
   	<div class="row">
   		<div class="col-lg-6" >
 	  		<div class="item_grand">
@@ -72,17 +83,37 @@
 	  	</div>
   	</div>
   </div>
- 
+
+  <!-- séparateur entre les articles affichés-->
+   <hr class="separateur_footer" style="margin: 0 10% 10px;">
+
+ <?php
+ $count=$count+1;
+ $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
+ ?>
+
+ <h5>le sous total de l'article est <?php echo $sous_total;?> </h5>
+
+ <?php
+ $total= $total + $sous_total;
       }
+      if($count==0){
+      	echo "pas d'articles dans le panier";
+      }
+  }else {echo "pas email trouve";}
       //fermer la base
     }else {echo "db pas trouve";}
       mysqli_close($db_handle);
-    
-  
-		   		}else {echo "pas email trouve";}   
-			}
 
-	  	?>
+
+?>
+		<h4>le total de votre commande est <?php echo $total;?> </h4>
+		<form method="post" action="passer_commande.php">
+						
+						<input type="hidden" name="total" value=" <?php echo $total;?>">
+						<input type="submit" value="Finaliser la commande" >
+		</form>
+
   </div>
   
   
