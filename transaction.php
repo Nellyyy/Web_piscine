@@ -21,6 +21,7 @@
 	//je check si l'utilisateur a bien renmpli une cb
 	$sqlp = "SELECT * FROM `paiement` WHERE `utilisateur_email` LIKE '%$email%'"; 
   $resultp = mysqli_query($db_handle, $sqlp);
+
 		if (mysqli_num_rows($resultp) == 0)
 		{
 			echo "veuillez renseigner des coordonnées bancaires";
@@ -40,12 +41,24 @@
 					`panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email') WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email` LIKE '%$email'";
 				$result2 = mysqli_query($db_handle, $updatesql2);
 
+				 ///je veux afficher les articles du panier de mon utilsateur en question
+  //ici on utilise une JOINTURE
+  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email`LIKE '%$email%' "; 
+  $result3 = mysqli_query($db_handle, $sql3);
+
+				 while ($data = mysqli_fetch_array($result3,MYSQLI_ASSOC)) 
+      {
+      	$sqldelete ="DELETE FROM `panier` WHERE `utilisateur_email` LIKE '$email'";
+      	 $resultdelete= mysqli_query($db_handle, $sqldelete);
+      } 
+
 		} 
 	}else {
 		echo "Database not found";
 	}
 }
-	include("vetements.php");
+	include("mail.php");
+
 	//fermer la connexion
 mysqli_close($db_handle);
 ?>
