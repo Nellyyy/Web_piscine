@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +39,6 @@
   				<td><input type="text" name="email"></td>
   			</tr>
   			<tr>
-  				<td>Pseudo:</td>
-  				<td><input type="text" name="pseudo"></td>
-  			</tr>
-  			<tr>
   				<td>Mot de passe:</td>
   				<td><input type="password" name="mdp"></td>
   			</tr>
@@ -74,6 +71,14 @@
   			</tr>
   		</table>
   	</form>
+    <?php
+      if(isset($_SESSION["try_signup"]))
+      {
+    ?>
+        <div style="color: red;"><?php echo $_SESSION["error_signup"]; ?><br/></div> 
+    <?php
+      }
+    ?>
   </center>
   <!--footer-->
   <?php include("footer.php"); ?>
