@@ -5,11 +5,6 @@
 
   <!--font style-->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
-  <!--<script type="text/javascript">mafonctionjavascript(total){
-   var total_final = $total + 5; 
-   return total_final;} 
- </script>
- -->
  <!--lien fichier css-->
  <link rel="stylesheet" media="screen" type="text/css" href="styles.css" />
 
@@ -73,16 +68,15 @@
 
       <?php
       //on va scanner tous les tuples un par un-->
-      $countitem = 0;
       while ($data = mysqli_fetch_array($result3,MYSQLI_ASSOC)) 
-      { $countitem =  $countitem+1;
+      { 
         ?>
 
         <!--on affiche les résultats-->
         <div class="col-lg-4" >
           <div class="articles">
             <div class="articles_text">
-              <p>coucoucouc</p>
+              <p> vos items </p>
               <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
               <p style="font-style: italic;"><?php echo $data['item_prix'];?></p>
               <p style="font-style: italic;"><?php echo $data['item_photo'];?></p>
@@ -113,6 +107,7 @@
         <div class="col-lg-4" >
           <div class="livraison">
             <div class="livraison_text">
+              <p> adresse de livraison</p>
               <p style="font-weight: bold;"><?php echo $data['livraison_a1'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_a2'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_ville'];?></p>
@@ -144,6 +139,7 @@
         <div class="col-lg-4" >
           <div class="paiement">
             <div class="paiement_text">
+               <p> vos informations bancaires</p>
               <form>
                 <table>
                   <tr>
@@ -191,6 +187,7 @@
       <div class="col-lg-4" >
         <div class="paiement">
           <div class="paiement_text">
+            <p> vos informations bancaires</p>
             <form action="bancaire.php" method="post">
               <table>
                 <tr>
@@ -227,8 +224,8 @@
     //fermer la base
   }else {echo "db pas trouve";}
   //mysqli_close($db_handle);
-  echo '<script type="text/javascript">mafonctionjavascript($total);</script>';
-
+  $total = $total +5;
+  echo "'total a payer:'.$total";
   ?>
 
   ///faire une fonction calcul total prix en ajouter des frais de port selon un pourcentage
