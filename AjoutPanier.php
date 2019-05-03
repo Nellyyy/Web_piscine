@@ -3,9 +3,7 @@
 ?>
 
 <?php 
-		echo "id item  = ".$_POST['id_choisi'] ;
-		echo "quantite = ".$_POST['quantite'];
-
+		
 		
 		$id = $_POST['id_choisi']; 
 		$quantite= $_POST['quantite'];
