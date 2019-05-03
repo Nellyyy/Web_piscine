@@ -4,10 +4,10 @@
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	
-	//session_start();
+	session_start();
 	 ///je récupère l'id du mec
-  //$email= $_SESSION["email"];
-  $email = 'charlene.bruno@edu.ece.fr';
+  $email= $_SESSION["email"];
+  //$email = 'charlene.bruno@edu.ece.fr';
 
 	//identifier votre BDD
 	$database = "piscine_test";
