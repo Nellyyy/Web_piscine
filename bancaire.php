@@ -1,4 +1,7 @@
 	<?php
+	session_start();
+	 ///je récupère l'id du mec
+  $email= $_SESSION["email"];
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$type = isset($_POST["type"])? $_POST["type"] : "";
@@ -19,12 +22,13 @@
 		
 		//si le pseudo et l'email n'ont pas encore été utilisés
 		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$addsql="INSERT INTO paiement VALUES('$type', '$numero', '$nom', '$date', '$secu')";
+				$addsql="INSERT INTO paiement VALUES('$type', '$numero', '$nom', '$date', '$secu','$email')";
 				$result = mysqli_query($db_handle, $addsql);
 		} else {
 		echo "Database not found";
 	}
 }
+include("passer_commande.php");
 	//fermer la connexion
 mysqli_close($db_handle);
 ?>

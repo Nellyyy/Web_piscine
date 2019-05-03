@@ -43,8 +43,8 @@
   $email = 'charlene.bruno@edu.ece.fr';
 
   ///je récupère le montant avant frais de port
-  //$total = $_POST['total'];
-  $total = 400; 
+  $total = $_POST['total'];
+
 
   //lancement de la requête 
   if($db_found){
@@ -238,6 +238,16 @@
   <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
+  <?php
+      if(isset($_SESSION["try_paiement"]))
+      {
+    ?>
+        <div style="color: red;">
+        Aucune carte bancaire renseignée <br/>
+        </div> 
+    <?php
+      }
+    ?>
 <!--footer-->
 <?php include("footer.php"); ?>
 <!--footer-->

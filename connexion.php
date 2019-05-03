@@ -38,6 +38,7 @@
 			$_SESSION["type"] = $data["utilisateur_type"];
 			$_SESSION["nom"] = $data["utilisateur_nom"];
 			$_SESSION["prenom"] = $data["utilisateur_prenom"];
+			$_SESSION["try_connect"] = NULL;
 
 			if($type == "acheteur")
 			{
