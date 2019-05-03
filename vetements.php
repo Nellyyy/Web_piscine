@@ -34,6 +34,12 @@
     $db_found = mysqli_select_db($db_handle, $database);
   ?>
 
+  <!--menu catégories--> 
+  <div class="container-fluid">
+    <div class="menu_categorie">
+      <p>Catégorie</p>
+    </div>
+  </div>
   <!--accueil vetements-->
   <h1>Venez choisir vos vêtements!</h1>
 
@@ -47,6 +53,7 @@
     $result = mysqli_query($db_handle, $sql);
 
   ?>
+ 
 
 <div class="container-fluid">
   <div class="row">
@@ -61,8 +68,8 @@
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src=<?php echo $data["item_photo"]?> > 
-          <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src= "img/jupe.jpg"> 
+          <!--item_photo à la place du chemin fb.png   : <?php// echo $data["item_photo"]?>-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
@@ -82,7 +89,7 @@
         }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
         else{
           ?>
-          <p style="color: red; font-style: italic; float: right;">Rupture de stock.</p>
+          <p style="color: red; font-style: italic; float: right; padding-bottom: 10px;">Rupture de stock.</p>
           <?php
           }
         ?>
