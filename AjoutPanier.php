@@ -7,9 +7,7 @@
 		
 		$id = $_POST['id_choisi']; 
 		$quantite= $_POST['quantite'];
-		//$utilisateur_email=$_SESSION["email"];
-		$utilisateur_email="lyla1998@gmail.com";
-		
+		$utilisateur_email=$_SESSION["email"];
 		
 	    //identification de notre BDD
 	    $database = "piscine_test";
