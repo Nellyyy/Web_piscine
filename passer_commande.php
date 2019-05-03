@@ -48,7 +48,7 @@
   $email = 'charlene.bruno@edu.ece.fr';
 
   ///je récupère le montant avant frais de port
-  //$total $_GET['total'] ; 
+  //$total = $_POST['total'];
   $total = 400; 
 
   //lancement de la requête 
@@ -63,7 +63,7 @@
 
   ///je veux afficher les articles du panier de mon utilsateur en question
   //ici on utilise une JOINTURE
-  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND  `panier`.`utilisateur_email` LIKE '%email%'"; 
+  $sql3 = "SELECT * FROM `panier`,`item` WHERE `panier`.`item_id` = `item`.`item_id` AND `panier`.`utilisateur_email`LIKE '%$email%' "; 
   $result3 = mysqli_query($db_handle, $sql3);
 
   ?>
@@ -73,8 +73,9 @@
 
       <?php
       //on va scanner tous les tuples un par un-->
+      $countitem = 0;
       while ($data = mysqli_fetch_array($result3,MYSQLI_ASSOC)) 
-      {
+      { $countitem =  $countitem+1;
         ?>
 
         <!--on affiche les résultats-->
@@ -86,12 +87,14 @@
               <p style="font-style: italic;"><?php echo $data['item_prix'];?></p>
               <p style="font-style: italic;"><?php echo $data['item_photo'];?></p>
               <p style="font-style: italic;"><?php echo $data['panier_qte'];?></p>
+              <br>
             </div> 
           </div>
         </div>
 
         <?php
       }
+      echo $countitem;
       //fermer la base
       //}else {echo "db pas trouve";}
       //mysqli_close($db_handle);
@@ -132,7 +135,6 @@
 
       <?php
       //on va scanner tous les tuples un par un-->
-      //if(mysqli_fetch_array($result2,MYSQLI_ASSOC)!=0){
       $count = 0;
       while($data = mysqli_fetch_array($result2,MYSQLI_ASSOC)) 
       {
@@ -225,7 +227,7 @@
     //fermer la base
   }else {echo "db pas trouve";}
   //mysqli_close($db_handle);
-  //echo '<script type="text/javascript">mafonctionjavascript($total);</script>';
+  echo '<script type="text/javascript">mafonctionjavascript($total);</script>';
 
   ?>
 
