@@ -1,5 +1,6 @@
 <?php
 session_start();
+$email=$_SESSION["email"];
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@ session_start();
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
     $vet="sport";
     if($db_found){
-    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%'"; 
+    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND NOT `utilisateur_email` LIKE '$email'"; 
     $result = mysqli_query($db_handle, $sql);
 
   ?>
@@ -75,20 +76,18 @@ session_start();
           <a href="sports.php">Sport et Loisir</a>
         </div>
         <div class="case">
-          <a>Danse</a>
+          <a href="randonnee.php">Randonnée</a>
         </div>
         <div class="case">
-          <a>Course</a>
+          <a href="natation.php">Natation</a>
         </div>
         <div class="case">
-          <a>Natation</a>
+          <a href="equitation.php">Equitation</a>
         </div>
         <div class="case">
-          <a>Muscu</a>
+          <a href="tennis.php">Tennis</a>
         </div>
-        <div class="case">
-          <a>Gymnastique</a>
-        </div>
+        
     </div>
 </div>
 

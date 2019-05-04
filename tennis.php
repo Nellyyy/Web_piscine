@@ -8,8 +8,9 @@ $email=$_SESSION["email"];
 <head>
   <title>Ece Amazon</title>
 
-   <!--favicon-->
+  <!--favicon-->
   <?php include("favicon.php"); ?>
+
   <!--font style-->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
 
@@ -44,7 +45,7 @@ $email=$_SESSION["email"];
   <!--menu catégories--> 
   <div class="container-fluid" style="margin: 0px;">
     <div class="menu_categorie">
-      <p>Catégorie > Musiques</p>
+      <p>Catégorie > Sport et loisir</p>
     </div>
   </div>
 
@@ -53,9 +54,9 @@ $email=$_SESSION["email"];
   <?php
     
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
-    $vet="musique";
+    $vet="sport";
     if($db_found){
-    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND NOT `utilisateur_email` LIKE '$email'"; 
+    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND `item_categorie` LIKE 'tennis' AND NOT `utilisateur_email` LIKE '$email'"; 
     $result = mysqli_query($db_handle, $sql);
 
   ?>
@@ -74,17 +75,18 @@ $email=$_SESSION["email"];
         <div class="case">
           <a href="sports.php">Sport et Loisir</a>
         </div>
+        
         <div class="case">
-          <a href="classique.php">Classique</a>
+          <a href="randonnee.php">Randonnée</a>
         </div>
         <div class="case">
-          <a href="electro.php">Electro</a>
+          <a href="natation.php">Natation</a>
         </div>
         <div class="case">
-          <a href="jazz.php">Jazz</a>
+          <a href="equitation.php">Equitation</a>
         </div>
         <div class="case">
-          <a href="rap.php">Rap</a>
+          <a href="tennis.php">Tennis</a>
         </div>
     </div>
 </div>

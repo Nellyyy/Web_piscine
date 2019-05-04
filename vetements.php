@@ -1,5 +1,6 @@
 <?php
 session_start();
+$email=$_SESSION["email"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,7 @@ session_start();
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
     $vet="vetement";
     if($db_found){
-    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%'"; 
+    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND NOT `utilisateur_email` LIKE '$email' "; 
     $result = mysqli_query($db_handle, $sql);
 
   ?>
@@ -73,19 +74,16 @@ session_start();
           <a href="sports.php">Sport et Loisir</a>
         </div>
         <div class="case">
-          <a>Hauts</a>
+          <a href="manteaux.php">Manteaux</a>
         </div>
         <div class="case">
-          <a>Vestes</a>
+          <a href="pantalons.php">Pantalons</a>
         </div>
         <div class="case">
-          <a>Pantalons</a>
+          <a href="hauts.php">Hauts</a>
         </div>
         <div class="case">
-          <a>Jupes</a>
-        </div>
-        <div class="case">
-          <a>Robes</a>
+          <a href="chaussures.php">Chaussures</a>
         </div>
     </div>
 </div>
