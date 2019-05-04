@@ -52,22 +52,41 @@
     $result = mysqli_query($db_handle, $sql);
 
   ?>
- 
 
-<div class="container-fluid">
-  <div class="row">
-
-    <div class="col-lg-2" >
-      <div class="block">
-        <div class="case">
-          <p>Vetement</p>
+<div class="container-fluid left" >
+    <div class="block">
+        <div class="case" id="livres">
+          <a href="livres.php">Livres</a>
         </div>
         <div class="case">
-          <p>livres</p>
+          <a href="etements.php">Vêtements</a>
         </div>
-      </div>
-      
+        <div class="case">
+          <a href="musiques.php">Musique</a>
+        </div>
+        <div class="case">
+          <a href="sports.php">Sport et Loisir</a>
+        </div>
+        <div class="case">
+          <a>Hauts</a>
+        </div>
+        <div class="case">
+          <a>Vestes</a>
+        </div>
+        <div class="case">
+          <a>Pentalon</a>
+        </div>
+        <div class="case">
+          <a>Jupes</a>
+        </div>
+        <div class="case">
+          <a>Robes</a>
+        </div>
     </div>
+</div>
+
+
+  <div class="row">
 
     <?php
       //on va scanner tous les tuples un par un-->
@@ -76,7 +95,7 @@
     ?>
 
     <!--on affiche les résultats-->
-    <div class="col-lg-4" >
+    <div class="col-lg-3 inline" >
       <div class="item">
         <div class="item_image">
           <img class="text-center d-flex justify-content-center" src= "img/jupe.jpg"> 
@@ -84,8 +103,6 @@
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-          <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
-          <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
 
          
@@ -108,7 +125,7 @@
         
         </div> 
       </div>
-    </div>
+    </div>  
     
     <?php
       }
@@ -118,7 +135,7 @@
     
     ?>
  </div>
-</div>
+
   
  
   
