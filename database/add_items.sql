@@ -1,6 +1,6 @@
 INSERT INTO `item`  VALUES
 (NULL, 'Manteau russe',50,'Manteau hivers très chaud avec fourrure.','img/manteau.jpg','video',60,0,'vetement', 'manteau', NULL,NULL,NULL, NULL,'f','beige','M','nelly-anne.pied@edu.ece.fr'),
-(NULL, 'Pentalon de costume',40,'Pentalon de costume classique homme.','img/pentalon.jpg','video',40,0,'vetement', 'pentalon', NULL,NULL,NULL, NULL,'h','gris','L','nelly-anne.pied@edu.ece.fr'),
+(NULL, 'Pentalon de costume',40,'Pentalon de costume classique homme.','img/pantalon.jpg','video',40,0,'vetement', 'pentalon', NULL,NULL,NULL, NULL,'h','gris','L','nelly-anne.pied@edu.ece.fr'),
 (NULL, 'La guerrière',12,'Tshirt col rond rouge pour femme.','img/tshirt.jpg','video',2,0,'vetement', 'haut', NULL,NULL,NULL, NULL,'f','rouge','M','nelly-anne.pied@edu.ece.fr'),
 (NULL, 'Claquettes été',10,'Claquettes d été puma.','img/claquette.jpg','video',30,0,'vetement', 'chaussures', NULL,NULL,NULL, NULL,'h','noir','S','charlene.bruno@edu.ece.fr'),
 (NULL, 'Une vie',3,'Un grand classique de la littérature française.','img/roman.jpg','video',100,0,'livre', 'roman', 'Maupassant', 2002,NULL, NULL,NULL,NULL,NULL,'charlene.bruno@edu.ece.fr'),
