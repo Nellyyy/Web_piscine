@@ -1,4 +1,10 @@
 <?php
+
+
+	session_start();
+	 ///je récupère l'id du mec
+  $email= $_SESSION["email"];
+
 //recuperer les données venant de la page HTML
 //le parametre de $_POST = "name" de <input> de votre page HTML
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -15,7 +21,6 @@ $dateparution = isset($_POST["dateparution"])? $_POST["dateparution"] : 2000;
 $nature = isset($_POST["nature"])? $_POST["nature"] : "";
 $datesortie = isset($_POST["datesortie"])? $_POST["datesortie"] : 2000;
 $artiste = isset($_POST["artiste"])? $_POST["artiste"] : "";
-$style = isset($_POST["style"])? $_POST["style"] : "";
 $categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
 $type= isset($_POST["type"])? $_POST["type"] : "lol";
 $vente= 0;
@@ -29,35 +34,15 @@ $db_found = mysqli_select_db($db_handle, $database);
 
 if ($_POST["bouttonv"]) {
 	if ($db_found) {
-		//NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		//'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie'
-		//NULL,'$nom','$prix', 'ffff','rr','ff',15, 12, 'rr', 'ee',12, 'ee', 'ee','$datesortie', 'e','rrr','w','rr'
 		$sql = "INSERT INTO item 
-		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','jjÃ§nnn')";
+		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$categorie', '$auteur',
+		'$dateparution', '$artiste', '$datesortie', '$sexe', '$couleur', '$taille','$email')";
 		$result = mysqli_query($db_handle, $sql);
-		echo "nom:" . $nom . '<br>';
-		echo "Prix: " . $prix . '<br>';
-		echo "description: " . $description . '<br>';
-		echo "photo: " . $photo . '<br>';
-		echo "video: " . $video. '<br>';
-		echo "quantite: " . $quantite. '<br>';
-		echo "vente: " . $vente . '<br>';
-		echo "type: " . $type. '<br>';
-		echo "auteur: " . $auteur . '<br>';
-		echo "dateparution: " . $dateparution . '<br>';
-		echo "artiste" . $artiste . '<br>';
-		echo "style" . $style . '<br>';
-		echo " datesortie" . $datesortie . '<br>';
-		echo "sexe " . $sexe . '<br>';
-		echo "couleur" . $couleur . '<br>';
-		echo "taile" . $taille . '<br>';
-		echo "categorie " . $categorie . '<br>';
-		echo "Add successful." . "<br>";
 	} else {
 		echo "Database not found";
 	}
 }
+include("HomePage.php");
 //fermer la connexion
 mysqli_close($db_handle);
 ?>
