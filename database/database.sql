@@ -1,4 +1,7 @@
 DROP TABLE IF EXISTS `panier`;
+DROP TABLE IF EXISTS `item`;
+DROP TABLE IF EXISTS `livraison`;
+DROP TABLE IF EXISTS `paiement`;
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `piscine_test`.`utilisateur` (
