@@ -8,7 +8,7 @@
 	$pseudo = "balek";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 	$photo = "uploads/default_pp.png";
-	$type = "acheteur";
+	$type = $_POST["type"];
 	$adresse1 = isset($_POST["adresse1"])? $_POST["adresse1"] : "";
 	$adresse2 = isset($_POST["adresse2"])? $_POST["adresse2"] : "";
 	$ville = isset($_POST["ville"])? $_POST["ville"] : "";
@@ -34,7 +34,7 @@
 				if(mysqli_num_rows($result) == 0)//si le pseudo et l'email n'ont pas encore été utilisés
 				{
 					//création de l'utilisateur
-					$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '')";
+					$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', 'uploads/default_bp.jpg')";
 					$result2 = mysqli_query($db_handle, $addsql);
 					//création de son adresse (dans une autre table)
 					$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$pays', '$tel', '$email')";

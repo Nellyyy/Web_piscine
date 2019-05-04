@@ -64,11 +64,10 @@
   			</tr>
   			<tr>
   				<td>Numéro de téléphone:</td>
-  				<td><input type="number" name="tel" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
-       required></td>
-       <td><span class="note">ex: 0644287394</span></td>
-
+  				<td><input type="number" name="tel" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required></td>
+          <td><span class="note">ex: 0644287394</span></td>
   			</tr>
+        <input type="hidden" name="type" value="acheteur">
   			<tr>
   				<td colspan="2" align="center"><input type="submit" value="S'inscrire" name="bouttoni"></td>
   			</tr>

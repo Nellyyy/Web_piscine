@@ -51,7 +51,33 @@
   ?>
   </table>
 
-<? include("footer.php"); ?>
+  <h2>Ajouter un vendeur</h2>
+  <form action="inscription.php" method="post">
+    <table>
+      <tr>
+        <td>Prénom:</td>
+        <td><input type="text" name="prenom"></td>
+      </tr>
+      <tr>
+        <td>Nom:</td>
+        <td><input type="text" name="nom"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" name="email"></td>
+      </tr>
+      <tr>
+        <td>Mot de passe:</td>
+        <td><input type="password" name="mdp"></td>
+      </tr>
+      <input type="hidden" name="type" value="vendeur">
+      <tr>
+        <td colspan="2" align="center"><input type="submit" value="S'inscrire" name="bouttoni"></td>
+      </tr>
+    </table>
+  </form>
+
+  <?php include("footer.php"); ?>
 </body>
 </html>
 
