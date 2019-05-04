@@ -65,11 +65,16 @@
     <h2>Top vente Vêtements: </h2>
 
     <?php
-      //on va scanner tous les tuples un par un-->
-      while ($data = mysqli_fetch_array($result)) 
-      {
-    ?>
 
+      //variable qui permet d'afficher le top 3
+      $count1 =0;
+      //on va scanner tous les tuples un par un-->
+      while ($data = mysqli_fetch_array($result) ) 
+      {
+        if($count1 <3){
+        $count1 = $count1 + 1;
+    ?>
+      <p style="font-weight: bold;"><?php echo 'numéro '.$count1;?></p>
     <!--on affiche les résultats-->
     <div class="col-lg-4" >
       <div class="item">
@@ -79,13 +84,13 @@
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-          <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
-          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+          <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
         </div> 
       </div>
     </div>
     
     <?php
+    }
       }
       //fermer la base
       //mysqli_close($db_handle);
@@ -95,11 +100,17 @@
     <h2>Top vente Livres: </h2>
 
     <?php
+
+      //variable qui permet d'afficher le top 3
+      $count2 =0;
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result2)) 
       {
+         if($count2 <3){
+        $count2 = $count2 + 1;
     ?>
 
+    <p style="font-weight: bold;"><?php echo 'numéro '.$count2;?></p>
     <!--on affiche les résultats-->
     <div class="col-lg-4" >
       <div class="item">
@@ -109,12 +120,13 @@
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+           <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
         </div> 
       </div>
     </div> 
     <?php
       }
+    }
       //fermer la base
       //mysqli_close($db_handle);
     ?>
@@ -122,11 +134,16 @@
   <div class="row">
     <h2>Top vente Musiques: </h2>
     <?php
+     //variable qui permet d'afficher le top 3
+      $count3 =0;
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result3)) 
       {
+         if($count3 <3){
+        $count3 = $count3 + 1;
     ?>
     <!--on affiche les résultats-->
+    <p style="font-weight: bold;"><?php echo 'numéro '.$count3;?></p>
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
@@ -135,12 +152,13 @@
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p  style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+          <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>";?></p>
         </div> 
       </div>
     </div>
     <?php
       }
+    }
       //fermer la base
       //mysqli_close($db_handle);
     ?>
@@ -148,11 +166,16 @@
   <div class="row">
     <h2>Top vente Sport: </h2>
     <?php
+      //variable qui permet d'afficher le top 3
+      $count4 =0;
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result4)) 
       {
+          if($count4 <3){
+        $count4 = $count4 + 1;
     ?>
     <!--on affiche les résultats-->
+     <p style="font-weight: bold;"><?php echo 'numéro '.$count4;?></p>
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
@@ -161,12 +184,13 @@
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-          <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?><input type="button" class="" value="Voir +"></p>
+          <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>";?></p>
         </div> 
       </div>
     </div> 
     <?php
       }
+    }
       //fermer la base
       //mysqli_close($db_handle);
     ?>
