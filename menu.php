@@ -20,7 +20,13 @@
 	      <li><a href="vendre.php">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
+	  	  <li> <div class="form-group" style="padding-top: 10px">
+             <div class="inline"> <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button></div>
+              <div class="inline"><input type="search" class="input-sm form-control" placeholder="Recherche"></div>
+            </div>
+          </li>
 	  	  <li><a href="mon_compte.php">Mon compte</a></li>
+
 	  	  <?php
 	  	  	if(!isset($_SESSION["email"]))//si personne n'est connecté on affiche sign in
 	  	  	{

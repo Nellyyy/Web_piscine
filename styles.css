@@ -7,6 +7,12 @@ body a:hover {
 	text-decoration: none;
 }
 
+/*recherche*/
+
+.inline{
+	display:inline;
+}
+
 /*page d'accueil*/
 
 
