@@ -33,8 +33,8 @@
 					<td><input type="text" name="email"></td>
 				</tr>
 				<tr>
-					<td>pseudo:</td>
-					<td><input type="text" name="pseudo"></td>
+					<td>mot de passe:</td>
+					<td><input type="passeword" name="pwd"></td>
 				</tr>
 				<tr>
 						<td colspan="2" align="center"><input type="submit" value="Se connecter" name="boutton1"></td>
@@ -49,9 +49,7 @@
 	 		if(isset($_SESSION["try_connect"]))
 	 		{
 		?>
-				<div style="color: red;">
-				Erreur lors de la connexion<br/>
-				</div> 
+				<div style="color: red;"><?php echo $_SESSION["try_connect"]?></div> 
 		<?php
 	 		}
 	 	?>
