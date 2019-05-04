@@ -40,8 +40,14 @@
 
 			if ($db_found)
 			{
+				//Requete utilisateur
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
+
+				//requete
+				$sqlitems = "SELECT * FROM `item` WHERE `utilisateur_email` LIKE '$email'";
+				$resultitems = mysqli_query($db_handle, $sqlitems);
+
 				if($result != NULL)
 				{	
 					while ($data = mysqli_fetch_assoc($result)) 
@@ -98,6 +104,40 @@
 
 	<?php
 		}
+		else{
+
+		 //on affiche tous les items en vente du vendeur
+				      while ($data = mysqli_fetch_array($resultitems,MYSQLI_ASSOC)) 
+				      {
+				      	
+				    ?>
+
+ <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-lg-6" >
+	  		<div class="item_grand">
+		  		<div class="photo_item_grand">
+		  			<img src="img/jupe.jpg">
+		  		</div>
+	  		</div>
+	  	</div>
+	  	<div class="col-lg-6" >
+	  		<div class="item_text_grand">
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
+	  			<p style="font-weight: bold;"><?php echo $data['item_qte_vendue'];?></p>
+	  			<p style="font-weight: bold;"><?php echo $data['item_qte_stock'];?></p>
+	         	</br>
+	         	<?php
+	         	$id=$data['item_id'];
+	         	?>
+	          <p style="float: right;"><?php echo "<a href=retirer_article.php?id=". $id.">retirer</a>"  ;?></p>
+	  		</div>
+	  	</div>
+  	</div>
+  </div>
+ <?php }
+		}
 	?>
 	<div>
 		<h2>Se deconnecter</h2>
@@ -105,7 +145,7 @@
 			<input type="submit" value="Se deconnecter">
 		</form>
 	</div>
-	</center>s
+	</center>
 	<?php include("footer.php"); ?>
 </body>
 </html>
