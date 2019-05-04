@@ -74,7 +74,7 @@
           <a>Vestes</a>
         </div>
         <div class="case">
-          <a>Pentalon</a>
+          <a>Pantalons</a>
         </div>
         <div class="case">
           <a>Jupes</a>
