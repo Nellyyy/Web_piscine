@@ -1,8 +1,5 @@
 <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +7,11 @@
 <html>
 <head>
 	<title>Ece Amazon</title>
-
-	 <!--favicon-->
-  <?php include("favicon.php"); ?>
 	  <!--font style-->
+
+	   <!--favicon-->
+  <?php include("favicon.php"); ?>
+  
 	  <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
 
 	  <!--lien fichier css-->
@@ -28,7 +26,9 @@
 </head>
 <body>
 	<?php include("menu.php"); ?>
-	<center id="bottom_body">
+
+	<h1>Menu Administrateur</h1>
+	<h2>Vos informations</h2>
 	<div>
 		<?php
 			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
@@ -36,35 +36,28 @@
 			{
 			$email = $_SESSION["email"];
 
-			//connexion BDD
+			//identifier votre BDD
 			$database = "piscine_test";
+			//connectez-vous dans votre BDD
 			$db_handle = mysqli_connect('localhost', 'root', '');
 			$db_found = mysqli_select_db($db_handle, $database);
 
 			if ($db_found)
 			{
-				//Requete utilisateur
+				//$sql = "SELECT * FROM 'utilisateur' WHERE 'utilisateur_email' LIKE '$email'";
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
-
-				//requete
-				$sqlitems = "SELECT * FROM `item` WHERE `utilisateur_email` LIKE '$email'";
-				$resultitems = mysqli_query($db_handle, $sqlitems);
-
 				if($result != NULL)
 				{	
 					while ($data = mysqli_fetch_assoc($result)) 
 					{
+						//photo de profil
+						echo "<img src=\"" . $data['utilisateur_photo'] . "\"/><br/>";
+
+						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
+						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 						//afficher l'image de fond d'écran
-						?>
-						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 150px">
-						</div> 
-						<?php
-							//photo de profil
-							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-							echo "Nom: " . $data['utilisateur_nom'] . "<br>";
-							echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
-							echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
+						echo "<img src=\"" . $data['utilisateur_vendeur_photofond'] . "\"/><br/>";
 					}
 				}
 			}
@@ -97,58 +90,13 @@
 			<input type="hidden" name="email" value=<?php  echo "\"" . "$email" . "\""?>/>
 			<input type="submit" value="Envoyer"/>
 		</form>
-		<br/>
 	</div>
-	<?php
-		if($_SESSION["type"]=="admin")
-		{
-	?>
-			<a href="gestion_vendeurs.php">Gérer les vendeurs</a>
-
-	<?php
-		}
-		else{
-
-		 //on affiche tous les items en vente du vendeur
-				      while ($data = mysqli_fetch_array($resultitems,MYSQLI_ASSOC)) 
-				      {
-				      	
-				    ?>
-
- <div class="container-fluid">
-  	<div class="row">
-  		<div class="col-lg-6" >
-	  		<div class="item_grand">
-		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
-		  		</div>
-	  		</div>
-	  	</div>
-	  	<div class="col-lg-6" >
-	  		<div class="item_text_grand">
-	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-	  			<p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
-	  			<p style="font-weight: bold;"><?php echo $data['item_qte_vendue'];?></p>
-	  			<p style="font-weight: bold;"><?php echo $data['item_qte_stock'];?></p>
-	         	</br>
-	         	<?php
-	         	$id=$data['item_id'];
-	         	?>
-	          <p style="float: right;"><?php echo "<a href=retirer_article.php?id=". $id.">retirer</a>"  ;?></p>
-	  		</div>
-	  	</div>
-  	</div>
-  </div>
- <?php }
-		}
-	?>
 	<div>
 		<h2>Se deconnecter</h2>
 		<form action="deconnexion.php" method="post">
 			<input type="submit" value="Se deconnecter">
 		</form>
 	</div>
-	</center>
 	<?php include("footer.php"); ?>
 </body>
 </html>
