@@ -260,7 +260,7 @@
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie </option>
 							<option value="classique"> classique</option>
-							<option value="elecctro"> electro</option>
+							<option value="electro"> electro</option>
 							<option value="jazz"> jazz</option>
 							<option value="rap"> rap</option>
 						</select></td>
