@@ -96,8 +96,8 @@
 			</tr>
 		</table>
 	</form>
-	<div id="toggle">
-		<form action="mise_en_vente.php" method="post">
+	<div id="toggle"><!-- VETEMENTS -->
+		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Vous vender un </td>
@@ -109,7 +109,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="text" name="photo"></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -118,10 +118,6 @@
 				<tr>
 					<td>Prix: </td>
 					<td><input type="number" name="prix" ></td>
-				</tr>
-				<tr>
-					<td>Vidéo: </td>
-					<td><input type="text" name="video"></td>
 				</tr>
 				<tr>
 					<td><label>Sexe</label></td>
@@ -174,8 +170,8 @@
 			</table>
 		</form>
 	</div>
-	<div id="toggle2">
-		<form action="mise_en_vente.php" method="post">
+	<div id="toggle2"><!-- LIVRES -->
+		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Vous vender un </td>
@@ -187,7 +183,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="text" name="photo"></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -196,10 +192,6 @@
 				<tr>
 					<td>Prix: </td>
 					<td><input type="number" name="prix"></td>
-				</tr>
-				<tr>
-					<td>Vidéo: </td>
-					<td><input type="text" name="video"></td>
 				</tr>
 				<tr>
 					<td>Auteur: </td>
@@ -232,8 +224,8 @@
 			</table>
 		</form>
 	</div>
-	<div id="toggle3">
-		<form action="mise_en_vente.php" method="post">
+	<div id="toggle3"><!-- MUSIQUE -->
+		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Vous vender une </td>
@@ -245,7 +237,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="text" name="photo"></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -254,10 +246,6 @@
 				<tr>
 					<td>Prix: </td>
 					<td><input type="number" name="prix"></td>
-				</tr>
-				<tr>
-					<td>Vidéo: </td>
-					<td><input type="text" name="video"></td>
 				</tr>
 				<tr>
 					<td>Artiste: </td>
@@ -290,8 +278,8 @@
 			</table>
 		</form>
 	</div>
-	<div id="toggle4">
-		<form action="mise_en_vente.php" method="post">
+	<div id="toggle4"><!-- SPORT -->
+		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Vous vender un article de </td>
@@ -303,7 +291,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="text" name="photo"></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -312,10 +300,6 @@
 				<tr>
 					<td>Prix: </td>
 					<td><input type="number" name="prix"></td>
-				</tr>
-				<tr>
-					<td>Vidéo: </td>
-					<td><input type="text" name="video"></td>
 				</tr>
 				<tr>
 					<td><label>catégorie: </label></td>

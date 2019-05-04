@@ -10,9 +10,9 @@
 	//get the name of the uploaded file
 	$target_file = $target_dir . basename($_FILES["monfichier"]["name"]);
 	$ext = pathinfo($target_file, PATHINFO_EXTENSION);//extract the extension of the file (without the dot)
-	$id_utilisateur = $_POST["email"];//need to be changed with sessions !
+	$id_utilisateur = $_POST["email"];
 
-	//créer un fichier avec l'id del'utilisateur
+	//créer un fichier avec l'id de l'utilisateur
 	$file_name = $target_dir . $id_utilisateur . "_bp." . $ext;
 
 	//move the uploaded file from temporary directory to server directory
