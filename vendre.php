@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<script>
-		jQuery(document).ready(function()
+	jQuery(document).ready(function()
 		{
 			   // On cache la zone de texte
 			jQuery('#toggle').hide();
@@ -100,7 +100,7 @@
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td>Vous vendez un </td>
+					<td>Vous vender un </td>
 					<td><input type="text" name="type" value="vetement"></td>
 				</tr>
 				<tr>
@@ -109,7 +109,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="file" name="photo"/></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -177,7 +177,7 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-					<td><input type="file" name="photo"/></td>
+					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
 					<td>Description: </td>
@@ -224,7 +224,7 @@
 		</form>
 	</div>
 	<div id="toggle3">
-		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
+		<form action="mise_en_vente.php" method="post">
 			<table>
 				<tr>
 					<td>Vous vender une </td>
@@ -236,8 +236,8 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-<!-- 					<td><input type="file" name="photo"/></td>
- -->				</tr>
+					<td><input type="text" name="photo"></td>
+				</tr>
 				<tr>
 					<td>Description: </td>
 					<td><input type="text" name="description"></td>
@@ -283,10 +283,10 @@
 		</form>
 	</div>
 	<div id="toggle4">
-		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
+		<form action="mise_en_vente.php" method="post">
 			<table>
 				<tr>
-					<td>Vous vendez un article de </td>
+					<td>Vous vender un article de </td>
 					<td><input type="text" name="type" value="sport"></td>
 				</tr>
 				<tr>
@@ -295,8 +295,8 @@
 				</tr>
 				<tr>
 					<td>Photo: </td>
-<!-- 					<td><input type="file" name="photo"/></td>
- -->				</tr>
+					<td><input type="text" name="photo"></td>
+				</tr>
 				<tr>
 					<td>Description: </td>
 					<td><input type="text" name="description"></td>

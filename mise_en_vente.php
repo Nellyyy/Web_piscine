@@ -5,7 +5,7 @@ session_start();
 //le parametre de $_POST = "name" de <input> de votre page HTML
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
 $prix = isset($_POST["prix"])? $_POST["prix"] : 1;
-$photo= isset($_POST["photo"])? $_POST["photo"] : "";
+//$photo= isset($_POST["photo"])? $_POST["photo"] : "";
 $description = isset($_POST["description"])? $_POST["description"] : "";
 $video = isset($_POST["video"])? $_POST["video"] : "";
 $sexe = isset($_POST["sexe"])? $_POST["sexe"] : "";
@@ -34,12 +34,6 @@ if ($_POST["bouttonv"])
 {
 	if ($db_found) 
 	{
-		$sql = "INSERT INTO item 
-		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','$email')";
-		$result = mysqli_query($db_handle, $sql);
-
-
 		/*
 		echo "nom:" . $nom . '<br>';
 		echo "Prix: " . $prix . '<br>';
@@ -61,13 +55,30 @@ if ($_POST["bouttonv"])
 		echo "Add successful." . "<br>";
 	*/
 
+
+		
+		$photo = "uploads/" . $_FILES["photo"]["name"];
+		echo $photo;
+
+		/*
+		$sql = "INSERT INTO item 
+		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
+		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','$email')";
+		$result = mysqli_query($db_handle, $sql);
+		
+
 		$sql = "SELECT * FROM item WHERE item_id=LAST_INSERT_ID()";
 		$result = mysqli_query($db_handle, $sql);
 		if($result == False)
 			echo "result : " . $result . "#<br/>";
-		$data = mysqli_fetch_assoc($result);
-		echo "id : ".$data["item_id"]."#<br/>";
-		echo "name file : ".$_FILES["photo"]["name"]."#";
+		while ($data = mysqli_fetch_assoc($result)) 
+		{
+			echo "id : ".$data["item_id"]."#<br/>";
+		}
+		*/
+
+		//$data = mysqli_fetch_assoc($result);
+
 
 		/*
 		$target_dir = "uploads/";
