@@ -6,6 +6,8 @@
 <html>
 <head>
   <title>Ece Amazon</title>
+  <!--favicon-->
+  <?php include("favicon.php"); ?>
 
   <!--font style-->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">

@@ -5,6 +5,9 @@ session_start();
 <html>
 <head>
 	<title>Vente</title>
+	<!--favicon-->
+  <?php include("favicon.php"); ?>
+  
 	<meta charset="utf-8">
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
 		 <!--font style-->
