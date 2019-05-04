@@ -59,7 +59,7 @@
           <a href="livres.php">Livres</a>
         </div>
         <div class="case">
-          <a href="etements.php">Vêtements</a>
+          <a href="vetements.php">Vêtements</a>
         </div>
         <div class="case">
           <a href="musiques.php">Musique</a>
