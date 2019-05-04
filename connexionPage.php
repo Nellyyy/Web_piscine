@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td>mot de passe:</td>
-					<td><input type="passeword" name="pwd"></td>
+					<td><input type="password" name="pwd"></td>
 				</tr>
 				<tr>
 						<td colspan="2" align="center"><input type="submit" value="Se connecter" name="boutton1"></td>
