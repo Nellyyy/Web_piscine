@@ -20,10 +20,10 @@
 	      <li><a href="vendre.php">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
-	  	  <li> <form class="navbar-form navbar-right inline-form">
+	  	  <li> <form class="navbar-form navbar-right inline-form" action="recherche.php" method="post">
             <div class="form-group">
               <input type="search" class="input-sm form-control" placeholder="Recherche" name="saisie">
-              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> <a href="recherche.php">Chercher </a></button>
+              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span>Chercher</button>
             </div>
           </form>
           </li>

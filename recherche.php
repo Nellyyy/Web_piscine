@@ -39,7 +39,7 @@
   ?>
 
   <!--menu catégories--> 
-  <p> Résultats de la recherche</p>
+ 
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
   <?php
@@ -50,8 +50,13 @@
     $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$saisie%' OR `item_titre` LIKE '%$saisie%' OR`item_description` LIKE '%$saisie%' OR `item_categorie` LIKE '%$saisie%' OR `item_type` LIKE '%$saisie%'"; 
     $result = mysqli_query($db_handle, $sql);
 
+     $sql2 = "SELECT COUNT(*) FROM `item` WHERE `item_type` LIKE '%$saisie%' OR `item_titre` LIKE '%$saisie%' OR`item_description` LIKE '%$saisie%' OR `item_categorie` LIKE '%$saisie%' OR `item_type` LIKE '%$saisie%'"; 
+    $result2 = mysqli_query($db_handle, $sql2);
+    $comptage = mysqli_num_rows($result2);
+
   ?>
 
+ <h2 style="font-weight: bold;">Résultat de la Recherche: <?php echo $comptage;?> article(s) trouvé(s)</h2>
   <div class="row">
 
     <?php
