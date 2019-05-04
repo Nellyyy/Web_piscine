@@ -1,11 +1,14 @@
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Vente</title>
-		<meta charset="utf-8">
-		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vente</title>
+	<meta charset="utf-8">
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
 		 <!--font style-->
-  <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
 
   <!--lien fichier css-->
   <link rel="stylesheet" media="screen" type="text/css" href="styles.css">
