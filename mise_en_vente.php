@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //recuperer les données venant de la page HTML
 //le parametre de $_POST = "name" de <input> de votre page HTML
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -18,6 +20,7 @@ $artiste = isset($_POST["artiste"])? $_POST["artiste"] : "";
 $style = isset($_POST["style"])? $_POST["style"] : "";
 $categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
 $type= isset($_POST["type"])? $_POST["type"] : "lol";
+$email= $_SESSION["email"];//clé de l'utilisateur
 $vente= 0;
 
 //identifier votre BDD
@@ -27,15 +30,17 @@ $database = "piscine_test";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
-if ($_POST["bouttonv"]) {
-	if ($db_found) {
-		//NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		//'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie'
-		//NULL,'$nom','$prix', 'ffff','rr','ff',15, 12, 'rr', 'ee',12, 'ee', 'ee','$datesortie', 'e','rrr','w','rr'
+if ($_POST["bouttonv"]) 
+{
+	if ($db_found) 
+	{
 		$sql = "INSERT INTO item 
 		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','jjÃ§nnn')";
+		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','$email')";
 		$result = mysqli_query($db_handle, $sql);
+
+
+		/*
 		echo "nom:" . $nom . '<br>';
 		echo "Prix: " . $prix . '<br>';
 		echo "description: " . $description . '<br>';
@@ -54,7 +59,50 @@ if ($_POST["bouttonv"]) {
 		echo "taile" . $taille . '<br>';
 		echo "categorie " . $categorie . '<br>';
 		echo "Add successful." . "<br>";
-	} else {
+	*/
+
+		$sql = "SELECT * FROM item WHERE item_id=LAST_INSERT_ID()";
+		$result = mysqli_query($db_handle, $sql);
+		if($result == False)
+			echo "result : " . $result . "#<br/>";
+		$data = mysqli_fetch_assoc($result);
+		echo "id : ".$data["item_id"]."#<br/>";
+		echo "name file : ".$_FILES["photo"]["name"]."#";
+
+		/*
+		$target_dir = "uploads/";
+		//get the name of the uploaded file
+		$target_file = $target_dir . basename($_FILES["photo"]["name"]);
+		$ext = pathinfo($target_file, PATHINFO_EXTENSION);//extract the extension of the file (without the dot)
+		$id_item = $_POST["email"];
+		
+		//créer un fichier avec l'id de l'utilisateur
+		$file_name = $target_dir . $id_item . "_bp." . $ext;
+
+		//move the uploaded file from temporary directory to server directory
+		//note the name of the picture is formatted this way
+		//N.ext where N is the id of the item
+		if(move_uploaded_file($_FILES["monfichier"]["tmp_name"], $file_name ))
+		{
+			echo "Votre photo a été enregistrée avec succès <br/>";
+			//enregistrer le nom dans la base de donnée (nécessaire pour l'extension du fichier)
+			//connection BDD
+			$database = "piscine_test";
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+			//query :
+			$sql = "UPDATE `utilisateur` SET `utilisateur_vendeur_photofond`='$file_name' WHERE `utilisateur_email` LIKE '$id_utilisateur'";
+			$result = mysqli_query($db_handle, $sql);
+			mysqli_close($db_handle);
+		}
+		else
+		{
+			echo "Une erreur est survenue lors du chargement de votre image <br/>";
+		}
+		*/
+	} 
+	else 
+	{
 		echo "Database not found";
 	}
 }
