@@ -1,16 +1,8 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Ece Amazon</title>
 
-
- <!--favicon-->
-  <?php include("favicon.php"); ?>
-  
   <!--font style-->
   <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
 
@@ -42,99 +34,47 @@ session_start();
     $db_found = mysqli_select_db($db_handle, $database);
   ?>
 
-  <!--menu catégories--> 
-  <div class="container-fluid" style="margin: 0px;">
-    <div class="menu_categorie">
-      <p>Catégorie > Livres</p>
-    </div>
-  </div>
-
+  <!--accueil vetements-->
+  <h1>Venez choisir vos vêtements!</h1>
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
   <?php
     
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
-    $vet="livre";
+    $vet="vetement";
     if($db_found){
     $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%'"; 
     $result = mysqli_query($db_handle, $sql);
 
   ?>
 
-<div class="container-fluid left" >
-    <div class="block">
-        <div class="case" id="livres">
-          <a href="livres.php">Livres</a>
-        </div>
-        <div class="case">
-          <a href="vetements.php">Vêtements</a>
-        </div>
-        <div class="case">
-          <a href="musiques.php">Musique</a>
-        </div>
-        <div class="case">
-          <a href="sports.php">Sport et Loisir</a>
-        </div>
-        <div class="case">
-          <a>Romans</a>
-        </div>
-        <div class="case">
-          <a>BD</a>
-        </div>
-        <div class="case">
-          <a>Manga</a>
-        </div>
-        <div class="case">
-          <a>Poésie</a>
-        </div>
-        <div class="case">
-          <a>Nouvelle</a>
-        </div>
-    </div>
-</div>
-
-
+<div class="container-fluid">
   <div class="row">
 
     <?php
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
       {
-        $photo_name = $data["item_photo"];
     ?>
 
     <!--on affiche les résultats-->
-    <div class="col-lg-3 inline" >
+    <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>"> 
-          <!--item_photo à la place du chemin fb.png   : <?php// echo $data["item_photo"]?>-->
+          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+          <p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+          <p><?php echo $data['item_vetement_taille'].' | '.$data['item_vetement_couleur'];?></p>
           <p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
 
-         
-           <!--si il reste des stocks-->
-        <?php
-          if($data['item_qte_stock']!=0)
-          {
-            $id=$data['item_id'];
-        ?>
-          <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
+         <p>vari<?php echo $id=$data['item_id'];?></p> 
+          <p><?php echo "<a href=recupId.php?nom=". $id.">voir plus</a>"  ;?></p>
 
-        <?php
-        }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
-        else{
-          ?>
-          <p style="color: red; font-style: italic; float: right; padding-bottom: 10px;">Rupture de stock.</p>
-          <?php
-          }
-        ?>
-        
         </div> 
       </div>
-    </div>  
+    </div>
     
     <?php
       }
@@ -144,9 +84,15 @@ session_start();
     
     ?>
  </div>
-
+</div>
   
- 
+
+  <!--lien avec fichier php qui ajoute au panier-->
+  <form action="ajouter_panier.php" method="post">
+    <!--bouton ajouter au panier-->
+    <input type="submit" value="ajouteraupanier" name="ajouter_panier">
+  </form>
+
   
   <!--footer-->
   <?php include("footer.php"); ?>

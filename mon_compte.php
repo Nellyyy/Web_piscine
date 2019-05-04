@@ -6,6 +6,10 @@
 <html>
 <head>
 	<title>Sign Up</title>
+
+	 <!--favicon-->
+  <?php include("favicon.php"); ?>
+  
 	<meta charset="utf-8">
 	<!--font style-->
 	<link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">

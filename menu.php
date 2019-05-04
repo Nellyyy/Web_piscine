@@ -1,3 +1,4 @@
+
 <!--menu-->
 	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
 	<nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
@@ -6,6 +7,8 @@
 	      <a class="navbar-brand" href="HomePage.php">Ece Amazon</a>
 	    </div>
 	    <ul class="nav navbar-nav">
+	    	<li><div style="width: 50px; 
+	height: 40px;"> <img style="padding-top : 8px; width: 100%;" src="img/logo.png"></div></li>
 	      <li class="dropdown">
 	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catégories
 	        <span class="caret"></span></a>
