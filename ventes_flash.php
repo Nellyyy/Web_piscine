@@ -76,13 +76,14 @@ session_start();
       {
         if($count1 <3){
         $count1 = $count1 + 1;
+         $photo_name = $data["item_photo"];
     ?>
       <p style="font-weight: bold;"><?php echo 'numéro '.$count1;?></p>
     <!--on affiche les résultats-->
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
@@ -111,6 +112,7 @@ session_start();
       {
          if($count2 <3){
         $count2 = $count2 + 1;
+        $photo_name = $data["item_photo"];
     ?>
 
     <p style="font-weight: bold;"><?php echo 'numéro '.$count2;?></p>
@@ -118,7 +120,7 @@ session_start();
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
@@ -144,13 +146,14 @@ session_start();
       {
          if($count3 <3){
         $count3 = $count3 + 1;
+        $photo_name = $data["item_photo"];
     ?>
     <!--on affiche les résultats-->
     <p style="font-weight: bold;"><?php echo 'numéro '.$count3;?></p>
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
@@ -176,13 +179,14 @@ session_start();
       {
           if($count4 <3){
         $count4 = $count4 + 1;
+        $photo_name = $data["item_photo"];
     ?>
     <!--on affiche les résultats-->
      <p style="font-weight: bold;"><?php echo 'numéro '.$count4;?></p>
     <div class="col-lg-4" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src="img/jupe.jpg">   <!--item_photo à la place du chemin fb.png-->
+          <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
         </div>
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
