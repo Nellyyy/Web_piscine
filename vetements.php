@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,7 +102,7 @@
     <div class="col-lg-3 inline" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src= "$photo_name"> 
+          <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>"> 
           <!--item_photo à la place du chemin fb.png   : <?php// echo $data["item_photo"]?>-->
         </div>
         <div class="item_text">

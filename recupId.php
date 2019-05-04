@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -40,9 +43,10 @@
 	    //si la base existe
 	    //on selectionne l'item avec l'id envoyé
 	    if($db_found){
-	    $sql = "SELECT * FROM `item` WHERE `item_id` LIKE '%$id%'"; 
-	    $result = mysqli_query($db_handle, $sql);
-	    $data = mysqli_fetch_assoc($result);
+	    	$sql = "SELECT * FROM `item` WHERE `item_id` LIKE '%$id%'"; 
+	    	$result = mysqli_query($db_handle, $sql);
+	    	$data = mysqli_fetch_assoc($result);
+	    	$photo = $data["item_photo"];
 		}
 		
  	?>
@@ -53,7 +57,7 @@
   		<div class="col-lg-6" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
+		  			<img src="<?php echo $photo; ?>">
 		  		</div>
 	  		</div>
 	  	</div>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,13 +96,14 @@
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
       {
+        $photo_name = $data["item_photo"];
     ?>
 
     <!--on affiche les résultats-->
     <div class="col-lg-3 inline" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src= "img/musiques.jpg"> 
+          <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>"> 
           <!--item_photo à la place du chemin fb.png   : <?php// echo $data["item_photo"]?>-->
         </div>
         <div class="item_text">
