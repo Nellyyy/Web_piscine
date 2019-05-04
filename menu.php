@@ -4,7 +4,7 @@
 	<nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
 	  <div class="container-fluid menu">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="HomePage.php">Ece Amazon</a>
+	      <a class="navbar-brand" href="HomePage.php">ECE Amazon</a>
 	    </div>
 	    <ul class="nav navbar-nav">
 	    	<li><div style="width: 50px; 

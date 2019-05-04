@@ -55,7 +55,7 @@ $email=$_SESSION["email"];
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
     $vet="musique";
     if($db_found){
-    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND NOT `utilisateur_email` LIKE '$email'"; 
+    $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%' AND `item_categorie` LIKE 'rap' AND NOT `utilisateur_email` LIKE '$email'"; 
     $result = mysqli_query($db_handle, $sql);
 
   ?>
