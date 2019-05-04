@@ -13,14 +13,22 @@
 	          <li><a href="livres.php">Livres</a></li>
 	          <li><a href="vetements.php">Vêtements</a></li>
 	          <li><a href="musiques.php">Musique</a></li>
-	          <li><a href="sports.php">Sport et Loisir</a></li>
+	          <li><a href="sports.php">Sport et Loisirs</a></li>
 	        </ul>
 	      </li>
 	      <li><a href="ventes_flash.php">Vente flash</a></li>
 	      <li><a href="vendre.php">Vendre</a></li>
 	     </ul>
 	  	 <ul class="nav navbar-nav navbar-right">
+	  	  <li> <form class="navbar-form navbar-right inline-form" action="recherche.php" method="post">
+            <div class="form-group">
+              <input type="search" class="input-sm form-control" placeholder="Recherche" name="saisie">
+              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span>Chercher</button>
+            </div>
+          </form>
+          </li>
 	  	  <li><a href="mon_compte.php">Mon compte</a></li>
+
 	  	  <?php
 	  	  	if(!isset($_SESSION["email"]))//si personne n'est connecté on affiche sign in
 	  	  	{
