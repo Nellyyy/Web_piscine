@@ -37,7 +37,7 @@
   <!--menu catégories--> 
   <div class="container-fluid" style="margin: 0px;">
     <div class="menu_categorie">
-      <p>Catégorie > Vêtements</p>
+      <p>Catégorie > Musiques</p>
     </div>
   </div>
 
@@ -46,7 +46,7 @@
   <?php
     
     //lancement de la requête (on impose aucune condition puisque l'on désire obtenir la liste complète des propriétaires
-    $vet="vetement";
+    $vet="musique";
     if($db_found){
     $sql = "SELECT * FROM `item` WHERE `item_type` LIKE '%$vet%'"; 
     $result = mysqli_query($db_handle, $sql);
@@ -68,19 +68,19 @@
           <a href="sports.php">Sport et Loisir</a>
         </div>
         <div class="case">
-          <a>Hauts</a>
+          <a>Rock</a>
         </div>
         <div class="case">
-          <a>Vestes</a>
+          <a>Jazz</a>
         </div>
         <div class="case">
-          <a>Pentalon</a>
+          <a>Techno</a>
         </div>
         <div class="case">
-          <a>Jupes</a>
+          <a>Commerciale</a>
         </div>
         <div class="case">
-          <a>Robes</a>
+          <a>Reggaeton</a>
         </div>
     </div>
 </div>
@@ -98,7 +98,7 @@
     <div class="col-lg-3 inline" >
       <div class="item">
         <div class="item_image">
-          <img class="text-center d-flex justify-content-center" src= "img/jupe.jpg"> 
+          <img class="text-center d-flex justify-content-center" src= "img/musiques.jpg"> 
           <!--item_photo à la place du chemin fb.png   : <?php// echo $data["item_photo"]?>-->
         </div>
         <div class="item_text">
