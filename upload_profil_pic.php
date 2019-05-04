@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
 <?php
 	$target_dir = "uploads/";
 	//get the name of the uploaded file

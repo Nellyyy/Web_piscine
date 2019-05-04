@@ -1,9 +1,6 @@
-
-	<?php
-
-	//le parametre de $_POST = "name" de <input> de votre page HTML
-	
+<?php
 	session_start();
+	
 	 ///je récupère l'id du mec
   $email= $_SESSION["email"];
   $id = $_GET['id'] ;	
