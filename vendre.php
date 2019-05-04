@@ -155,6 +155,16 @@
 					<td><input type="number" name="quantite"></td>
 				</tr>
 				<tr>
+					<td><label>Catégorie: </label></td>
+						<td><select name="categorie">
+							<option value="">Sélectionner une catégorie</option>
+							<option value="manteau"> manteau</option>
+							<option value="pantalon"> pantalon</option>
+							<option value="haut"> haut</option>
+							<option value="chaussures"> chaussures</option>
+						</select></td>
+				</tr>
+				<tr>
 					<td colspan="2" align="center">	<input type="submit" value="Valider" name="bouttonv"></td>
 				</tr>
 			</table>
@@ -192,14 +202,13 @@
 					<td><input type="text" name="dateparution"></td>
 				</tr>
 				<tr>
-					<td><label>nature: </label></td>
-						<td><select name="nature">
-							<option value="">Sélectionner une nature </option>
+					<td><label>catégorie: </label></td>
+						<td><select name="categorie">
+							<option value="">Sélectionner une catégorie </option>
 							<option value="roman"> roman</option>
 							<option value="bd"> bd</option>
 							<option value="magazine"> magazine</option>
 							<option value="manga"> manga</option>
-							<option value="nouvelle"> nouvelle</option>
 						</select></td>	
 				</tr>
 				<tr>
@@ -247,10 +256,9 @@
 					<td><input type="text" name="datesortie"></td>
 				</tr>
 				<tr>
-					<td><label>style: </label></td>
-						<td><select name="style">
-							<option value="">Sélectionner un style </option>
-							<option value="hip hop"> hip hop</option>
+					<td><label>catégorie: </label></td>
+						<td><select name="categorie">
+							<option value="">Sélectionner une catégorie </option>
 							<option value="classique"> classique</option>
 							<option value="elecctro"> electro</option>
 							<option value="jazz"> jazz</option>
@@ -301,7 +309,6 @@
 							<option value="natation"> natation</option>
 							<option value="equitation"> équitation</option>
 							<option value="tennis"> tennis</option>
-							<option value="football"> football</option>
 						</select></td>	
 				</tr>
 				<tr>

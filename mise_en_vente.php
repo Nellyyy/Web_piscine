@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 //recuperer les données venant de la page HTML
 //le parametre de $_POST = "name" de <input> de votre page HTML
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -16,7 +17,6 @@ $dateparution = isset($_POST["dateparution"])? $_POST["dateparution"] : 2000;
 $nature = isset($_POST["nature"])? $_POST["nature"] : "";
 $datesortie = isset($_POST["datesortie"])? $_POST["datesortie"] : 2000;
 $artiste = isset($_POST["artiste"])? $_POST["artiste"] : "";
-$style = isset($_POST["style"])? $_POST["style"] : "";
 $categorie = isset($_POST["categorie"])? $_POST["categorie"] : "";
 $type= isset($_POST["type"])? $_POST["type"] : "lol";
 $email= $_SESSION["email"];//clé de l'utilisateur
@@ -29,41 +29,21 @@ $database = "piscine_test";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
+
 if ($_POST["bouttonv"]) 
 {
 	if ($db_found) 
-	{
-		/*
-		echo "nom:" . $nom . '<br>';
-		echo "Prix: " . $prix . '<br>';
-		echo "description: " . $description . '<br>';
-		echo "photo: " . $photo . '<br>';
-		echo "quantite: " . $quantite. '<br>';
-		echo "vente: " . $vente . '<br>';
-		echo "type: " . $type. '<br>';
-		echo "auteur: " . $auteur . '<br>';
-		echo "dateparution: " . $dateparution . '<br>';
-		echo "artiste" . $artiste . '<br>';
-		echo "style" . $style . '<br>';
-		echo " datesortie" . $datesortie . '<br>';
-		echo "sexe " . $sexe . '<br>';
-		echo "couleur" . $couleur . '<br>';
-		echo "taile" . $taille . '<br>';
-		echo "categorie " . $categorie . '<br>';
-		echo "Add successful." . "<br>";
-	*/
-
-
-		
+	{		
 		$photo = "uploads/" . $_FILES["photo"]["name"];
 		echo $photo;
 
 		//insérer le nouvel item dans la base de donnée
 		//ne marche pas avec les livres !
 		$sql = "INSERT INTO item 
-		VALUES (NULL,'$nom', '$prix', '$description', '$photo', NULL, '$quantite', '$vente', '$type', '$auteur',
-		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','$email')";
-		$result = mysqli_query($db_handle, $sql);
+		VALUES (NULL,'$nom', '$prix', '$description', '$photo', NULL,    '$quantite', '$vente', '$type', '$categorie', '$auteur',
+		'$dateparution', '$artiste', '$datesortie', '$sexe', '$couleur', '$taille','$email')";
+		
+    $result = mysqli_query($db_handle, $sql);
 		if($result == False)
 			echo "faux";
 
