@@ -7,7 +7,6 @@ $nom = isset($_POST["nom"])? $_POST["nom"] : "";
 $prix = isset($_POST["prix"])? $_POST["prix"] : 1;
 //$photo= isset($_POST["photo"])? $_POST["photo"] : "";
 $description = isset($_POST["description"])? $_POST["description"] : "";
-$video = isset($_POST["video"])? $_POST["video"] : "";
 $sexe = isset($_POST["sexe"])? $_POST["sexe"] : "";
 $taille= isset($_POST["taille"])? $_POST["taille"] : "";
 $couleur = isset($_POST["couleur"])? $_POST["couleur"] : "";
@@ -39,7 +38,6 @@ if ($_POST["bouttonv"])
 		echo "Prix: " . $prix . '<br>';
 		echo "description: " . $description . '<br>';
 		echo "photo: " . $photo . '<br>';
-		echo "video: " . $video. '<br>';
 		echo "quantite: " . $quantite. '<br>';
 		echo "vente: " . $vente . '<br>';
 		echo "type: " . $type. '<br>';
@@ -60,49 +58,39 @@ if ($_POST["bouttonv"])
 		$photo = "uploads/" . $_FILES["photo"]["name"];
 		echo $photo;
 
-		/*
+		//insérer le nouvel item dans la base de donnée
+		//ne marche pas avec les livres !
 		$sql = "INSERT INTO item 
-		VALUES (NULL,'$nom', '$prix', '$description', '$photo', '$video', '$quantite', '$vente', '$type', '$auteur',
+		VALUES (NULL,'$nom', '$prix', '$description', '$photo', NULL, '$quantite', '$vente', '$type', '$auteur',
 		'$dateparution', '$artiste', '$style', '$datesortie', '$sexe', '$couleur', '$taille', '$categorie','$email')";
 		$result = mysqli_query($db_handle, $sql);
-		
+		if($result == False)
+			echo "faux";
 
+		//récuppérer son id
 		$sql = "SELECT * FROM item WHERE item_id=LAST_INSERT_ID()";
 		$result = mysqli_query($db_handle, $sql);
 		if($result == False)
 			echo "result : " . $result . "#<br/>";
+
 		while ($data = mysqli_fetch_assoc($result)) 
 		{
-			echo "id : ".$data["item_id"]."#<br/>";
+			$id_item = $data["item_id"];
 		}
-		*/
 
-		//$data = mysqli_fetch_assoc($result);
-
-
-		/*
 		$target_dir = "uploads/";
 		//get the name of the uploaded file
 		$target_file = $target_dir . basename($_FILES["photo"]["name"]);
 		$ext = pathinfo($target_file, PATHINFO_EXTENSION);//extract the extension of the file (without the dot)
-		$id_item = $_POST["email"];
 		
 		//créer un fichier avec l'id de l'utilisateur
-		$file_name = $target_dir . $id_item . "_bp." . $ext;
+		$file_name = $target_dir . $id_item . ".". $ext;
 
-		//move the uploaded file from temporary directory to server directory
-		//note the name of the picture is formatted this way
-		//N.ext where N is the id of the item
-		if(move_uploaded_file($_FILES["monfichier"]["tmp_name"], $file_name ))
+		//On copie la photo sur le serveur
+		if(move_uploaded_file($_FILES["photo"]["tmp_name"], $file_name ))
 		{
 			echo "Votre photo a été enregistrée avec succès <br/>";
-			//enregistrer le nom dans la base de donnée (nécessaire pour l'extension du fichier)
-			//connection BDD
-			$database = "piscine_test";
-			$db_handle = mysqli_connect('localhost', 'root', '');
-			$db_found = mysqli_select_db($db_handle, $database);
-			//query :
-			$sql = "UPDATE `utilisateur` SET `utilisateur_vendeur_photofond`='$file_name' WHERE `utilisateur_email` LIKE '$id_utilisateur'";
+			$sql = "UPDATE `item` SET `item_photo`='$file_name' WHERE `item_id` LIKE '$id_item'";
 			$result = mysqli_query($db_handle, $sql);
 			mysqli_close($db_handle);
 		}
@@ -110,13 +98,11 @@ if ($_POST["bouttonv"])
 		{
 			echo "Une erreur est survenue lors du chargement de votre image <br/>";
 		}
-		*/
+		
 	} 
 	else 
 	{
 		echo "Database not found";
 	}
 }
-//fermer la connexion
-mysqli_close($db_handle);
 ?>
