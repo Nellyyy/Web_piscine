@@ -1,0 +1,185 @@
+/*body css*/
+body{
+	font-family: 'BioRhyme Expanded', serif;
+}
+
+body a:hover {
+	text-decoration: none;
+}
+
+/*page d'accueil*/
+
+
+.acc_texte{
+	background-color: #FFE6E3;
+	width: 250px;
+	height: 200px;
+	/*margin-left: 100px;*/
+	margin-top: 80px;
+
+}
+.acc_texte p {
+	text-align: justify;
+}
+.acc_img{
+	
+	margin-top:  25px;
+	
+}
+
+/*affichage items*/
+/*menu catégories*/
+.menu_categorie{
+	width: 100%;
+	height: 40px;
+	padding: 8px 8px ;
+	background-color: #EDEFF4;
+	color: black;
+	margin: 0;
+	
+}
+
+/*menu à cote des items*/
+
+.left{
+	float: left;
+	display: inline-block;
+	margin-left: 0px;
+	margin-top: 40px;
+}
+
+/*affichage item*/
+.item{
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0,.5);
+	width: 300px;
+	height: 464px;
+	/*background-color:rgba(255,230,227,.7);*/
+	margin: 18px 4px;
+
+}
+
+.item_image{
+	width: 100%;
+	height: 370px;
+}
+.item_image img{
+	width: 100%;
+	height: 100%;
+}
+.item_image img:hover {
+	opacity:.8;
+}
+
+.item_text{
+	padding: 8px 8px 12px 8px;
+	
+}
+
+
+.case{
+	width: 100%;
+	height: 36px;
+	background-color: #EDEFF4;
+	margin-top: 5px;
+	padding-top: 4px;
+	/*border:  1px solid black;*/
+}
+
+.case:hover{
+	background-color: #d5d7db;
+	cursor: pointer;	
+}
+
+
+.case a{
+	color: black;	
+	text-decoration: none;
+	padding-left: 8px;
+	padding-top:  4px;
+}
+
+.case a:hover{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.block{
+	width: 200px;
+	height: 1000px;
+	margin-left: 0px;
+}
+
+/*galery*/
+
+
+.inline{
+	display: inline;
+	float: right;
+
+}
+
+/*footer*/
+
+.footer{
+	margin: 0px 0px;
+	background-color: #2E2E2E;
+	color:  #A9A9A9;
+}
+
+.footer footer_container{
+	width: 100%;
+}
+
+/*lien vers les catégories*/
+#footer_links{
+	padding: 25px 0;
+}
+
+.footer a {
+	color: #EFEFEF	;
+	font-style: bold;
+}
+.footer a:hover {
+	color: white;
+}
+/*copyright footer*/
+#footer_copy{
+	background-color:#212121;
+	padding: 20px 15px;
+}
+
+/* trai de séparation*/
+.separateur_footer{
+	background-color: :  #798081;
+	height: 1px;
+
+}
+/*texte footer*/
+#footer_text{
+	padding:45px 0;
+}
+
+/*icones footer*/
+
+#icones_footer{
+	margin-bottom: 40px;
+
+}
+#icones_footer a {
+	padding : 0 11px;
+
+}
+#connexion_bloque
+{
+	visibility: hidden;
+	color: red;
+}
+/*rajoute de la marge sur le dernier conteneur d'une page*/
+#bottom_body
+{
+	margin-bottom: 40px;
+}
+
+.fond{
+	background-image: url("a.png");
+}
