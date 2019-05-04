@@ -117,7 +117,7 @@
 				</tr>
 				<tr>
 					<td>Prix: </td>
-					<td><input type="number" name="prix" ></td>
+					<td><input type="number" name="prix"   min="0"></td>
 				</tr>
 				<tr>
 					<td><label>Sexe</label></td>
@@ -152,7 +152,7 @@
 				</tr>
 				<tr>
 					<td>Quantité: </td>
-					<td><input type="number" name="quantite"></td>
+					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td><label>Catégorie: </label></td>
@@ -191,7 +191,7 @@
 				</tr>
 				<tr>
 					<td>Prix: </td>
-					<td><input type="number" name="prix"></td>
+					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
 					<td>Auteur: </td>
@@ -199,7 +199,7 @@
 				</tr>
 				<tr>
 					<td>Date de parution: </td>
-					<td><input type="text" name="dateparution"></td>
+					<td><input type="number" name="dateparution"></td>
 				</tr>
 				<tr>
 					<td><label>catégorie: </label></td>
@@ -213,7 +213,7 @@
 				</tr>
 				<tr>
 					<td>Quantité: </td>
-					<td><input type="number" name="quantite"></td>
+					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
@@ -245,7 +245,7 @@
 				</tr>
 				<tr>
 					<td>Prix: </td>
-					<td><input type="number" name="prix"></td>
+					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
 					<td>Artiste: </td>
@@ -253,21 +253,21 @@
 				</tr>
 				<tr>
 					<td>Date de sortie: </td>
-					<td><input type="text" name="datesortie"></td>
+					<td><input type="nulber" name="datesortie"  min="0" ></td>
 				</tr>
 				<tr>
 					<td><label>catégorie: </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie </option>
 							<option value="classique"> classique</option>
-							<option value="elecctro"> electro</option>
+							<option value="electro"> electro</option>
 							<option value="jazz"> jazz</option>
 							<option value="rap"> rap</option>
 						</select></td>
 				</tr>
 				<tr>
 					<td>Quantité: </td>
-					<td><input type="number" name="quantite"></td>
+					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
@@ -299,7 +299,7 @@
 				</tr>
 				<tr>
 					<td>Prix: </td>
-					<td><input type="number" name="prix"></td>
+					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
 					<td><label>catégorie: </label></td>
@@ -313,7 +313,7 @@
 				</tr>
 				<tr>
 					<td>Quantité: </td>
-					<td><input type="number" name="quantite"></td>
+					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
