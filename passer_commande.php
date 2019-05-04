@@ -189,10 +189,16 @@
             <p> vos informations bancaires</p>
             <form action="bancaire.php" method="post">
               <table>
-                <tr>
-                  <td>type de carte: </td>
-                  <td><input type="text" name="type"></td>
-                </tr>
+                  <tr>
+                   <td><label>Type de carte </label></td>
+                  <td><select name="type">
+                    <option value="">Sélectionner un type de carte</option>
+                    <option value="visa"> Visa</option>
+                    <option value="mastercard"> MasterCard</option>
+                    <option value="americanexpress"> American Express</option>
+                    <option value="paypal"> PayPal</option>
+                  </select></td>  
+               </tr>
                 <tr>
                   <td>Numéro de carte: </td>
                   <td><input type="number" name="numero"></td>

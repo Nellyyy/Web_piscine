@@ -1,10 +1,11 @@
-	<?php
+<?php
+	session_start();
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
 	$nom = isset($_POST["nom"])? $_POST["nom"] : "";
 	$email= isset($_POST["email"])? $_POST["email"] : "";
-	$pseudo = isset($_POST["pseudo"])? $_POST["pseudo"] : "";
+	$pseudo = "balek";
 	$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 	$photo = "uploads/default_pp.png";
 	$type = "acheteur";
@@ -22,28 +23,48 @@
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 
-	if ($_POST["bouttoni"]) {
+	if ($_POST["bouttoni"]) 
+	{
 		if ($db_found) {
-			$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '%$email%' OR `utilisateur_pseudo` LIKE '%$pseudo%' ";
-			$result = mysqli_query($db_handle, $sql);
-	//regarder s'il y a des résultats
-			if(mysqli_num_rows($result) == 0) {
-		//si le pseudo et l'email n'ont pas encore été utilisés
-		//('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '$adresse', '$cb'
-				$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '')";
-				$result2 = mysqli_query($db_handle, $addsql);
-				$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$pays', '$tel', '$email')";
-				$resultbis = mysqli_query($db_handle, $addsqlbis);
-				echo "votre compte a bien été crée";
-				header("Location: mon_compte.php");
-			} else {
-			///si ils sont déja utilisés
-				echo "ce pseudi ou email est déja utilisés, veuillez en choisir un autre";
+			if($email != "")//si l'email est rempli
+			{
+				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '%$email%'";
+				$result = mysqli_query($db_handle, $sql);
+				//regarder s'il y a des résultats
+				if(mysqli_num_rows($result) == 0)//si le pseudo et l'email n'ont pas encore été utilisés
+				{
+					//création de l'utilisateur
+					$addsql="INSERT INTO utilisateur VALUES('$prenom', '$nom', '$email', '$pseudo', '$mdp', '$photo', '$type', '')";
+					$result2 = mysqli_query($db_handle, $addsql);
+					//création de son adresse (dans une autre table)
+					$addsqlbis="INSERT INTO livraison VALUES(NULL,'$adresse1', '$adresse2', '$ville', '$cp', '$pays', '$tel', '$email')";
+					$resultbis = mysqli_query($db_handle, $addsqlbis);
+					//delete the session variable
+					$_SESSION["error_signup"] = NULL;
+					header("Location: mon_compte.php");//go to mon comptee
+					exit;
+				}
+				else
+				{
+					$_SESSION["error_signup"] = "Cet email est déjà associé à un compte";
+					header("Location: inscriptionPage.php");
+					exit;
+				}
 			}
-		} else {
-		echo "Database not found";
+			else//l'utilisateur n'a pas rempli le champ email
+			{
+				$_SESSION["error_signup"] = "Veuillez rentrer un email valide";
+				header("Location: inscriptionPage.php");
+				exit;
+			}
+		}
+		else 
+		{
+			$_SESSION["error_signup"] = "Database not found";
+			header("Location: inscriptionPage.php");
+			exit;
+		}
 	}
-}
 	//fermer la connexion
-mysqli_close($db_handle);
+	mysqli_close($db_handle);
 ?>

@@ -177,6 +177,9 @@ body a:hover {
 /*rajoute de la marge sur le dernier conteneur d'une page*/
 #bottom_body
 {
-	margin-top: 40px;
 	margin-bottom: 40px;
+}
+
+.fond{
+	background-image: url("a.png");
 }

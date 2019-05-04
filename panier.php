@@ -78,7 +78,10 @@
 	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
 	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
 	         	</br>
-	            
+	         	<?php
+	         	$id=$data['item_id'];
+	         	?>
+	          <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
 	  		</div>
 	  	</div>
   	</div>
@@ -99,15 +102,10 @@
       }
       if($count==0){
       	echo "pas d'articles dans le panier";
-      }
-  }else {echo "pas email trouve";}
-      //fermer la base
-    }else {echo "db pas trouve";}
-      mysqli_close($db_handle);
-
-
+      }else {
 ?>
-		<h4>le total de votre commande est <?php echo $total;?> </h4>
+
+<h4>le total de votre commande est <?php echo $total;?> </h4>
 		<form method="post" action="passer_commande.php">
 						
 						<input type="hidden" name="total" value=" <?php echo $total;?>">
@@ -115,7 +113,14 @@
 		</form>
 
   </div>
-  
+ 
+ <?php }
+      //fermer la base
+    }
+  }else {echo "db pas trouve";}
+      mysqli_close($db_handle);
+
+?> 
   
   <!--footer-->
   <?php include("footer.php"); ?>
