@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,21 +101,7 @@
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-            <?php
-          if($data['item_qte_stock']!=0)
-          {
-            $id=$data['item_id'];
-        ?>
           <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
-
-        <?php
-        }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
-        else{
-          ?>
-          <p style="color: red; font-style: italic; float: right; padding-bottom: 10px;">Rupture de stock.</p>
-          <?php
-          }
-        ?>
         </div> 
       </div>
     </div>

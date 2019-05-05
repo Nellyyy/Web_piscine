@@ -23,26 +23,9 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-</head>
-<body>
-	<?php
-
-		include("menu.php");
-
-		//Si l'utilisateur n'est pas connecté en tant que vendeur on redirige vers la page connexion
-		if($_SESSION["type"] != "vendeur")
-		{
-	?>
-			<center class="main">
-				<p>Vous ne pouvez pas vendre de produits, <br/>
-				connectez vous sur votre compte vendeur pour cela</p>
-			</center>
-	<?php
-		}
-		else//Si il est connecté comme vendeur, on affiche toute la page
-		{
-	?>
-	<script>
+	</head>
+	<body>
+		<script>
 	jQuery(document).ready(function()
 		{
 			   // On cache la zone de texte
@@ -50,8 +33,6 @@ session_start();
 			jQuery('#toggle2').hide();
 			jQuery('#toggle3').hide();
 			jQuery('#toggle4').hide();
-			jQuery('#togglebis').hide();
-			jQuery('#togglebis2').hide();
 			   // toggle() lorsque le lien avec l'ID #toggler est cliqué
 			
 			$("input[type=checkbox][name=vetement").change(function() {
@@ -97,25 +78,12 @@ session_start();
 					jQuery('#toggle4').hide();
 				}
 			}); 
-
-			$('#categorie_boutton').click(function() {
-
-				 inputs.each(function(){
-        var value =  $(this).find("option:selected").text();
-       // alert(value);
-        	if(value == 'chaussures') {
-	    // Si la case est cochée, on affiche en fonction
-					$('#togglebis').toggle(400);
-					return false;
-				} else{
-						$('#togglebis2').toggle(400);
-				}
-    });
-			
-			}); 
 		});
 	</script>
-
+	 <!--menu-->
+  <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
+  <?php include("menu.php"); ?>
+  <!--menu-->
 	<h2>Article à vendre</h2>
 	<form >
 		<table>
@@ -134,41 +102,12 @@ session_start();
 			</tr>
 		</table>
 	</form>
-	<div id="toggle">
-		<form>
-			<table>
-				<tr>
-					<td><label>Catégorie: </label></td>
-						<td><select name="categorie">
-							<option value="">Sélectionner une catégorie</option>
-							<option value="manteau"> manteau</option>
-							<option value="pantalon"> pantalon</option>
-							<option value="haut"> haut</option>
-							<option value="chaussures"> chaussures</option>
-						</select></td>
-				</tr>
-					<tr>
-					<td colspan="2" align="center">	<input type="submit"  id="categorie_boutton" value="Entrer"></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-	<div id="togglebis"><!-- VETEMENTS -->
+	<div id="toggle"><!-- VETEMENTS -->
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>Vous vender un </td>
 					<td><input type="text" name="type" value="vetement"></td>
-				</tr>
-					<tr>
-					<td><label>Catégorie: </label></td>
-						<td><select name="categorie">
-							<option value="">Sélectionner une catégorie</option>
-							<option value="manteau"> manteau</option>
-							<option value="pantalon"> pantalon</option>
-							<option value="haut"> haut</option>
-							<option value="chaussures"> chaussures</option>
-						</select></td>
 				</tr>
 				<tr>
 					<td>Intitulé de l'article: </td>
@@ -222,19 +161,6 @@ session_start();
 					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center">	<input type="submit" value="Valider" name="bouttonv"></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-	<div id="togglebis2"><!-- VETEMENTS -->
-		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
-			<table>
-				<tr>
-					<td>Vous vender un </td>
-					<td><input type="text" name="type" value="vetement"></td>
-				</tr>
-					<tr>
 					<td><label>Catégorie: </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie</option>
@@ -243,62 +169,6 @@ session_start();
 							<option value="haut"> haut</option>
 							<option value="chaussures"> chaussures</option>
 						</select></td>
-				</tr>
-				<tr>
-					<td>Intitulé de l'article: </td>
-					<td><input type="text" name="nom"></td>
-				</tr>
-				<tr>
-					<td>Photo: </td>
-					<td><input type="file" name="photo"></td>
-				</tr>
-				<tr>
-					<td>Description: </td>
-					<td><input type="text" name="description"></td>
-				</tr>
-				<tr>
-					<td>Prix: </td>
-					<td><input type="number" name="prix"   min="0"></td>
-				</tr>
-				<tr>
-					<td><label>Sexe</label></td>
-						<td><select name="sexe">
-							<option value="">Sélectionner un sexe</option>
-							<option value="h"> Homme</option>
-							<option value="f"> Femme</option>
-						</select></td>	
-				</tr>
-				<tr>
-					<td><label>Taille</label></td>
-						<td><select name="taille">
-							<option value="">Sélectionner une taille</option>
-							<option value="36"> 36</option>
-							<option value="37"> 37</option>
-							<option value="38"> 38</option>
-							<option value="39"> 39</option>
-							<option value="40"> 40</option>
-							<option value="41"> 41</option>
-							<option value="42"> 42</option>
-							<option value="43"> 43</option>
-							<option value="44"> 44</option>
-							<option value="45"> 45</option>
-						</select></td>
-				</tr>
-				<tr>
-					<td><label>couleur: </label></td>
-						<td><select name="couleur">
-							<option value="">Sélectionner une couleur</option>
-							<option value="rouge"> rouge</option>
-							<option value="bleu"> bleu</option>
-							<option value="vert"> vert</option>
-							<option value="jaune"> jaune</option>
-							<option value="blanc"> blanc</option>
-							<option value="noir"> noir</option>
-						</select></td>
-				</tr>
-				<tr>
-					<td>Quantité: </td>
-					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">	<input type="submit" value="Valider" name="bouttonv"></td>
@@ -461,10 +331,7 @@ session_start();
 		</form>
 		</div>
 		 <!--footer-->
-
-  	<?php 
-  		}//fin de la condition "si vendeur connecté"
-  		include("footer.php");
-  	?>
-</body>
-</html> 
+  <?php include("footer.php"); ?>
+  <!--footer-->
+	</body>
+	</html> 

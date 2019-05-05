@@ -55,7 +55,12 @@
 	}
 }
 
-	include("achat.php");
+echo("
+<SCRIPT LANGUAGE=JavaScript>
+window.open ('fenetre_popup.html', 'nom_interne_de_la_fenetre', config='height=100, width=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no')
+</SCRIPT>
+");
+	include("mail.php");
 
 	//fermer la connexion
 mysqli_close($db_handle);
