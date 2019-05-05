@@ -77,11 +77,12 @@ session_start();
               $photo_name = $data["item_photo"];
         ?>
 
-        <!--on affiche les résultats-->
+        <!--on affiche les résultats--> 
+        <p> vos items </p>
         <div class="col-lg-4" >
           <div class="articles">
             <div class="articles_text">
-              <p> vos items </p>
+             
               <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
               <p style="font-style: italic;"><?php echo $data['item_prix'];?></p>
               <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>">
@@ -93,8 +94,7 @@ session_start();
 
         <?php
       }
-      echo $countitem;
-      //fermer la base
+          //fermer la base
       //}else {echo "db pas trouve";}
       //mysqli_close($db_handle);
 
@@ -195,16 +195,10 @@ session_start();
             <p> vos informations bancaires</p>
             <form action="bancaire.php" method="post">
               <table>
-                  <tr>
-                   <td><label>Type de carte </label></td>
-                  <td><select name="type">
-                    <option value="">Sélectionner un type de carte</option>
-                    <option value="visa"> Visa</option>
-                    <option value="mastercard"> MasterCard</option>
-                    <option value="americanexpress"> American Express</option>
-                    <option value="paypal"> PayPal</option>
-                  </select></td>  
-               </tr>
+                 <tr>
+                  <td>type: </td>
+                  <td><input type="text" name="type"></td>
+                </tr>
                 <tr>
                   <td>Numéro de carte: </td>
                   <td><input type="number" name="numero"></td>
