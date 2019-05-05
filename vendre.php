@@ -82,7 +82,21 @@ session_start();
 	</script>
 	 <!--menu-->
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-  <?php include("menu.php"); ?>
+  <?php include("menu.php");
+
+  	//si l'utilisateur n'est pas conneté en tant que vendeur ou admin
+  	if(!($_SESSION["type"] == "vendeur" || $_SESSION["type"] == "admin"))
+  	{
+  ?>
+  	<center class="main">
+  		<h1>Vous ne pouvez pas vendre</h1>
+  		<p>Veuillez vous connecter à votre compte vendeur pour cela</p>
+  	</center>
+  <?php
+  	}
+  	else//si connecté comme vendeur ou admin
+  	{
+  ?>
   <!--menu-->
 	<div class="container-fluid" style="margin: 0px;">
     <div class="bande">
@@ -343,7 +357,10 @@ session_start();
 
 </div></center>
 		 <!--footer-->
-  <?php include("footer.php"); ?>
+  <?php 
+  	}//fin de la condiction connecté comme vendeur ou admin
+  include("footer.php"); 
+  ?>
   <!--footer-->
 	</body>
 	</html> 

@@ -200,6 +200,12 @@ body a:hover {
 	margin-bottom: 40px;
 }
 
+.main
+{
+	margin-bottom: 100px;
+	margin-top: 100px;
+}
+
 .fond{
 	background-image: url("a.png");
 }
