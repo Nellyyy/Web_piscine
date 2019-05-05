@@ -109,18 +109,18 @@
 		}
 		else{
 
-		 //on affiche tous les items en vente du vendeur
-				      while ($data = mysqli_fetch_array($resultitems,MYSQLI_ASSOC)) 
-				      {
-				      	
-				    ?>
+		 	//on affiche tous les items en vente du vendeur
+			while ($data = mysqli_fetch_array($resultitems,MYSQLI_ASSOC)) 
+			{
+				$photo = $data["item_photo"];
+	?>
 
  <div class="container-fluid">
   	<div class="row">
   		<div class="col-lg-6" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
+		  			<img src="<?php echo $photo; ?>">
 		  		</div>
 	  		</div>
 	  	</div>
