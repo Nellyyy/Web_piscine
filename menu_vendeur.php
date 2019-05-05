@@ -56,14 +56,21 @@
 					{
 						//afficher l'image de fond d'écran
 		?>
-						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 150px">
-						</div> 
+						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 300px">
 		<?php
+						if($_SESSION["type"] == "vendeur")
+						{
+							echo "<h1>Menu vendeur</h1>";
 							//photo de profil
 							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
 							echo "Nom: " . $data['utilisateur_nom'] . "<br>";
 							echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
 							echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
+						}
+		?>
+						</div> 
+		<?php
+	
 					}
 				}
 			}
