@@ -39,6 +39,7 @@
 
 			if ($db_found)
 			{
+				//Info du vendeur/////////
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
 				$result = mysqli_query($db_handle, $sql);
 				if($result != NULL)
@@ -52,6 +53,61 @@
 						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
 					}
 				}
+				//Adresse/////////
+				$sql = "SELECT * FROM `livraison` WHERE `utilisateur_email` LIKE '$email'";
+				$result = mysqli_query($db_handle, $sql);
+				while ($data = mysqli_fetch_assoc($result)) 
+				{
+					$a1 = $data["livraison_a1"];
+					$a2 = $data["livraison_a2"];
+					$ville = $data["livraison_ville"];
+					$cp = $data["livraison_CP"];
+					$pays = $data["livraison_pays"];
+					$tel = $data["livraison_tel"];
+		?>		
+				<div>
+					<h2>Adresse de livraison</h2>
+		<?php
+					echo "adresse1: " . $a1 . "<br/>";
+					echo "adresse2: " . $a2 . "<br/>";
+					echo "ville: " . $ville . "<br/>";
+					echo "code postal: " . $cp . "<br/>";
+					echo "pays: " . $pays . "<br/>";
+					echo "télephone: " . $tel . "<br/>";
+		?>
+				</div>
+		<?php
+				}
+				//Carte Bleue//////////////
+				$sql = "SELECT * FROM `paiement` WHERE `utilisateur_email` LIKE '$email'";
+				$result = mysqli_query($db_handle, $sql);
+				while ($data = mysqli_fetch_assoc($result)) 
+				{
+					$type_paiement = $data["paiement_type"];
+					$numero = $data["paiement_num"];
+					$nom = $data["paiement_nom"];
+					$date = $data["paiement_date"];
+					$secu = $data["paiement_secu"];
+
+					//Pour afficher juste les 4 derniers numero de la cb :
+					$mot=strval($valeur);
+					$char12 = $mot{12};
+					$char13 = $mot{13};
+					$char14 = $mot{14};
+					$char15 = $mot{15};
+		?>
+					<div>
+						<h2>Coordonnée banquaire</h2>
+		<?php
+						echo "Numero CB: XXXX XXXX XXXX " . $char12 . $char13 . $char14 . $char15 . "<br/>";
+						echo "Type carte: " . $type_paiement . "<br/>";
+						echo "Nom:" . $nom . "<br/>";
+						echo "Date expiration: " . $date . "<br/>";
+						echo "Cryptogramme: " . $secu . "<br/>";
+				}
+		?>
+					</div>
+		<?php
 			}
 		?>
 	
