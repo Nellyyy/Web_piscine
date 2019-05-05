@@ -246,9 +246,10 @@
 				<?php
 	         	$id=$data['item_id'];
 	         	?>
-	         	<div id="supp">
-	         		<div id="supp_img"><img src="img/supprimer.jpg"></div>
-	         		 <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	         	<!--<div id="supp">-->
+	         	<div>		
+	         		<!--<div id="supp_img"><img src="img/supprimer.jpg"></div>-->
+	         		 <p style="padding-left: 50px;"><?php echo "<a href=delete_article.php?id=". $id.">Supprimer du panier</a>"  ;?></p>
 	          </div>
 	  		</p>
 	  	</div>
