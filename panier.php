@@ -84,7 +84,11 @@
 	         	<?php
 	         	$id=$data['item_id'];
 	         	?>
-	          <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	         	<div id="supprimer_panier">	 
+	         		<img src="img/supprimer.jpg">         
+	         		<p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	         	</div>
+
 	  		</div>
 	  	</div>
   	</div>
