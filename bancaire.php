@@ -1,4 +1,4 @@
-	<?php
+<?php
 	session_start();
 	 ///je récupère l'id du mec
   $email= $_SESSION["email"];
