@@ -54,26 +54,158 @@
 		
  	?>
 
-  	<!--affichage de l'item-->
-  <div class="container-fluid">
-  	<div class="row">
-  		<div class="col-lg-6" >
+ 
+
+<div class="container-fluid">
+  	<div class="row hola">
+  		<div class="col-lg-4" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="<?php echo $photo; ?>">
+		  			<img src="<?php echo $photo?>">
 		  		</div>
 	  		</div>
 	  	</div>
-	  	<div class="col-lg-6" >
+	  	
+
+<!--affichage des details pour les livres-->
+	  	<?php 
+	  		if($data['item_type'] == "livre")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
 	  		<div class="item_text_grand">
+	  			
 	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-	  			<p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
-	  			<hr class="separateur_footer" style="margin: 0 40% 15px ;">
 	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
-	  			<hr class="separateur_footer" style="margin: 0 40% 15px ;">
-	         	<p><?php echo "Disponible en taille : ".$data['item_vetement_taille'];?></p>
-	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
+	  			<p><?php echo "Catégorie : ".$data['item_categorie'];?></p>
+	  			<p><?php echo "Auteur : ".$data['item_livre_auteur'];?></p>
+	         	<p><?php echo "Date de parution : ".$data['item_livre_date_publication'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	  
+	         	
 	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage des details pour les livres-->
+
+
+<!--affichage des details pour les vetement-->
+	  	<?php 
+	  		 if($data['item_type'] == "vetement")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Taille : ".$data['item_vetement_taille'];?></p>
+	  			<p><?php echo "Couleur : ".$data['item_vetement_couleur'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage vetement-->
+<!--affichage des details pour les musique-->
+	  	<?php 
+	  		 if($data['item_type'] == "musique")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Style : ".$data['item_categorie'];?></p>
+	  			<p><?php echo "Artiste : ".$data['item_musique_artiste'];?></p>
+	  			<p><?php echo "Date de sortie : ".$data['item_date_sortie'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	        
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage musique-->
+
+<!--affichage des details pour les sport-->
+	  	<?php 
+	  		 if($data['item_type'] == "sport")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Catégorie : ".$data['item_categorie'];?></p>
+
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	         	
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage sport-->
+
+
+
+
+
+
+
+
+
+
+
 	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?> article(s) en stock!</p>
 	         	<?php  $id=$data['item_id'];?>
 
@@ -108,9 +240,9 @@ else {	?>
        	}       	
 ?>	            
 	  		</div>
-	  	</div>
-  	</div>
+	   	</div>
   </div>
+</div>
 
 
   
