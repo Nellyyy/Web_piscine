@@ -62,12 +62,16 @@
 						if($_SESSION["type"] == "vendeur")
 						{
 							echo "<h1>Menu vendeur</h1>";
-							//photo de profil
-							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-							echo "Nom: " . $data['utilisateur_nom'] . "<br>";
-							echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
-							echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
 						}
+						else if($_SESSION["type"] == "admin")
+						{
+							echo "<h1>Menu admin</h1>";
+						}
+						//photo de profil
+						echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
+						echo "Nom: " . $data['utilisateur_nom'] . "<br>";
+						echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
+						echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
 		?>
 						</div> 
 		<?php
@@ -119,7 +123,7 @@
 		 //on affiche tous les items en vente du vendeur
 				      while ($data = mysqli_fetch_array($resultitems,MYSQLI_ASSOC)) 
 				      {
-				      	
+				      	$photo = $data["item_photo"];
 				    ?>
 
  <div class="container-fluid">
@@ -127,7 +131,7 @@
   		<div class="col-lg-6" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
+		  			<img src="<?php echo $photo; ?>">
 		  		</div>
 	  		</div>
 	  	</div>
