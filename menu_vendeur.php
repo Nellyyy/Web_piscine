@@ -31,7 +31,6 @@
 	<center id="bottom_body">
 	<div>
 		<?php
-			//Je crée une variable locale email pour simuler la connexion, on devra récupérer ça d'une autre page plus tard
 			if(isset($_SESSION["email"]))
 			{
 			$email = $_SESSION["email"];
@@ -41,7 +40,7 @@
 			$db_handle = mysqli_connect('localhost', 'root', '');
 			$db_found = mysqli_select_db($db_handle, $database);
 
-			if ($db_found)
+			if($db_found)
 			{
 				//Requete utilisateur
 				$sql = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$email'";
@@ -56,10 +55,10 @@
 					while ($data = mysqli_fetch_assoc($result)) 
 					{
 						//afficher l'image de fond d'écran
-						?>
+		?>
 						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 150px">
 						</div> 
-						<?php
+		<?php
 							//photo de profil
 							echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
 							echo "Nom: " . $data['utilisateur_nom'] . "<br>";
