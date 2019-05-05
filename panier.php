@@ -27,25 +27,18 @@
 <body>
   <!--menu-->
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-  <?php 
-  	include("menu.php");
-  	//si l'utilisateur n'est pas connecté en tant qu'acheteur
-  	if($_SESSION["type"] != "acheteur")
-  	{
-  ?>
-  		<center class="main">
-  			<p>Vous ne pouvez pas accéder au panier, <br/>
-  			connectez vous sur votre compte acheteur pour cela</p>
-  		</center>
-  <?php
-  	}
-  	else//l'utilisateur est connecté en tant qu'acheteur
-  	{
-  ?>
+  <?php include("menu.php"); ?>
+  <!--menu-->
 
+ <!--menu catégories--> 
+  <div class="container-fluid" style="margin: 0px;">
+    <div class="bande">
+      <h2>Recapitulatif de votre panier</h2>
+    </div>
+  </div>
 
   <div class="container-fluid">
-  	<h1>Recapitulatif de votre panier</h1>
+
 	  	<?php
 	  		//identification de notre BDD
    			 $database = "piscine_test";
@@ -72,46 +65,200 @@
 				      while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
 				      {
 				      	$sous_total=0;
+				      	 $photo_name = $data["item_photo"];
 				    ?>
 
  <div class="container-fluid">
-  	<div class="row">
-  		<div class="col-lg-6" >
+  	<div class="row hola">
+  		<div class="col-lg-4" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
+		  			<img src="<?php echo $photo_name?>">
 		  		</div>
 	  		</div>
 	  	</div>
-	  	<div class="col-lg-6" >
+
+<!--affichage des details pour les livres-->
+	  	<?php 
+	  		if($data['item_type'] == "livre")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
 	  		<div class="item_text_grand">
+	  			
 	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-	  			<p style="font-weight: bold;"><?php echo $data['item_prix'].'$';?></p>
-	  			<hr class="separateur_footer" style="margin: 0 40% 15px ;">
 	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
-	  			<hr class="separateur_footer" style="margin: 0 40% 15px ;">
-	         	<p><?php echo "Disponible en taille : ".$data['item_vetement_taille'];?></p>
-	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
+	  			<p><?php echo "Catégorie : ".$data['item_categorie'];?></p>
+	  			<p><?php echo "Auteur : ".$data['item_livre_auteur'];?></p>
+	         	<p><?php echo "Date de parution : ".$data['item_livre_date_publication'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
 	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
-	         	</br>
 	         	<?php
+ 				$count=$count+1;
+				 $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
+				 ?>
+				<p><?php echo "Sous-total : "?></p>
+				 <p style="font-weight: bold; float: right;"><?php echo $sous_total.'$';?></p>
+				</br>
+				 <hr class="separateur_footer" >
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage des details pour les livres-->
+
+ <!--affichage des details pour les vetement-->
+	  	<?php 
+	  		 if($data['item_type'] == "vetement")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Taille : ".$data['item_vetement_taille'];?></p>
+	  			<p><?php echo "Couleur : ".$data['item_vetement_couleur'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
+	         	<?php
+ 				$count=$count+1;
+				 $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
+				 ?>
+				<p><?php echo "Sous-total : "?></p>
+				 <p style="font-weight: bold; float: right;"><?php echo $sous_total.'$';?></p>
+				</br>
+				 <hr class="separateur_footer" >
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage vetement-->
+
+<!--affichage des details pour les musique-->
+	  	<?php 
+	  		 if($data['item_type'] == "musique")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Style : ".$data['item_categorie'];?></p>
+	  			<p><?php echo "Artiste : ".$data['item_musique_artiste'];?></p>
+	  			<p><?php echo "Date de sortie : ".$data['item_date_sortie'];?></p>
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
+	         	<?php
+ 				$count=$count+1;
+				 $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
+				 ?>
+				<p><?php echo "Sous-total : "?></p>
+				 <p style="font-weight: bold; float: right;"><?php echo $sous_total.'$';?></p>
+				</br>
+				 <hr class="separateur_footer" >
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage musique-->
+
+<!--affichage des details pour les sport-->
+	  	<?php 
+	  		 if($data['item_type'] == "sport")
+	  		{
+	  	?>
+
+	  	<div class="col-lg-4" >
+	  		<div class="item_text_grand">
+	  			
+	  			<p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
+	  			<p style="font-style: italic;"><?php echo $data['item_description'];?></p>
+	  			<p><?php echo "Catégorie : ".$data['item_categorie'];?></p>
+
+
+	         	<hr class="separateur_footer">
+	         	<p><?php echo "Prix unitaire : "?></p>
+	  			<p style="font-weight: bold; float: right;"><?php echo $data['item_prix'].'$';?></p>
+	  			</br>
+	  			<hr class="separateur_footer">
+
+	         	<p><?php echo "Quantite choisie : ".$data['panier_qte'];?></p>
+	         	<?php
+ 				$count=$count+1;
+				 $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
+				 ?>
+				<p><?php echo "Sous-total : "?></p>
+				 <p style="font-weight: bold; float: right;"><?php echo $sous_total.'$';?></p>
+				</br>
+				 <hr class="separateur_footer" >
+	         	
+	         	</br>
+	  		</div>
+	  	</div>
+
+
+	  	<?php
+	  		}
+	  	?>
+<!--fin affichage sport-->
+
+
+	  	<div class="col-lg-4">
+	  		<p> 
+				<?php
 	         	$id=$data['item_id'];
 	         	?>
-	          <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
-	  		</div>
+	         	<div id="supp">
+	         		<div id="supp_img"><img src="img/supprimer.jpg"></div>
+	         		 <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	          </div>
+	  		</p>
 	  	</div>
   	</div>
   </div>
+<!--fin affichage des details -->
+  
 
-  <!-- séparateur entre les articles affichés-->
-   <hr class="separateur_footer" style="margin: 0 10% 10px;">
 
- <?php
- $count=$count+1;
- $sous_total=$sous_total + $data['item_prix']*$data['panier_qte'];
- ?>
-
- <h5>le sous total de l'article est <?php echo $sous_total;?> </h5>
+<!--affichage total-->
 
  <?php
  $total= $total + $sous_total;
@@ -120,26 +267,30 @@
       	echo "pas d'articles dans le panier";
       }else {
 ?>
+<div id="total">
+<p><?php echo "Total de votre commande: "?></p>
+				 <p style="font-weight: bold; float: right;"><?php echo $total.'$';?></p>
+				</br>
+				 <hr class="separateur_footer" >
 
-<h4>le total de votre commande est <?php echo $total;?> </h4>
-		<form method="post" action="passer_commande.php">
+		<form method="post" action="passer_commande.php" style="float: right; margin: 40px 10px;">
 						
 						<input type="hidden" name="total" value=" <?php echo $total;?>">
 						<input type="submit" value="Finaliser la commande" >
 		</form>
-
 </div>
+  </div>
  
-<?php }
+ <?php }
       //fermer la base
     }
   }else {echo "db pas trouve";}
       mysqli_close($db_handle);
 
 ?> 
-<?php
-	}//fin condition si acheteur connecté
-	include("footer.php"); 
-?>
+  
+  <!--footer-->
+  <?php include("footer.php"); ?>
+  <!--footer-->
 </body>
 </html>

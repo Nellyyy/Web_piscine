@@ -77,6 +77,22 @@ body a:hover {
 	
 }
 
+/*affichage item panier*/
+.photo_item_grand{
+	width: 300px;
+	height: 380px;
+}
+
+.photo_item_grand img{
+	width: 100%;
+	height: 100%;
+}
+
+
+.hola{
+	margin-top: 40px;
+	margin-bottom: 60px;
+}
 
 .case{
 	width: 100%;
@@ -119,6 +135,8 @@ body a:hover {
 	float: right;
 
 }
+
+
 
 /*footer*/
 
@@ -182,14 +200,53 @@ body a:hover {
 	margin-bottom: 40px;
 }
 
-/*Conteneur principal d'una page, pour rajouter de marge en haut et en bas
-  Pour que le contenu ne soit pas écrasé entre le menu et le footer*/
-.main
-{
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
-
 .fond{
 	background-image: url("a.png");
+}
+
+
+
+/*test*/
+
+#supp{
+	width: 100px;
+	height: 35px;
+	border: 2px solid;
+	display: inline-block;
+
+}
+
+#supp_img img{
+ width: 100%;
+ height: 100%;
+}
+
+#supp_img{
+	height: 35px;
+	width: 50px;
+
+}
+
+
+/* bande grise en haut de chaque page*/
+.bande{
+	width: 100%;
+	height: 70px;
+	padding: 8px 0px ;
+	padding-bottom: 5px;
+	background-color: #EDEFF4;
+	color: black;
+	margin: 0;
+	
+}
+
+.bande h2{
+	text-align: center;
+	padding-bottom: 4px;
+}
+
+
+#total{
+	margin-left: 35%;
+	margin-right: 35%;
 }

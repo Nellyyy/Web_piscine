@@ -40,7 +40,16 @@ session_start();
   ?>
 
   <!--accueil vetements-->
-  <h1>Top 3 des best sellers de chaque catégorie!</h1>
+  <div class="container-fluid" style="margin: 0px;">
+    <div class="menuSeller" style="width: 100%;
+  height: 60px;
+  padding: 2px 3px;
+  background-color: #EDEFF4;
+  color: black;
+  margin: 0;">
+      <h2 style="text-align: center;">Top 3 des best sellers de chaque catégorie!</h2>
+    </div>
+  </div>
 
   <!--recherche dans bdd: on selectionne tous les vetements-->
   <?php
@@ -66,8 +75,9 @@ session_start();
   ?>
 
 <div class="container-fluid">
-  <div class="row">
-    <h2>Top vente Vêtements: </h2>
+  <div class="row" style="margin-top: 20px; margin-bottom: 60px;">
+    <h3 style="margin-left: 20px; font-weight: bold;">Top vente vêtements</h3>
+    <hr class="separateur_top" style=" border-width: 2px;  margin-left: 20px; margin-right: 76%;">
 
     <?php
 
@@ -80,9 +90,10 @@ session_start();
         $count1 = $count1 + 1;
          $photo_name = $data["item_photo"];
     ?>
-      <p style="font-weight: bold;"><?php echo 'numéro '.$count1;?></p>
+      
     <!--on affiche les résultats-->
     <div class="col-lg-4" >
+      <p style=" font-style: italic; margin-left: 6px;"><?php echo 'Numéro '.$count1;?></p>
       <div class="item">
         <div class="item_image">
           <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
@@ -90,21 +101,7 @@ session_start();
         <div class="item_text">
           <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
           <p style="font-style: italic;">nombre de ventes: <?php echo $data['item_qte_vendue'];?></p>
-            <?php
-          if($data['item_qte_stock']!=0)
-          {
-            $id=$data['item_id'];
-        ?>
           <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
-          
-        <?php
-        }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
-        else{
-          ?>
-          <p style="color: red; font-style: italic; float: right; padding-bottom: 10px;">Rupture de stock.</p>
-          <?php
-          }
-        ?>
         </div> 
       </div>
     </div>
@@ -116,8 +113,10 @@ session_start();
       //mysqli_close($db_handle);
     ?>
  </div>
- <div class="row">
-    <h2>Top vente Livres: </h2>
+ <div class="row" style="margin-top: 20px; margin-bottom: 60px;">
+
+    <h3 style="margin-left: 20px; font-weight: bold;">Top vente livres</h3>
+    <hr class="separateur_top" style=" border-width: 2px;  margin-left: 20px; margin-right: 76%;">
 
     <?php
 
@@ -131,9 +130,9 @@ session_start();
         $photo_name = $data["item_photo"];
     ?>
 
-    <p style="font-weight: bold;"><?php echo 'numéro '.$count2;?></p>
     <!--on affiche les résultats-->
     <div class="col-lg-4" >
+      <p style=" font-style: italic; margin-left: 6px;"><?php echo 'Numéro '.$count2;?></p>
       <div class="item">
         <div class="item_image">
           <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
@@ -152,8 +151,10 @@ session_start();
       //mysqli_close($db_handle);
     ?>
  </div>
-  <div class="row">
-    <h2>Top vente Musiques: </h2>
+  <div class="row" style="margin-top: 20px; margin-bottom: 60px;">
+    
+    <h3 style="margin-left: 20px; font-weight: bold;">Top vente musique</h3>
+    <hr class="separateur_top" style=" border-width: 2px;  margin-left: 20px; margin-right: 76%;">
     <?php
      //variable qui permet d'afficher le top 3
       $count3 =0;
@@ -165,8 +166,9 @@ session_start();
         $photo_name = $data["item_photo"];
     ?>
     <!--on affiche les résultats-->
-    <p style="font-weight: bold;"><?php echo 'numéro '.$count3;?></p>
+    
     <div class="col-lg-4" >
+      <p style=" font-style: italic; margin-left: 6px;"><?php echo 'Numéro '.$count3;?></p>
       <div class="item">
         <div class="item_image">
           <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
@@ -185,8 +187,10 @@ session_start();
       //mysqli_close($db_handle);
     ?>
  </div>
-  <div class="row">
-    <h2>Top vente Sport: </h2>
+  <div class="row" style="margin-top: 20px; margin-bottom: 60px;">
+
+    <h3 style="margin-left: 20px; font-weight: bold;">Top vente sport et loisir</h3>
+    <hr class="separateur_top" style=" border-width: 2px;  margin-left: 20px; margin-right: 76%;">
     <?php
       //variable qui permet d'afficher le top 3
       $count4 =0;
@@ -198,8 +202,9 @@ session_start();
         $photo_name = $data["item_photo"];
     ?>
     <!--on affiche les résultats-->
-     <p style="font-weight: bold;"><?php echo 'numéro '.$count4;?></p>
+    
     <div class="col-lg-4" >
+       <p style=" font-style: italic; margin-left: 6px;"><?php echo 'Numéro '.$count4;?></p>
       <div class="item">
         <div class="item_image">
           <img class="text-center d-flex justify-content-center" src="<?php echo $photo_name?>">   <!--item_photo à la place du chemin fb.png-->
