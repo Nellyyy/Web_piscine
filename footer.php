@@ -65,9 +65,9 @@
         <div class="col-md-2 ">
         </div>
         <div class="col-md-8 col-12 mt-5">
-          <p style="line-height: 1.7rem">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+          <p style="line-height: 1.7rem"> Nous espérons que vous avez passé un agréable moment sur le site ECE Amazon &copy;.
+            ECE Amazon existe depuis début mai 2019 et est le fruit d'un travail acharné de trois jeunes ingénieurs Benoit, Charlène et Nelly. Ce projet a pour but de faciliter l'achat et la vente d'articles à travers de monde.</br></br>
+            Pour plus d'informations, venez nous suivre sur les réseaux ci-dessous. L'équipe ECE Amazon &copy; vous remercie.</p>
         </div>
         <div class="col-md-2 ">
         </div>
