@@ -78,12 +78,9 @@
 	         	<?php  $id=$data['item_id'];?>
 
 	         	<form method="post" action="AjoutPanier.php">
-				<select  name="quantite">
-				    <option value="1">1</option>
-				    <option value="2">2</option>
-				    <option value="3">3</option>
-				    <option value="4">4</option>
-				</select>
+				<tr>
+					<td><input type="number" name="quantite"   min="1" max="<?php echo $data['item_qte_stock'];?>"></td>
+				</tr>
 				<input type="hidden" name="id_choisi" value=" <?php echo $data['item_id'];?>">
 				<input type="submit" value="Ajouter au panier" >
 				  
