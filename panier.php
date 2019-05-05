@@ -72,6 +72,7 @@
 				      while ($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) 
 				      {
 				      	$sous_total=0;
+				      	 $photo_name = $data["item_photo"];
 				    ?>
 
  <div class="container-fluid">
@@ -79,7 +80,7 @@
   		<div class="col-lg-6" >
 	  		<div class="item_grand">
 		  		<div class="photo_item_grand">
-		  			<img src="img/jupe.jpg">
+		  			<img src="<?php echo $photo_name?>">
 		  		</div>
 	  		</div>
 	  	</div>
@@ -97,7 +98,11 @@
 	         	<?php
 	         	$id=$data['item_id'];
 	         	?>
-	          <p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	         	<div id="supprimer_panier">	 
+	         		<img src="img/supprimer.jpg">         
+	         		<p style="float: right;"><?php echo "<a href=delete_article.php?id=". $id.">retirer</a>"  ;?></p>
+	         	</div>
+
 	  		</div>
 	  	</div>
   	</div>
