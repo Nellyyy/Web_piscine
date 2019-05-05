@@ -252,16 +252,6 @@ session_start();
 }
 </div>
 </div>
- <?php
-      if(isset($_SESSION["try_paiement"]))
-      {
-    ?>
-        <div style="color: red;">
-        Aucune carte bancaire renseignée <br/>
-        </div> 
-    <?php
-      }
-    ?>
 <!--lien avec fichier php qui ajoute au panier-->
 <form action="transaction.php" method="post">
   <!--bouton ajouter au panier-->
