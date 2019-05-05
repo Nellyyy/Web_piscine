@@ -26,7 +26,6 @@ session_start();
 	<!--menu-->
 	<!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
 	<?php 
-  session_start();
   include("menu.php"); ?>
   <!--menu-->
 
