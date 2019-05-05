@@ -30,40 +30,17 @@ session_start();
 	<?php include("menu.php"); ?>
 	<!--menu-->
 
-	<!--petit texte haut de page-->
-
-  <div class="container-fluid accueil">
-    <center>
-    <h1 style=" font-style: italic;  font-family: 'Pacifico', cursive;">N'hésitez plus blabla</h1>
-    <p style=" font-style: italic;">Il est temps d'acheter mes amis ou faites de l'argent en vendant</p>
-    </center>
-  </div>
-
-  <hr class="separateur_footer" style="margin: 0 15% 34px ;">
-
   <!--images et lien vers chaque catégorie--> 
 
 	<div class="container-fluid accueil">
-      <div class="row">
-        <div class="col-lg-3 col-lg-offset-1"><img src="img/livre.jpg"></div>
+     <div class="pub">
+       <h3>A ne pas manquer!</h3>
+       <h1>Livraison gratuite dès 50$ d'achats!*</h1>
+       <h6>*offre valable le mois de Mai, prix soumis à condition</h6>
+     </div> 
         
-      </div>
-      <div class="row ">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-4 acc"><div class="acc_texte"><p>Vêtements</p></div></div>
-        <div class="col-lg-6"><div class="acc_img"><img src="img/vetements.jpg"></div></div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6"><div class="acc_img"><img src="img/livre.jpg"></div></div>
-        <div class="col-lg-2"></div>
-        <div class="col-lg-4 acc"><div class="acc_texte"><p>Musique</p></div></div>
-      </div>
-      <div class="row ">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-4 acc"><div class="acc_texte"><p>Sport et Loisir</p></div></div>
-        <div class="col-lg-6"><div class="acc_img"><img src="img/vetements.jpg"></div></div>
-      </div>
-    </div>
+      
+  </div>
 	
     <!--footer-->
 	<?php include("footer.php"); ?>
