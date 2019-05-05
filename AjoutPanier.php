@@ -1,5 +1,8 @@
 <?php
-	session_start();
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
 ?>
 
 <?php 
@@ -23,7 +26,6 @@
 		    	if(isset($_SESSION["email"])){
 		    		$addsql="INSERT INTO panier VALUES('$id', '$utilisateur_email','$quantite')";
 					$result = mysqli_query($db_handle, $addsql);
-					echo "add successfully to panier";
 		    	}
 			}else{
 				echo "pas ajouter dans panier";
