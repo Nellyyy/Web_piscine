@@ -1,3 +1,5 @@
+<!-- ce menu marche-->
+
 <?php
 	session_start();
 ?>
