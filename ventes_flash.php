@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +93,7 @@ session_start();
             $id=$data['item_id'];
         ?>
           <p style="float: right;"><?php echo "<a href=recupId.php?id=". $id.">Voir +</a>"  ;?></p>
-          
+
         <?php
         }//si la quantite vaut 0 sur le bouton on affiche pas posssible de vendre
         else{
