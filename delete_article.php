@@ -1,5 +1,8 @@
 <?php
-	session_start();
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
 	
 	 ///je récupère l'id du mec
   $email= $_SESSION["email"];

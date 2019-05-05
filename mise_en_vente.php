@@ -1,5 +1,8 @@
 <?php
-session_start();
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
 
 
 //recuperer les données venant de la page HTML
