@@ -109,7 +109,8 @@
 					$secu = $data["paiement_secu"];
 
 					//Pour afficher juste les 4 derniers numero de la cb :
-					$mot=strval($valeur);
+					$mot=strval($numero);
+					
 					$char12 = $mot{12};
 					$char13 = $mot{13};
 					$char14 = $mot{14};

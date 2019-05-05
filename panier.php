@@ -1,5 +1,8 @@
 <?php
+if(!isset($_SESSION))
+{
 	session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -265,7 +268,11 @@
  $total= $total + $sous_total;
       }
       if($count==0){
-      	echo "pas d'articles dans le panier";
+?>
+      	<center class="main">
+      		<p>Pas d'articles dans le panier</p>
+      	</center>
+<?php
       }else {
 ?>
 <div id="total">

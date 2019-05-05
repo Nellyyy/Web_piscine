@@ -72,7 +72,7 @@ CREATE TABLE `piscine_test`.`livraison` (
 DROP TABLE IF EXISTS `paiement`;
 CREATE TABLE `piscine_test`.`paiement` (
 	`paiement_type` VARCHAR(255) NOT NULL,
-	`paiement_num` INT(16) NOT NULL,
+	`paiement_num` BIGINT NOT NULL,
 	`paiement_nom` VARCHAR(255) NOT NULL,
 	`paiement_date` INT(4) NOT NULL,
 	`paiement_secu` INT(3) NOT NULL,
