@@ -59,19 +59,26 @@
 		?>
 						<div style="background-image: url('<?php echo $data['utilisateur_vendeur_photofond']?>'); width: 100%; height: 300px">
 		<?php
-						if($_SESSION["type"] == "vendeur")
-						{
-							echo "<h1>Menu vendeur</h1>";
-						}
-						else if($_SESSION["type"] == "admin")
-						{
-							echo "<h1>Menu admin</h1>";
-						}
+						
+						?>
+
+						<div class="bande">
+					      <h2>Bienvenue <?php echo  $data['utilisateur_nom'] . ' ' . $data['utilisateur_prenom'] ;  ?>
+					      	
+					      </h2>
+
+					      <!--bouton deconnection-->
+					      <form action="deconnexion.php" method="post" style="float: right;">
+							<input type="submit" value="Deconnexion">
+						</form>
+					    </div>
+					    <br>
+					    <br>
+						<?php 
+
 						//photo de profil
 						echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-						echo "Nom: " . $data['utilisateur_nom'] . "<br>";
-						echo "Prénom: " . $data['utilisateur_prenom'] . "<br>";
-						echo "Type d'utilisateur: " . $data['utilisateur_type'] . "<br/>";
+						
 		?>
 						</div> 
 		<?php
@@ -89,8 +96,12 @@
 		?>
 		<br/>
 	</div>
-		<div>
-		<h2>Changer votre photo de profil ?</h2>
+
+<div class="row">
+		<div class="col-lg-6">
+		<h3>Photo de profil</h3>
+		<hr class="separateur_footer" >
+		<p>Souhaitez-vous changer votre photo de profil?</p>
 		<form action="upload_profil_pic.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="monfichier"/>
 			<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
@@ -99,8 +110,10 @@
 			<input type="submit" value="Envoyer"/>
 		</form>
 	</div>
-	<div>
-		<h2>Changer votre fond d'écran ?</h2>
+	<div class="col-lg-6">
+		<h3>Fond d'écran</h3>
+		<hr class="separateur_footer" >
+		<p>Souhaitez-vous changer votre fond d'écran?</p>
 		<form action="upload_background_pic.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="monfichier"/>
 			<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
@@ -110,6 +123,7 @@
 		</form>
 		<br/>
 	</div>
+</div>
 	<?php
 		if($_SESSION["type"]=="admin")
 		{
@@ -153,12 +167,7 @@
  <?php }
 		}
 	?>
-	<div>
-		<h2>Se deconnecter</h2>
-		<form action="deconnexion.php" method="post">
-			<input type="submit" value="Se deconnecter">
-		</form>
-	</div>
+	
 	</center>
 	<?php include("footer.php"); ?>
 </body>
