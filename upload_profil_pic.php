@@ -22,6 +22,8 @@
 		//query :
 		$sql = "UPDATE `utilisateur` SET `utilisateur_photo`='$file_name' WHERE `utilisateur_email` LIKE '$id_utilisateur'";
 		$result = mysqli_query($db_handle, $sql);
+		$sqlu = "SELECT * FROM `utilisateur` WHERE `utilisateur_email` LIKE '$id_utilisateur'";
+		$resultu = mysqli_query($db_handle, $sqlu);
 		mysqli_close($db_handle);
 	}
 	else
@@ -29,10 +31,19 @@
 		echo "Une erreur est survenue lors du chargement de votre image <br/>";
 	}
 	//faire un boutton revenir au menu vendeur !
+	 while($data = mysqli_fetch_array($resultu,MYSQLI_ASSOC)) 
+      {
+        if( $data['utilisateur_type'] == 'admin')
+        	{include("menu_admin.php");}
+
+        if( $data['utilisateur_type'] == 'vendeur')
+        	{include("menu_vendeur.php");}
+
+        if( $data['utilisateur_type'] == 'acheteur')
+        	{include("menu_acheteur.php");}
+       
+       }
+        // }
 ?>
 
-<a href="menu_vendeur.php">Retour au menu vendeur</a>
-
-</body>
-</html>
 
