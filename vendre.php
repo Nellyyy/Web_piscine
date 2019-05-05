@@ -84,7 +84,16 @@ session_start();
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
   <?php include("menu.php"); ?>
   <!--menu-->
-	<h2>Article à vendre</h2>
+	<div class="container-fluid" style="margin: 0px;">
+    <div class="bande">
+      <h2>Mettez en vente votre article.</h2>
+    </div>
+
+    <center><div class="logo">
+  	<img src="img/logoblanc.png">
+  </div></center>
+
+<center><div class="box_vente">
 	<form >
 		<table>
 			<tr>
@@ -101,28 +110,29 @@ session_start();
 				</div>
 			</tr>
 		</table>
+		<br>
 	</form>
 	<div id="toggle"><!-- VETEMENTS -->
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td>Vous vender un </td>
+					<td><label>Vous vendez un </label></td>
 					<td><input type="text" name="type" value="vetement"></td>
 				</tr>
 				<tr>
-					<td>Intitulé de l'article: </td>
+					<td><label>Intitulé de l'article </label></td>
 					<td><input type="text" name="nom"></td>
 				</tr>
 				<tr>
-					<td>Photo: </td>
+					<td><label>Photo </label></td>
 					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
-					<td>Description: </td>
+					<td><label>Description </label></td>
 					<td><input type="text" name="description"></td>
 				</tr>
 				<tr>
-					<td>Prix: </td>
+					<td><label>Prix </label></td>
 					<td><input type="number" name="prix"   min="0"></td>
 				</tr>
 				<tr>
@@ -145,7 +155,7 @@ session_start();
 						</select></td>
 				</tr>
 				<tr>
-					<td><label>couleur: </label></td>
+					<td><label>Couleur</label></td>
 						<td><select name="couleur">
 							<option value="">Sélectionner une couleur</option>
 							<option value="rouge"> rouge</option>
@@ -157,11 +167,11 @@ session_start();
 						</select></td>
 				</tr>
 				<tr>
-					<td>Quantité: </td>
+					<td><label>Quantité</label></td>
 					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
-					<td><label>Catégorie: </label></td>
+					<td><label>Catégorie </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie</option>
 							<option value="manteau"> manteau</option>
@@ -180,35 +190,35 @@ session_start();
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td>Vous vender un </td>
+					<td><label>Vous vendez un </label></td>
 					<td><input type="text" name="type" value="livre"></td>
 				</tr>
 				<tr>
-					<td>Intitulé de l'article: </td>
+					<td><label>Intitulé de l'article </label></td>
 					<td><input type="text" name="nom"></td>
 				</tr>
 				<tr>
-					<td>Photo: </td>
+					<td><label>Photo </label></td>
 					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
-					<td>Description: </td>
+					<td><label>Description</label></td>
 					<td><input type="text" name="description"></td>
 				</tr>
 				<tr>
-					<td>Prix: </td>
+					<td><label>Prix </label></td>
 					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
-					<td>Auteur: </td>
+					<td><label>Auteur </label></td>
 					<td><input type="text" name="auteur"></td>
 				</tr>
 				<tr>
-					<td>Date de parution: </td>
+					<td><label>Date de parution </label></td>
 					<td><input type="number" name="dateparution"></td>
 				</tr>
 				<tr>
-					<td><label>catégorie: </label></td>
+					<td><label>Catégorie </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie </option>
 							<option value="roman"> roman</option>
@@ -218,13 +228,13 @@ session_start();
 						</select></td>	
 				</tr>
 				<tr>
-					<td>Quantité: </td>
+					<td><label>Quantité </label></td>
 					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" value="Valider" name="bouttonv">
-						<td colspan="2" align="center"></td>
+						
+						<td colspan="2" align="center"><input type="submit" value="Valider" name="bouttonv"></td>
 					</td>
 				</tr>
 			</table>
@@ -234,35 +244,35 @@ session_start();
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td>Vous vender une </td>
+					<td><label>Vous vendez une </label></td>
 					<td><input type="text" name="type" value="musique"></td>
 				</tr>
 				<tr>
-					<td>Intitulé de l'article: </td>
+					<td><label>Intitulé de l'article </label></td>
 					<td><input type="text" name="nom"></td>
 				</tr>
 				<tr>
-					<td>Photo: </td>
+					<td><label>Photo </label></td>
 					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
-					<td>Description: </td>
+					<td><label>Description </label></td>
 					<td><input type="text" name="description"></td>
 				</tr>
 				<tr>
-					<td>Prix: </td>
+					<td><label>Prix </label></td>
 					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
-					<td>Artiste: </td>
+					<td><label>Artiste </label></td>
 					<td><input type="text" name="artiste"></td>
 				</tr>
 				<tr>
-					<td>Date de sortie: </td>
+					<td><label>Date de sortie </label></td>
 					<td><input type="nulber" name="datesortie"  min="0" ></td>
 				</tr>
 				<tr>
-					<td><label>catégorie: </label></td>
+					<td><label>Catégorie </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie </option>
 							<option value="classique"> classique</option>
@@ -272,13 +282,13 @@ session_start();
 						</select></td>
 				</tr>
 				<tr>
-					<td>Quantité: </td>
+					<td><label>Quantité </label></td>
 					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" value="Valider" name="bouttonv">
-						<td colspan="2" align="center"></td>
+						
+						<td colspan="2" align="center"><input type="submit" value="Valider" name="bouttonv"></td>
 					</td>
 				</tr>
 			</table>
@@ -288,27 +298,27 @@ session_start();
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td>Vous vender un article de </td>
+					<td><label>Vous vendez un article de  </label></td>
 					<td><input type="text" name="type" value="sport"></td>
 				</tr>
 				<tr>
-					<td>Intitulé de l'article: </td>
+					<td><label>Intitulé de l'article </label> </td>
 					<td><input type="text" name="nom"></td>
 				</tr>
 				<tr>
-					<td>Photo: </td>
+					<td><label>Photo </label></td>
 					<td><input type="file" name="photo"></td>
 				</tr>
 				<tr>
-					<td>Description: </td>
+					<td><label>Description </label></td>
 					<td><input type="text" name="description"></td>
 				</tr>
 				<tr>
-					<td>Prix: </td>
+					<td><label>Prix </label></td>
 					<td><input type="number" name="prix"  min="0"></td>
 				</tr>
 				<tr>
-					<td><label>catégorie: </label></td>
+					<td><label>Catégorie </label></td>
 						<td><select name="categorie">
 							<option value="">Sélectionner une catégorie</option>
 							<option value="randonnee"> randonnée</option>
@@ -318,18 +328,20 @@ session_start();
 						</select></td>	
 				</tr>
 				<tr>
-					<td>Quantité: </td>
+					<td><label>Quantité </label></td>
 					<td><input type="number" name="quantite"  min="0"></td>
 				</tr>
 				<tr>
 					<td>
-						<input type="submit" value="Valider" name="bouttonv">
-						<td colspan="2" align="center"></td>
+						
+						<td colspan="2" align="center"><input type="submit" value="Valider" name="bouttonv"></td>
 					</td>
 				</tr>
 			</table>
 		</form>
 		</div>
+
+</div></center>
 		 <!--footer-->
   <?php include("footer.php"); ?>
   <!--footer-->
