@@ -95,10 +95,12 @@
 <?php	
 }  
 else {	?>
-	<form method="post" action="connexionPage.php">
+				<form method="post" action="connexionPage.php">
 					
-				
-				<input type="submit" value="connectez-vous" >
+					<tr>
+					<td><input type="number" name="quantite"   min="1" max="<?php echo $data['item_qte_stock'];?>"></td>
+				</tr>
+					<input type="submit" value="Ajouter au panier" >
 				  
 				</form>
 				<?php
