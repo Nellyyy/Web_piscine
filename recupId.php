@@ -77,6 +77,12 @@
 	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?> article(s) en stock!</p>
 	         	<?php  $id=$data['item_id'];?>
 
+<?php
+	$utilisateur_email=$_SESSION["email"];
+	if ($utilisateur_email) {
+	
+	
+?>
 	         	<form method="post" action="AjoutPanier.php">
 					<tr>
 					<td><input type="number" name="quantite"   min="1" max="<?php echo $data['item_qte_stock'];?>"></td>
@@ -85,8 +91,20 @@
 				<input type="submit" value="Ajouter au panier" >
 				  
 				</form>
-	         	
-	            
+
+<?php	
+}  
+else {	?>
+	<form method="post" action="connexionPage.php">
+					
+				
+				<input type="submit" value="connectez-vous" >
+				  
+				</form>
+				<?php
+       	 
+       	}       	
+?>	            
 	  		</div>
 	  	</div>
   	</div>
