@@ -85,15 +85,16 @@ session_start();
 
 				 inputs.each(function(){
         var value =  $(this).find("option:selected").text();
-    });
-				if(value == 'chaussures') {
+       // alert(value);
+        	if(value == 'chaussures') {
 	    // Si la case est cochée, on affiche en fonction
-					jQuery('#togglebis').toggle(400);
+					$('#togglebis').toggle(400);
 					return false;
-				} 
-				else{
-						jQuery('#togglebis2').toggle(400);
+				} else{
+						$('#togglebis2').toggle(400);
 				}
+    });
+			
 			}); 
 		});
 	</script>
@@ -133,11 +134,10 @@ session_start();
 						</select></td>
 				</tr>
 					<tr>
-					<td colspan="2" align="center">	<input type="submit"  id="categorie_boutton" value="Valider" name="bouttonc"></td>
+					<td colspan="2" align="center">	<input type="submit"  id="categorie_boutton" value="Entrer"></td>
 				</tr>
 			</table>
 		</form>
-		
 	</div>
 	<div id="togglebis"><!-- VETEMENTS -->
 		<form action="mise_en_vente.php" method="post" enctype="multipart/form-data">
