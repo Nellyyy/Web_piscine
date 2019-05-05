@@ -1,4 +1,4 @@
-	<?php
+<?php
 	session_start();
 
 	//récupération des données du formulaire
