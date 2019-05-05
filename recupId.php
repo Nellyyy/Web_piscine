@@ -74,18 +74,13 @@
 	         	<p><?php echo "Disponible en taille : ".$data['item_vetement_taille'];?></p>
 	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
 	         	</br>
-	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?></p>
-	         	
-	         	<p>id avant le bouton <?php echo $id=$data['item_id'];?></p> 
+	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?> article(s) en stock!</p>
 	         	<?php  $id=$data['item_id'];?>
 
 	         	<form method="post" action="AjoutPanier.php">
-				<select  name="quantite">
-				    <option value="1">1</option>
-				    <option value="2">2</option>
-				    <option value="3">3</option>
-				    <option value="4">4</option>
-				</select>
+					<tr>
+					<td><input type="number" name="quantite"   min="1" max="<?php echo $data['item_qte_stock'];?>"></td>
+				</tr>
 				<input type="hidden" name="id_choisi" value=" <?php echo $data['item_id'];?>">
 				<input type="submit" value="Ajouter au panier" >
 				  

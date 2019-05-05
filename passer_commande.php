@@ -237,16 +237,16 @@ session_start();
  
   if($total<50){ 
 
-  echo "'total à payer(sans frais de port):'$total";
- $frais = $total*0,1;
-  echo "frais de port:'$frais";
+  echo 'total à payer(sans frais de port):'.$total;
+ $frais = $total*0.1;
+  echo 'frais de port:'.$frais;
   $total = $total + $frais;
-  echo "'total à payer TTC:'$total";
+  echo 'total à payer TTC:'.$total;
 
   }else{
      
-    echo "frais de port offerts!"; 
-    echo "'total à payer:'$total";
+    echo 'frais de port offerts!'; 
+    echo 'total à payer:'.$total;
   }
   ?>
 }
