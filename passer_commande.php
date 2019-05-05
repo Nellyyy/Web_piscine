@@ -74,6 +74,7 @@ session_start();
       //on va scanner tous les tuples un par un-->
       while ($data = mysqli_fetch_array($result3,MYSQLI_ASSOC)) 
       { 
+              $photo_name = $data["item_photo"];
         ?>
 
         <!--on affiche les résultats-->
@@ -83,7 +84,7 @@ session_start();
               <p> vos items </p>
               <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
               <p style="font-style: italic;"><?php echo $data['item_prix'];?></p>
-              <p style="font-style: italic;"><?php echo $data['item_photo'];?></p>
+              <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>">
               <p style="font-style: italic;"><?php echo $data['panier_qte'];?></p>
               <br>
             </div> 
