@@ -182,6 +182,14 @@ body a:hover {
 	margin-bottom: 40px;
 }
 
+/*Conteneur principal d'una page, pour rajouter de marge en haut et en bas
+  Pour que le contenu ne soit pas écrasé entre le menu et le footer*/
+.main
+{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
 .fond{
 	background-image: url("a.png");
 }
