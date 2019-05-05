@@ -27,8 +27,8 @@
 <body>
 	<?php include("menu.php"); ?>
 	<center id="bottom_body">
-		<h1>Menu acheteur</h1>
-		<h2>Vos informations</h2>
+		
+		
 		<?php
 			$email = $_SESSION["email"];
 
@@ -45,12 +45,26 @@
 				if($result != NULL)
 				{	
 					while ($data = mysqli_fetch_assoc($result)) 
-					{
+					{ ?>
+
+						<!--titre bienvenue--> 
+					  <div class="container-fluid" style="margin: 0px;">
+					    <div class="bande">
+					      <h2>Bienvenue <?php echo  $data['utilisateur_nom'] . ' ' . $data['utilisateur_prenom'] ;  ?>
+					      	
+					      </h2>
+
+					      <!--bouton deconnection-->
+					      <form action="deconnexion.php" method="post" style="float: right;">
+							<input type="submit" value="Deconnexion">
+						</form>
+					    </div>
+					  </div>
+					  <?php
 						//photo de profil
-						echo "<img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
-						//nom et prenom
-						echo "Nom:" . $data['utilisateur_nom'] . '<br>';
-						echo "Prénom: " . $data['utilisateur_prenom'] . '<br>';
+						echo "<br/><img src=\"" . $data['utilisateur_photo'] . "\" width=\"100\" height=\"100\"/><br/>";
+					
+						
 					}
 				}
 				//Adresse/////////
@@ -65,15 +79,18 @@
 					$pays = $data["livraison_pays"];
 					$tel = $data["livraison_tel"];
 		?>		
-				<div>
-					<h2>Adresse de livraison</h2>
+			<div class="row">	
+
+				<div class="col-lg-4">
+					<h3>Adresse de livraison</h3>
+					<hr class="separateur_footer" >
 		<?php
-					echo "adresse1: " . $a1 . "<br/>";
-					echo "adresse2: " . $a2 . "<br/>";
-					echo "ville: " . $ville . "<br/>";
-					echo "code postal: " . $cp . "<br/>";
-					echo "pays: " . $pays . "<br/>";
-					echo "télephone: " . $tel . "<br/>";
+					echo "Adresse1: " . $a1 . "<br/>";
+					echo "Adresse2: " . $a2 . "<br/>";
+					echo "Ville: " . $ville . "<br/>";
+					echo "Vode postal: " . $cp . "<br/>";
+					echo "Pays: " . $pays . "<br/>";
+					echo "Télephone: " . $tel . "<br/>";
 		?>
 				</div>
 		<?php
@@ -96,12 +113,13 @@
 					$char14 = $mot{14};
 					$char15 = $mot{15};
 		?>
-					<div>
-						<h2>Coordonnée banquaire</h2>
+					<div class="col-lg-4">
+						<h3>Coordonnées bancaires</h3>
+						<hr class="separateur_footer" >
 		<?php
 						echo "Numero CB: XXXX XXXX XXXX " . $char12 . $char13 . $char14 . $char15 . "<br/>";
 						echo "Type carte: " . $type_paiement . "<br/>";
-						echo "Nom:" . $nom . "<br/>";
+						echo "Nom: " . $nom . "<br/>";
 						echo "Date expiration: " . $date . "<br/>";
 						echo "Cryptogramme: " . $secu . "<br/>";
 				}
@@ -111,9 +129,13 @@
 			}
 		?>
 	
-		</div>
-			<div>
-			<h2>Changer votre photo de profil ?</h2>
+		
+
+		<div class="col-lg-4">
+			<h3>Photo de profil</h3>
+			<hr class="separateur_footer" >
+			<p>Souhaitez-vous changer votre photo?</p>
+			
 			<form action="upload_profil_pic.php" method="post" enctype="multipart/form-data">
 				<input type="file" name="monfichier"/>
 				<!--pour envoyer l'email à l'autre page inclusien d'une php qui retourne l'email
@@ -123,13 +145,9 @@
 			</form>
 		</div>
 
-		<div>
-			<h2>Se deconnecter</h2>
-			<form action="deconnexion.php" method="post">
-				<input type="submit" value="Deconnexion">
-			</form>
-		</div>
 	</center>
+<!--fin de row-->
+	</div>
 
 	<?php include("footer.php"); ?>
 </body>
