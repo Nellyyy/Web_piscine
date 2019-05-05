@@ -120,7 +120,7 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3" id="footer_copy">© 2018 Copyright:
+    <div class="footer-copyright text-center py-3" id="footer_copy">© 2019 Copyright:
       <a href="HomePage.php"> EceAmazon.fr</a>
     </div>
     <!-- Copyright -->
