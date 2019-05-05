@@ -234,9 +234,22 @@ session_start();
     //fermer la base
   }else {echo "db pas trouve";}
   //mysqli_close($db_handle);
-  $total = $total +5;
-  echo "'total a payer:' .$total";
+ 
+  if($total<50){ 
+
+  echo "'total à payer(sans frais de port):'$total";
+ $frais = $total*0,1;
+  echo "frais de port:'$frais";
+  $total = $total + $frais;
+  echo "'total à payer TTC:'$total";
+
+  }else{
+     
+    echo "frais de port offerts!"; 
+    echo "'total à payer:'$total";
+  }
   ?>
+}
 </div>
 </div>
  <?php
