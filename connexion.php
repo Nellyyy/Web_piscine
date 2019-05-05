@@ -1,5 +1,8 @@
 <?php
-	session_start();
+	if(!isset($_SESSION))
+	{
+		session_start();
+	}
 
 	//récupération des données du formulaire
 	$email= isset($_POST["email"])? $_POST["email"] : "";

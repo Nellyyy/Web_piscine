@@ -1,5 +1,8 @@
 <?php
-	session_start();
+		if(!isset($_SESSION))
+	{
+		session_start();
+	}
 
 	//le parametre de $_POST = "name" de <input> de votre page HTML
 	$prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
