@@ -146,10 +146,16 @@ session_start();
                <p> vos informations bancaires</p>
               <form>
                 <table>
-                  <tr>
-                    <td>type de carte: </td>
-                    <td><input type="text" name="type" value=" <?php echo $data['paiement_type'];?>"></td>
-                  </tr>
+               <tr>
+                  <td><label>Type de carte </label></td>
+                    <td><select name="type">
+                      <option value="">Sélectionner un type</option>
+                      <option value="mastercard"> MasterCard</option>
+                      <option value="visa"> Visa</option>
+                      <option value="americanexpress"> American Express</option>
+                       <option value="paypal"> PayPal</option>
+                    </select></td>  
+                </tr>
                   <tr>
                     <td>Numéro de carte: </td>
                     <td><input type="number" name="numero" value="<?php echo $data['paiement_num'];?>"></td>
@@ -259,6 +265,7 @@ session_start();
 <!--lien avec fichier php qui ajoute au panier-->
 <form action="transaction.php" method="post">
   <!--bouton ajouter au panier-->
+    <input type="hidden" name="total" value=" <?php echo $total;?>">
   <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
