@@ -38,7 +38,14 @@ session_start();
   ?>
 
   <!--petit texte haut de page-->
-  <h2>Finalisation de la commande </h2>
+  <!--menu catégories--> 
+  <div class="container-fluid" style="margin: 0px;">
+    <div class="menu_categorie">
+      <p>Panier > Finalisation de la commande </p>
+    </div>
+  </div>
+
+
   <?php 
 
   ///je récupère l'id du mec
@@ -68,28 +75,29 @@ session_start();
 
   <div class="container-fluid">
     <div class="row">
-
+        <h3 style="padding-left: 20px;">Récapitulatif des items</h3>
+        <hr class="separateur_footer" >
       <?php
       //on va scanner tous les tuples un par un-->
+
       while ($data = mysqli_fetch_array($result3,MYSQLI_ASSOC)) 
       { 
               $photo_name = $data["item_photo"];
         ?>
 
         <!--on affiche les résultats--> 
-        <p> vos items </p>
+       
         <div class="col-lg-4" >
           <div class="articles">
-            <div class="articles_text">
+            <div class="articles_text" style="padding-top: 30px;">
              
               <p style="font-weight: bold;"><?php echo $data['item_titre'];?></p>
-              <p style="font-style: italic;"><?php echo $data['item_prix'];?></p>
-              <img class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>">
-              <p style="font-style: italic;"><?php echo $data['panier_qte'];?></p>
+              <img style="height: 360px; width: 380px;" class="text-center d-flex justify-content-center" src= "<?php echo $photo_name?>">
               <br>
             </div> 
           </div>
         </div>
+
 
         <?php
       }
@@ -111,13 +119,14 @@ session_start();
         <div class="col-lg-4" >
           <div class="livraison">
             <div class="livraison_text">
-              <p> adresse de livraison</p>
+              <h3>Adresse de livraison</h3>
+              <hr class="separateur_footer" >
               <p style="font-weight: bold;"><?php echo $data['livraison_a1'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_a2'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_ville'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_CP'];?></p>
               <p style="font-style: italic;"><?php echo $data['livraison_pays'];?></p>
-              <p style="font-style: italic;"><?php echo $data['livraison_tel'];?></p>
+              <p style="font-style: italic;"><?php echo "Tél: ".$data['livraison_tel'];?></p>
             </div> 
           </div>
         </div>
@@ -143,27 +152,28 @@ session_start();
         <div class="col-lg-4" >
           <div class="paiement">
             <div class="paiement_text">
-               <p> vos informations bancaires</p>
+               <h3>Vos informations bancaires</h3>
+               <hr class="separateur_footer" >
               <form>
                 <table>
                   <tr>
-                    <td>type de carte: </td>
+                    <td>Type de carte </td>
                     <td><input type="text" name="type" value=" <?php echo $data['paiement_type'];?>"></td>
                   </tr>
                   <tr>
-                    <td>Numéro de carte: </td>
+                    <td>Numéro de carte </td>
                     <td><input type="number" name="numero" value="<?php echo $data['paiement_num'];?>"></td>
                   </tr>
                   <tr>
-                    <td>titulaire: </td>
+                    <td>Titulaire </td>
                     <td><input type="text" name="nom" value="<?php echo $data['paiement_nom'];?>"></td>
                   </tr>
                   <tr>
-                    <td>date d'expiration: </td>
+                    <td>Date d'expiration </td>
                     <td><input type="number" nom="date" value="<?php echo $data['paiement_date'];?>"></td>
                   </tr>
                   <tr>
-                    <td>code de sécurité: </td>
+                    <td>Code de sécurité </td>
                     <td><input type="number" nom="secu" value="<?php echo $data['paiement_secu'];?>" ></td>
                   </tr>
                 </table>
@@ -171,6 +181,7 @@ session_start();
             </div> 
           </div>
         </div>
+        <br>
         <?php
         // }
         $count = $count+1;
@@ -191,27 +202,28 @@ session_start();
       <div class="col-lg-4" >
         <div class="paiement">
           <div class="paiement_text">
-            <p> vos informations bancaires</p>
+            <h3>Vos informations bancaires</h3>
+               <hr class="separateur_footer" >
             <form action="bancaire.php" method="post">
               <table>
                  <tr>
-                  <td>type: </td>
+                  <td>Type </td>
                   <td><input type="text" name="type"></td>
                 </tr>
                 <tr>
-                  <td>Numéro de carte: </td>
+                  <td>Numéro de carte </td>
                   <td><input type="number" name="numero"></td>
                 </tr>
                 <tr>
-                  <td>titulaire: </td>
+                  <td>Titulaire </td>
                   <td><input type="text" name="nom"></td>
                 </tr>
                 <tr>
-                  <td>date d'expiration: </td>
+                  <td>Date d'expiration </td>
                   <td><input type="number" name="date"></td>
                 </tr>
                 <tr>
-                  <td>code de sécurité: </td>
+                  <td>Code de sécurité </td>
                   <td><input type="number" name="secu" ></td>
                 </tr>
                 <tr>
@@ -222,7 +234,7 @@ session_start();
           </div> 
         </div>
       </div>
-
+      <br>
       <?php
     }
     //fermer la base
@@ -231,16 +243,16 @@ session_start();
  
   if($total<50){ 
 
-  echo 'total à payer(sans frais de port):'.$total;
+  echo 'Total à payer (sans frais de port):'.$total .'<br>';
  $frais = $total*0.1;
-  echo 'frais de port:'.$frais;
+  echo 'frais de port:'.$frais.'<br>';
   $total = $total + $frais;
-  echo 'total à payer TTC:'.$total;
+  echo 'total à payer TTC:'.$total . '<br>';
 
   }else{
      
-    echo 'frais de port offerts!'; 
-    echo 'total à payer:'.$total;
+    echo 'frais de port offerts! <br>' ; 
+    echo 'total à payer:'.$total."$";
   }
   ?>
 }
@@ -251,13 +263,13 @@ session_start();
       {
     ?>
         <div style="color: red;">
-        Aucune carte bancaire renseignée <br/>
+        <p>Aucune carte bancaire renseignée </p><br/>
         </div> 
     <?php
       }
     ?>
 <!--lien avec fichier php qui ajoute au panier-->
-<form action="transaction.php" method="post">
+<form action="transaction.php" method="post" style="margin-top: 40px; margin-left: 220px;">
   <!--bouton ajouter au panier-->
   <input type="submit" value="valider" name="boutton_transaction">
 </form>

@@ -1,5 +1,6 @@
 <?php
    session_start();
+   $email = $_SESSION["email"];
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +23,16 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>	
 </head>
+
 <body>
 <?php include("menu.php"); ?>
   <h1>Menu administrateur<h1>
-  <h2>Voici la liste de tous les vendeurs</h2>
+
+<div class="row">
+  <div class="col-lg-6">
+  <h3>Liste des vendeurs</h3>
   <table>
+
   <?php
       //connexion BDD
       $database = "piscine_test";
@@ -53,41 +59,41 @@
       }
   ?>
   </table>
+  </div>
 
-  <h2>Ajouter un vendeur</h2>
+  <div class="col-lg-6">
+  <h3>Ajouter un vendeur</h3>
   <form action="inscription.php" method="post">
     <table>
       <tr>
-        <td>Prénom:</td>
+        <td>Prénom</td>
         <td><input type="text" name="prenom"></td>
       </tr>
       <tr>
-        <td>Nom:</td>
+        <td>Nom</td>
         <td><input type="text" name="nom"></td>
       </tr>
       <tr>
-        <td>Email:</td>
+        <td>Email</td>
         <td><input type="text" name="email"></td>
       </tr>
       <tr>
-        <td>Mot de passe:</td>
+        <td>Mot de passe</td>
         <td><input type="password" name="mdp"></td>
       </tr>
       <input type="hidden" name="type" value="vendeur">
       <tr>
-        <td colspan="2" align="center"><input type="submit" value="S'inscrire" name="bouttoni"></td>
+        <td colspan="2" align="center"><input type="submit" value="Ajouter" name="bouttoni"></td>
       </tr>
     </table>
   </form>
+  </div>
+
+</div>
 
   <?php include("footer.php"); ?>
+
+
+
 </body>
 </html>
-
-<table>
-   <tr>
-      <td></td>
-
-   </tr>
-
-</table>
