@@ -250,3 +250,26 @@ body a:hover {
 	margin-left: 35%;
 	margin-right: 35%;
 }
+
+.logo{
+	margin-top: 40px;	
+	width: 80px;
+	height: 60px;
+}
+
+.logo img{
+	width: 100%;
+}
+
+#creer {
+	margin-top: 40px;
+}
+
+.box_connection{
+	border: 2px solid;
+	border-color: #EDEFF4;
+	margin-top: 20px;	
+	width: 250px;
+
+	padding: 20px 20px 20px 20px;
+}

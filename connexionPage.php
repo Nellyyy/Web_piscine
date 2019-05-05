@@ -27,25 +27,45 @@
   <?php include("menu.php"); ?>
   <!--menu-->
 	<center id="bottom_body">
-		<h3>Sign In</h3>
+		
+
+		<!--titre--> 
+  <div class="container-fluid" style="margin: 0px;">
+    <div class="bande">
+      <h2>Sign In</h2>
+    </div>
+  </div>
+
+  <div class="logo">
+  	<img src="img/logoblanc.png">
+  </div>
+
+  <center><div class="box_connection">
 		<form action="connexion.php" method="post">
-			<table>
-				<tr>
-					<td>email:</td>
-					<td><input type="text" name="email"></td>
-				</tr>
-				<tr>
-					<td>mot de passe:</td>
-					<td><input type="password" name="pwd"></td>
-				</tr>
+			
+				
+					<tr>Adresse email</tr>
+					<br>
+					<tr><input type="text" name="email"></tr>
+					<br>
+			
+					<tr>Mot de passe</tr>
+					<br>
+					<tr><input type="password" name="pwd"></tr>
+					<br>
+					<br>
+				
 				<tr>
 						<td colspan="2" align="center"><input type="submit" value="Se connecter" name="boutton1"></td>
 				</tr>
-			</table>
+		
 		</form>
-	 	<div>
-	 		<a href="inscriptionPage.php"> pas encore de compte? **S'inscire ici**</a>
+	 	<div id="creer">
+	 		<p>Nouveau chez ECE Amazon?</p>
+	 		<a href="inscriptionPage.php">  ** Créer votre compte ici 	**</a>
 	 	</div>
+
+	 	</div></center>
 
 	 	<?php
 	 		if(isset($_SESSION["try_connect"]))
