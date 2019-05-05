@@ -74,7 +74,7 @@
 	         	<p><?php echo "Disponible en taille : ".$data['item_vetement_taille'];?></p>
 	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
 	         	</br>
-	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?></p>
+	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?> articles en stock</p>
 	         	<?php  $id=$data['item_id'];?>
 
 	         	<form method="post" action="AjoutPanier.php">
