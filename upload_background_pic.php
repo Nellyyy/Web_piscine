@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
 <?php
 	$target_dir = "uploads/";
 	//get the name of the uploaded file
@@ -36,10 +29,7 @@
 		echo "Une erreur est survenue lors du chargement de votre image <br/>";
 	}
 	//faire un boutton revenir au menu vendeur !
+	include("menu_vendeur.php");
 ?>
 
-<a href="menu_vendeur.php">Retour au menu vendeur</a>
-
-</body>
-</html>
 
