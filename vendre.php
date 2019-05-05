@@ -23,9 +23,26 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-	</head>
-	<body>
-		<script>
+</head>
+<body>
+	<?php
+
+		include("menu.php");
+
+		//Si l'utilisateur n'est pas connecté en tant que vendeur on redirige vers la page connexion
+		if($_SESSION["type"] != "vendeur")
+		{
+	?>
+			<center class="main">
+				<p>Vous ne pouvez pas vendre de produits, <br/>
+				connectez vous sur votre compte vendeur pour cela</p>
+			</center>
+	<?php
+		}
+		else//Si il est connecté comme vendeur, on affiche toute la page
+		{
+	?>
+	<script>
 	jQuery(document).ready(function()
 		{
 			   // On cache la zone de texte
@@ -98,10 +115,7 @@ session_start();
 			}); 
 		});
 	</script>
-	 <!--menu-->
-  <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-  <?php include("menu.php"); ?>
-  <!--menu-->
+
 	<h2>Article à vendre</h2>
 	<form >
 		<table>
@@ -447,7 +461,10 @@ session_start();
 		</form>
 		</div>
 		 <!--footer-->
-  <?php include("footer.php"); ?>
-  <!--footer-->
-	</body>
-	</html> 
+
+  	<?php 
+  		}//fin de la condition "si vendeur connecté"
+  		include("footer.php");
+  	?>
+</body>
+</html> 

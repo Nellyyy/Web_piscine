@@ -27,8 +27,22 @@
 <body>
   <!--menu-->
   <!-- source : https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-  <?php include("menu.php"); ?>
-  <!--menu-->
+  <?php 
+  	include("menu.php");
+  	//si l'utilisateur n'est pas connecté en tant qu'acheteur
+  	if($_SESSION["type"] != "acheteur")
+  	{
+  ?>
+  		<center class="main">
+  			<p>Vous ne pouvez pas accéder au panier, <br/>
+  			connectez vous sur votre compte acheteur pour cela</p>
+  		</center>
+  <?php
+  	}
+  	else//l'utilisateur est connecté en tant qu'acheteur
+  	{
+  ?>
+
 
   <div class="container-fluid">
   	<h1>Recapitulatif de votre panier</h1>
@@ -114,18 +128,18 @@
 						<input type="submit" value="Finaliser la commande" >
 		</form>
 
-  </div>
+</div>
  
- <?php }
+<?php }
       //fermer la base
     }
   }else {echo "db pas trouve";}
       mysqli_close($db_handle);
 
 ?> 
-  
-  <!--footer-->
-  <?php include("footer.php"); ?>
-  <!--footer-->
+<?php
+	}//fin condition si acheteur connecté
+	include("footer.php"); 
+?>
 </body>
 </html>
