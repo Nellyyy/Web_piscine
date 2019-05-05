@@ -35,7 +35,6 @@ if ($_POST["bouttonv"])
 	if ($db_found) 
 	{		
 		$photo = "uploads/" . $_FILES["photo"]["name"];
-		echo $photo;
 
 		//insérer le nouvel item dans la base de donnée
 		//ne marche pas avec les livres !
@@ -44,14 +43,10 @@ if ($_POST["bouttonv"])
 		'$dateparution', '$artiste', '$datesortie', '$sexe', '$couleur', '$taille','$email')";
 		
     $result = mysqli_query($db_handle, $sql);
-		if($result == False)
-			echo "faux";
 
 		//récuppérer son id
 		$sql = "SELECT * FROM item WHERE item_id=LAST_INSERT_ID()";
 		$result = mysqli_query($db_handle, $sql);
-		if($result == False)
-			echo "result : " . $result . "#<br/>";
 
 		while ($data = mysqli_fetch_assoc($result)) 
 		{
@@ -69,7 +64,6 @@ if ($_POST["bouttonv"])
 		//On copie la photo sur le serveur
 		if(move_uploaded_file($_FILES["photo"]["tmp_name"], $file_name ))
 		{
-			echo "Votre photo a été enregistrée avec succès <br/>";
 			$sql = "UPDATE `item` SET `item_photo`='$file_name' WHERE `item_id` LIKE '$id_item'";
 			$result = mysqli_query($db_handle, $sql);
 			mysqli_close($db_handle);
@@ -84,5 +78,7 @@ if ($_POST["bouttonv"])
 	{
 		echo "Database not found";
 	}
+
+		include("HomePage.php");
 }
 ?>

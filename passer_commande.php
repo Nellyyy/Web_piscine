@@ -156,12 +156,18 @@ session_start();
                <hr class="separateur_footer" >
               <form>
                 <table>
+               <tr>
+                  <td><label>Type de carte </label></td>
+                    <td><select name="type">
+                      <option value="">Sélectionner un type</option>
+                      <option value="mastercard"> MasterCard</option>
+                      <option value="visa"> Visa</option>
+                      <option value="americanexpress"> American Express</option>
+                       <option value="paypal"> PayPal</option>
+                    </select></td>  
+                </tr>
                   <tr>
-                    <td>Type de carte </td>
-                    <td><input type="text" name="type" value=" <?php echo $data['paiement_type'];?>"></td>
-                  </tr>
-                  <tr>
-                    <td>Numéro de carte </td>
+                    <td>Numéro de carte: </td>
                     <td><input type="number" name="numero" value="<?php echo $data['paiement_num'];?>"></td>
                   </tr>
                   <tr>
@@ -258,19 +264,10 @@ session_start();
 }
 </div>
 </div>
- <?php
-      if(isset($_SESSION["try_paiement"]))
-      {
-    ?>
-        <div style="color: red;">
-        <p>Aucune carte bancaire renseignée </p><br/>
-        </div> 
-    <?php
-      }
-    ?>
 <!--lien avec fichier php qui ajoute au panier-->
 <form action="transaction.php" method="post" style="margin-top: 40px; margin-left: 220px;">
   <!--bouton ajouter au panier-->
+    <input type="hidden" name="total" value=" <?php echo $total;?>">
   <input type="submit" value="valider" name="boutton_transaction">
 </form>
 
