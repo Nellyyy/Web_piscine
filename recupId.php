@@ -75,8 +75,6 @@
 	         	<p><?php echo "Couleur de l'article : ".$data['item_vetement_couleur'];?></p>
 	         	</br>
 	         	<p style="font-style: italic; color: #cccccc;">Dépechez-vous, il ne reste plus que <?php echo $data['item_qte_stock'];?></p>
-	         	
-	         	<p>id avant le bouton <?php echo $id=$data['item_id'];?></p> 
 	         	<?php  $id=$data['item_id'];?>
 
 	         	<form method="post" action="AjoutPanier.php">
